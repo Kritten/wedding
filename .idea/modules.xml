@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/wedding.iml" filepath="$PROJECT_DIR$/.idea/wedding.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../wedding-api/.idea/wedding-api.iml" filepath="$PROJECT_DIR$/../wedding-api/.idea/wedding-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../wedding-frontend/.idea/wedding-frontend.iml" filepath="$PROJECT_DIR$/../wedding-frontend/.idea/wedding-frontend.iml" />
     </modules>
   </component>
 </project>
