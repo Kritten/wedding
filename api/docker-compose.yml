@@ -1,0 +1,16 @@
+version: '3.7'
+
+services:
+  db:
+    image: mariadb:10.3
+    container_name: mariadb
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+      MYSQL_DATABASE: kritten_wedding
+      MYSQL_USER: kritten
+      MYSQL_PASSWORD: 4pYMCSkLvw,TpdsDtELY
+    volumes:
+      - type: bind
+        source: /home/kritten/PycharmProjects/wedding-api/database
+        target: /var/lib/mysql
