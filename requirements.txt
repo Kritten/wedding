@@ -1,0 +1,4 @@
+django==2.2.6
+django-rest-framework
+django-cors-headers
+mysqlclient
