@@ -4,7 +4,7 @@ class ClassServiceEndpoint {
   constructor() {
     this.is_initialized = false;
     this.axios = undefined;
-    this.urlBase = 'http://localhost:8000';
+    this.urlBase = process.env.VUE_APP_URL_BASE;
   }
 
   init(force = false) {

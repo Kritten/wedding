@@ -1,5 +1,4 @@
-import { store } from '../store/vuex';
-import {ServiceEndpoint} from './endpoint.service';
+import { ServiceEndpoint } from './endpoint.service';
 
 class ClassServiceApp {
   async init() {
@@ -13,7 +12,6 @@ class ClassServiceApp {
     });
 
     console.warn('response', response);
-    // store.dispatch('moduleApp/init');
   }
 }
 export const ServiceApp = new ClassServiceApp();
