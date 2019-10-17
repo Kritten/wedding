@@ -1,1 +1,1 @@
-from .index_view import *
+from .view_config import *

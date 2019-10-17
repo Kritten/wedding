@@ -25,7 +25,7 @@ SECRET_KEY = '!vjf$pge%hd$o)kf!lw6v-7l6#vf!(6czz*^^oq58^$!_*%59z'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', 'hochzeit.kritten.org']
 
 
 # Application definition
@@ -38,9 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -77,11 +79,11 @@ WSGI_APPLICATION = 'wedding.wsgi.application'
 
 DATABASES = {
   'default': {
-      'ENGINE': 'django.db.backends.mysql',
-      'NAME': 'DB_NAME',
-      'USER': 'DB_USER',
-      'PASSWORD': 'DB_PASSWORD',
-      'HOST': 'localhost',
+    'ENGINE': 'django.db.backends.mysql',
+    'NAME': 'kritten_wedding',
+    'USER': 'kritten',
+    'PASSWORD': '4pYMCSkLvw,TpdsDtELY',
+    'HOST': '127.0.0.1',
   }
 }
 
@@ -123,3 +125,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+VERSION = '1.0.0'
+
+CORS_ORIGIN_ALLOW_ALL = False
+
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost:8082',
+    'https://hochzeit.kritten.org'
+)

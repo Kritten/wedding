@@ -6,10 +6,12 @@ services:
     container_name: mariadb
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: example
+      MYSQL_ROOT_PASSWORD: 4pYMCSkLvw,TpdsDtELY
       MYSQL_DATABASE: kritten_wedding
       MYSQL_USER: kritten
       MYSQL_PASSWORD: 4pYMCSkLvw,TpdsDtELY
+    ports:
+      - 3306:3306
     volumes:
       - type: bind
         source: /home/kritten/PycharmProjects/wedding-api/database
