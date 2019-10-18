@@ -1,10 +1,10 @@
 module.exports = {
   root: true,
   env: {
-    node: true
+    node: true,
   },
-  'extends': [
-    'plugin:vue/essential',
+  extends: [
+    'plugin:vue/recommended',
     '@vue/standard',
     '@vue/airbnb',
   ],
@@ -13,8 +13,13 @@ module.exports = {
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
 
     'import/prefer-default-export': false,
+    'max-len': [
+      'error', {
+        'code': 120,
+      },
+    ],
   },
   parserOptions: {
-    parser: 'babel-eslint'
-  }
-}
+    parser: 'babel-eslint',
+  },
+};
