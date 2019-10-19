@@ -114,6 +114,20 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.SessionAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    #     'mturk_db.permissions.AllowOptionsAuthentication',
+    )
+    # 'DEFAULT_METADATA_CLASS': 'rest_framework.metadata.SimpleMetadata',
+    #
+    # 'DEFAULT_PAGINATION_CLASS': 'api.helpers.CustomPagination',
+    # 'PAGE_SIZE': 25,
+    # 'PAGE_SIZE_QUERY_PARAM': 'page_size',
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/

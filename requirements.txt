@@ -1,5 +1,5 @@
 django==2.2.6
-django-rest-framework
+djangorestframework
 django-cors-headers
 mysqlclient
 django-environ

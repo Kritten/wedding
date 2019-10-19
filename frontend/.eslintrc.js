@@ -18,6 +18,11 @@ module.exports = {
         'code': 120,
       },
     ],
+    // import fix
+    'import/extensions': ['error', 'always', {
+      'js': 'never',
+      'vue': 'never'
+    }],
   },
   parserOptions: {
     parser: 'babel-eslint',

@@ -5,7 +5,7 @@ from api.serializers import SerializerConfig
 from rest_framework.response import Response
 
 
-class Config(APIView):
+class ViewConfig(APIView):
 
     def get(self, request):
         config = ManagerConfig.get_config()

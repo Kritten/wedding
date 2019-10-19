@@ -1,23 +1,23 @@
 import axios from 'axios';
+import { Queue } from '../queue';
 
 class ClassServiceEndpoint {
   constructor() {
-    this.is_initialized = false;
-    this.axios = undefined;
+    this.isInitialized = false;
+    this.axios = null;
     this.urlBase = process.env.VUE_APP_URL_BASE;
   }
 
   init(force = false) {
-    if (this.is_initialized === true && force === false) {
+    if (this.isInitialized === true && force === false) {
       console.error('Service Endpoint is already initialized!');
       return;
     }
 
-    this.is_initialized = true;
+    this.isInitialized = true;
 
     this.axios = axios.create({
       headers: {
-        // Authorization: `Token ${store.state.module_app.token_instance}`,
         'Content-Type': 'application/json',
       },
     });
@@ -51,15 +51,15 @@ class ClassServiceEndpoint {
       objectResponse.success = false;
     }
 
-    // if (objectResponse.success === false) {
-    //   // only send to connection_error if its an request to the api
-    //   if (objectResponse.exception.message === 'Network Error' && url.host === undefined) {
-    //     queue.notify('router', { name: 'connection_error' });
-    //   } else {
-    //     console.warn('Error', objectResponse.exception);
-    //     // queue.notify('router', { name: 'connection_error' });
-    //   }
-    // }
+    if (objectResponse.success === false) {
+      // only send to connection_error if its an request to the api
+      if (objectResponse.exception.response.status === 403) {
+        Queue.notify('router', { name: 'login' });
+      // } else {
+      //   console.warn('Error', objectResponse.exception);
+      //   // queue.notify('router', { name: 'connection_error' });
+      }
+    }
 
     return objectResponse;
   }
