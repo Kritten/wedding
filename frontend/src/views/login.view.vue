@@ -28,6 +28,7 @@
                 <v-btn
                   color="primary"
                   type="submit"
+                  v-bind:disabled="$v.$invalid"
                 >
                   {{ $t('security.login') }}
                 </v-btn>
@@ -41,6 +42,7 @@
 </template>
 
 <script>
+import { required } from 'vuelidate/lib/validators';
 import { ServiceApp } from '../service/app.service';
 
 export default {
@@ -60,6 +62,14 @@ export default {
         username: this.username,
         password: this.password,
       });
+    },
+  },
+  validations: {
+    username: {
+      required,
+    },
+    password: {
+      required,
     },
   },
 };
