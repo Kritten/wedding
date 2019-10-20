@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Cookies from 'js-cookie';
 import { Queue } from '../queue';
 import { store } from '../store/vuex';
 
@@ -17,12 +18,16 @@ class ClassServiceEndpoint {
 
     this.isInitialized = true;
 
+    const tokenCSRF = Cookies.get('csrftoken');
+    console.warn('tokenCSRF', tokenCSRF);
+
     this.axios = axios.create({
       xsrfCookieName: 'csrftoken',
       xsrfHeaderName: 'X-CSRFTOKEN',
       withCredentials: true,
       headers: {
         'Content-Type': 'application/json',
+        'X-CSRFToken': tokenCSRF,
       },
     });
   }
