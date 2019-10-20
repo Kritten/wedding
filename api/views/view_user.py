@@ -23,7 +23,9 @@ def auth_login(request):
 
     if user is not None:
         login(request._request, user)
+
         serializer = SerializerUser(user)
+
         return Response(serializer.data)
     else:
         return HttpResponseBadRequest()
