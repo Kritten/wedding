@@ -33,7 +33,7 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG')
 
-ALLOWED_HOSTS = ['localhost', 'api.hochzeit.kritten.org']
+ALLOWED_HOSTS = ['localhost', 'api-hochzeit.kritten.org', 'api.hochzeit.kritten.org']
 
 
 # Application definition
@@ -152,6 +152,9 @@ VERSION = env('VERSION')
 
 CSRF_TRUSTED_ORIGINS = ['hochzeit.kritten.org']
 
+# Todo notwendig?
+# SESSION_COOKIE_DOMAIN = 'api-hochzeit.kritten.org'
+
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:8082',
@@ -159,6 +162,6 @@ CORS_ORIGIN_WHITELIST = (
 )
 
 CORS_ALLOW_CREDENTIALS = True
-SESSION_COOKIE_SAMESITE = None
+# SESSION_COOKIE_SAMESITE = None
 
 AUTH_USER_MODEL = 'api.User'
