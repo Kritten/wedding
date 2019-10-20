@@ -32,5 +32,7 @@ class UserAdminCustom(UserAdmin):
         }),
     )
 
+    list_display = ('username', 'extern', 'count', 'email', 'is_staff')
+
 
 admin.site.register(User, UserAdminCustom)
