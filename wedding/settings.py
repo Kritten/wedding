@@ -150,10 +150,13 @@ STATIC_ROOT = '/var/www/virtual/kritten/projects/wedding/static'
 
 VERSION = env('VERSION')
 
+CSRF_TRUSTED_ORIGINS = ['hochzeit.kritten.org']
+
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:8082',
     'https://hochzeit.kritten.org'
 )
+
 CORS_ALLOW_CREDENTIALS = True
 SESSION_COOKIE_SAMESITE = None
