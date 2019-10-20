@@ -54,7 +54,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -116,7 +116,8 @@ AUTH_PASSWORD_VALIDATORS = [
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.SessionAuthentication',
+        'wedding.authentication.CsrfExemptSessionAuthentication',
+        # 'rest_framework.authentication.SessionAuthentication',
     ),
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
@@ -150,7 +151,7 @@ STATIC_ROOT = '/var/www/virtual/kritten/projects/wedding/static'
 
 VERSION = env('VERSION')
 
-CSRF_TRUSTED_ORIGINS = ['hochzeit.kritten.org']
+# CSRF_TRUSTED_ORIGINS = ['hochzeit.kritten.org']
 
 # Todo notwendig?
 # SESSION_COOKIE_DOMAIN = 'api-hochzeit.kritten.org'
