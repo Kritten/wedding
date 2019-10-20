@@ -1,6 +1,12 @@
 <template>
   <v-app>
-    <router-view />
+    <router-view v-if="$store.state.moduleApp.isInitialized === true" />
+    <v-overlay v-else>
+      <v-progress-circular
+        indeterminate
+        size="64"
+      />
+    </v-overlay>
   </v-app>
 </template>
 

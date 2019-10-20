@@ -1,0 +1,8 @@
+{
+  "security": {
+    "username": "Name",
+    "password": "Passwort",
+    "login": "Anmelden",
+    "logout": "Abmelden"
+  }
+}

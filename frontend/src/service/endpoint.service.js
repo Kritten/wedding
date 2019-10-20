@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { Queue } from '../queue';
+import { store } from '../store/vuex';
 
 class ClassServiceEndpoint {
   constructor() {
@@ -17,6 +18,9 @@ class ClassServiceEndpoint {
     this.isInitialized = true;
 
     this.axios = axios.create({
+      xsrfCookieName: 'csrftoken',
+      xsrfHeaderName: 'X-CSRFTOKEN',
+      withCredentials: true,
       headers: {
         'Content-Type': 'application/json',
       },
@@ -24,7 +28,7 @@ class ClassServiceEndpoint {
   }
 
   async makeRequest({
-    url, method, data, params, options,
+    url, method, data, params, options, withCredentials,
   }) {
     const config = {
       method,
@@ -32,6 +36,7 @@ class ClassServiceEndpoint {
       data: JSON.stringify(data),
       params,
       ...options,
+      withCredentials,
     };
 
     const objectResponse = {
@@ -52,12 +57,12 @@ class ClassServiceEndpoint {
     }
 
     if (objectResponse.success === false) {
-      // only send to connection_error if its an request to the api
       if (objectResponse.exception.response.status === 403) {
+        store.commit('moduleApp/setState', {
+          nameState: 'isInitialized',
+          objectState: true,
+        });
         Queue.notify('router', { name: 'login' });
-      // } else {
-      //   console.warn('Error', objectResponse.exception);
-      //   // queue.notify('router', { name: 'connection_error' });
       }
     }
 

@@ -4,14 +4,16 @@ export const moduleApp = {
   ...baseModule,
   ...{
     state: {
-      version_api: null,
+      versionApi: null,
+      isInitialized: false,
+      isLoggedIn: false,
     },
     actions: {
-      async init({ commit }, config) {
-        commit('setState', config.version);
-
-      // commit('moduleAssignments/setUrls', config.paths, { root: true });
-      },
+      // async init({ commit }, config) {
+      //   // commit('setState', config.version);
+      //
+      // // commit('moduleAssignments/setUrls', config.paths, { root: true });
+      // },
     },
   },
 };

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="$store.state.moduleApp.isLoggedIn === true">
     <v-navigation-drawer
       v-model="drawer"
       clipped
@@ -9,19 +9,27 @@
         dense
         nav
       >
-        <v-list-item
+        <template
           v-for="item in items"
-          :key="item.title"
-          link
         >
-          <v-list-item-icon>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-item-icon>
+          <v-divider
+            v-if="item.separated === true"
+            v-bind:key="`${item.title}-divider`"
+          />
+          <v-list-item
+            v-bind:key="item.title"
+            link
+            v-on="item.click !== undefined ? { click: item.click } : {}"
+          >
+            <v-list-item-icon>
+              <v-icon>{{ item.icon }}</v-icon>
+            </v-list-item-icon>
 
-          <v-list-item-content>
-            <v-list-item-title>{{ item.title }}</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
+            <v-list-item-content>
+              <v-list-item-title>{{ item.title }}</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </template>
       </v-list>
     </v-navigation-drawer>
 
@@ -30,7 +38,7 @@
       fixed
       clipped-left
     >
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
+      <v-app-bar-nav-icon v-on:click.stop="drawer = !drawer" />
 
       <v-toolbar-title>Hochzeit</v-toolbar-title>
     </v-app-bar>
@@ -44,15 +52,30 @@
 </template>
 
 <script>
+import { ServiceApp } from '../../service/app.service';
+
 export default {
   name: 'AppView',
   data() {
     return {
       drawer: true,
       items: [
-        { title: 'Dashboard', icon: 'mdi-view-dashboard' },
-        { title: 'Photos', icon: 'mdi-image' },
-        { title: 'About', icon: 'mdi-help-box' },
+        {
+          title: 'Dashboard',
+          icon: 'mdi-view-dashboard',
+        },
+        {
+          title: 'Photos',
+          icon: 'mdi-image',
+        },
+        {
+          title: this.$i18n.t('security.logout'),
+          icon: 'mdi-logout-variant',
+          separated: true,
+          click: () => {
+            ServiceApp.logout();
+          },
+        },
       ],
     };
   },

@@ -11,9 +11,6 @@ from api.serializers.serializer_user import SerializerUser
 class ViewUser(APIView):
 
     def get(self, request):
-        print(request.user)
-        print(request.auth)
-
         serializer = SerializerUser(request.user)
 
         return Response(serializer.data)
@@ -34,6 +31,7 @@ def auth_login(request):
 @api_view(['POST'])
 @permission_classes([])
 def auth_logout(request):
+    print(request.user)
     logout(request._request)
 
     return Response({})
