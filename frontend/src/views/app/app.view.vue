@@ -45,6 +45,7 @@
 
     <v-content>
       <v-container fluid>
+        {{ $store.state.moduleApp.objectUrls }}
         <router-view />
       </v-container>
     </v-content>

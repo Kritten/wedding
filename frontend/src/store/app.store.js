@@ -7,13 +7,17 @@ export const moduleApp = {
       versionApi: null,
       isInitialized: false,
       isLoggedIn: false,
+      objectUrls: {},
     },
     actions: {
-      // async init({ commit }, config) {
-      //   // commit('setState', config.version);
-      //
-      // // commit('moduleAssignments/setUrls', config.paths, { root: true });
-      // },
+      async init({ commit }, config) {
+        commit('setState', config.version);
+
+        commit('setState', {
+          nameState: 'objectUrls',
+          objectState: config.paths,
+        });
+      },
     },
   },
 };

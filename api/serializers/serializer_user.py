@@ -9,4 +9,7 @@ class SerializerUser(serializers.ModelSerializer):
         fields = (
             'id',
             'username',
+            'count',
+            'count_max',
+            'extern',
         )

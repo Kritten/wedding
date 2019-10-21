@@ -14,8 +14,9 @@ class ManagerConfig(object):
     def get_paths():
         dictionary_paths = {
             ##################################################################
-            # Project
+            # User
             ##################################################################
+            'user': 'user',
         }
 
         return dictionary_paths

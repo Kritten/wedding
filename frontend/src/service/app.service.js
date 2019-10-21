@@ -55,6 +55,8 @@ class ClassServiceApp {
     console.warn('response', response);
 
     if (response.success === true) {
+      store.dispatch('moduleApp/init', response.data);
+
       await this.loadUser();
 
       store.commit('moduleApp/setState', {
@@ -73,7 +75,7 @@ class ClassServiceApp {
   async loadUser() {
     const response = await ServiceEndpoint.makeRequest({
       url: {
-        path: 'user',
+        path: store.state.moduleApp.objectUrls.user,
       },
       method: 'get',
     });
