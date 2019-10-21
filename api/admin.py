@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from .models import User
+from .models import User, Event
 
 from django.contrib.auth.forms import UserCreationForm
 
@@ -35,4 +35,9 @@ class UserAdminCustom(UserAdmin):
     list_display = ('username', 'extern', 'count', 'email', 'is_staff')
 
 
+class EventCustom(admin.ModelAdmin):
+    list_display = ('title', 'datetime', 'externOnly')
+
+
 admin.site.register(User, UserAdminCustom)
+admin.site.register(Event, EventCustom)

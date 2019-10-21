@@ -9,4 +9,10 @@ class User(AbstractUser):
 
     REQUIRED_FIELDS = ['email', 'extern']
 
-# class
+class Event(models.Model):
+    title = models.CharField(max_length=200)
+    description = models.TextField()
+    datetime = models.DateTimeField()
+    externOnly = models.BooleanField()
+    location = models.TextField()
+    address = models.TextField()

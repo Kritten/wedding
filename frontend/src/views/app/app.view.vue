@@ -19,6 +19,8 @@
           <v-list-item
             v-bind:key="item.title"
             link
+            v-bind="item.to !== undefined ? { to: item.to} : {}"
+            exact
             v-on="item.click !== undefined ? { click: item.click } : {}"
           >
             <v-list-item-icon>
@@ -45,7 +47,6 @@
 
     <v-content>
       <v-container fluid>
-        {{ $store.state.moduleApp.objectUrls }}
         <router-view />
       </v-container>
     </v-content>
@@ -62,12 +63,14 @@ export default {
       drawer: true,
       items: [
         {
-          title: 'Dashboard',
+          title: this.$i18n.t('dashboard.title'),
           icon: 'mdi-view-dashboard',
+          to: { name: 'dashboard' },
         },
         {
-          title: 'Photos',
+          title: this.$i18n.t('events.title'),
           icon: 'mdi-image',
+          to: { name: 'events' },
         },
         {
           title: this.$i18n.t('security.logout'),

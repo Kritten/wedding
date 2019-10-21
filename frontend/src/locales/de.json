@@ -4,5 +4,11 @@
     "password": "Passwort",
     "login": "Anmelden",
     "logout": "Abmelden"
+  },
+  "dashboard": {
+    "title": "Dashboard"
+  },
+  "events": {
+    "title": "Ablauf"
   }
 }

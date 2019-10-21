@@ -3,6 +3,7 @@ import Router from 'vue-router';
 import LoginView from './views/login.view';
 import AppView from './views/app/app.view';
 import DashboardView from './views/app/dashboard.view';
+import EventsView from './views/app/events.view';
 import { Queue } from './queue';
 
 Vue.use(Router);
@@ -24,6 +25,12 @@ export const router = new Router({
           path: '',
           name: 'dashboard',
           component: DashboardView,
+
+        },
+        {
+          path: 'events',
+          name: 'events',
+          component: EventsView,
 
         },
       ],

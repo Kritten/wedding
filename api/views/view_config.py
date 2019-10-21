@@ -1,7 +1,7 @@
 from rest_framework.views import APIView
 from django.utils.decorators import method_decorator
-from api.classes import ManagerConfig
-from api.serializers import SerializerConfig
+from api.classes.class_config import ManagerConfig
+from api.serializers.serializer_config import SerializerConfig
 from rest_framework.response import Response
 
 
