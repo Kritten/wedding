@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app v-bind:style="{ background: $vuetify.theme.themes.light.background}">
     <router-view v-if="$store.state.moduleApp.isInitialized === true" />
     <v-overlay v-else>
       <v-progress-circular

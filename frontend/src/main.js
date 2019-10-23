@@ -1,9 +1,10 @@
+import '@fortawesome/fontawesome-free/css/all.css';
 import Vue from 'vue';
 import Vuelidate from 'vuelidate';
 import App from './App';
 import { router } from './router';
 import { store } from './store/vuex';
-import vuetify from './plugins/vuetify';
+import vuetify from './vuetify';
 import i18n from './i18n';
 
 Vue.use(Vuelidate);

@@ -39,6 +39,7 @@
       app
       fixed
       clipped-left
+      color="secondary"
     >
       <v-app-bar-nav-icon v-on:click.stop="drawer = !drawer" />
 
