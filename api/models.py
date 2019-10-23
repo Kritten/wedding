@@ -13,6 +13,10 @@ class Event(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField()
     datetime = models.DateTimeField()
-    externOnly = models.BooleanField()
+    extern_only = models.BooleanField()
     location = models.TextField()
     address = models.TextField()
+    icon = models.CharField(max_length=50, null=True, blank=True)
+    color_icon = models.CharField(max_length=7, null=True, blank=True)
+    color_background = models.CharField(max_length=7, null=True, blank=True)
+

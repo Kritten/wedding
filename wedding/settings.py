@@ -158,7 +158,7 @@ VERSION = env('VERSION')
 
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = (
-    'http://localhost:8082',
+    'http://localhost:8080',
     'https://hochzeit.kritten.org'
 )
 

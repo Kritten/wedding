@@ -11,6 +11,9 @@ class ManagerEvent(InterfaceManagerItems):
     @staticmethod
     def get_all(request: Request) -> Tuple[QuerySet, list]:
         queryset = Event.objects.all()
+        print(request.user.extern)
+        if not request.user.extern:
+            queryset = queryset.filter(extern_only=False)
 
         queryset = ManagerEvent.sort_by(
             queryset=queryset,

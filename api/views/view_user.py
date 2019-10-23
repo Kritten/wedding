@@ -33,7 +33,6 @@ def auth_login(request):
 @api_view(['POST'])
 @permission_classes([])
 def auth_logout(request):
-    print(request.user)
     logout(request._request)
 
     return Response({})

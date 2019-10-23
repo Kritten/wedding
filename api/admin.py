@@ -19,7 +19,7 @@ class UserAdminCustom(UserAdmin):
             'fields': ('username', 'password')
         }),
         ('Info', {
-            'fields': ('extern', 'count')
+            'fields': ('extern', 'count', 'count_max')
         }),
     )
 
@@ -36,7 +36,7 @@ class UserAdminCustom(UserAdmin):
 
 
 class EventCustom(admin.ModelAdmin):
-    list_display = ('title', 'datetime', 'externOnly')
+    list_display = ('title', 'datetime', 'extern_only')
 
 
 admin.site.register(User, UserAdminCustom)
