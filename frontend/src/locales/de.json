@@ -11,6 +11,7 @@
   "events": {
     "title": "Ablauf",
     "location": "Ort",
-    "map": "Karte"
+    "map": "Karte",
+    "description": "Beschreibung"
   }
 }
