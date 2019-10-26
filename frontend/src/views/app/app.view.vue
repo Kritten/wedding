@@ -61,7 +61,7 @@ export default {
   name: 'AppView',
   data() {
     return {
-      drawer: true,
+      drawer: null,
       items: [
         {
           title: this.$i18n.t('dashboard.title'),
