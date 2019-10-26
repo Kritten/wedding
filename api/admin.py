@@ -36,6 +36,18 @@ class UserAdminCustom(UserAdmin):
 
 
 class EventCustom(admin.ModelAdmin):
+    fieldsets = (
+        (None, {
+            'fields': ('title', 'description', 'datetime', 'extern_only')
+        }),
+        ('Location', {
+            'fields': ('address', ('latitude', 'longitude'))
+        }),
+        ('Icon', {
+            'fields': ('icon', 'color_icon', 'color_background')
+        })
+    )
+
     list_display = ('title', 'datetime', 'extern_only')
 
 

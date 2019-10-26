@@ -40,7 +40,7 @@
                   >
                     <template v-slot:activator="{ on }">
                       <v-btn
-                        v-if="event.location !== null"
+                        v-if="event.latitude !== null && event.longitude !== null"
                         color="primary"
                         x-small
                         v-on="on"

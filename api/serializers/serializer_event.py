@@ -12,9 +12,10 @@ class SerializerEvent(serializers.ModelSerializer):
             'description',
             'datetime',
             'extern_only',
-            'location',
             'address',
             'icon',
             'color_icon',
             'color_background',
+            'latitude',
+            'longitude'
         )
