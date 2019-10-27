@@ -80,7 +80,10 @@ class ClassServiceApp {
       method: 'get',
     });
 
-    console.warn('user', response);
+    store.commit('moduleApp/setState', {
+      nameState: 'objectUser',
+      objectState: response.data,
+    });
   }
 }
 export const ServiceApp = new ClassServiceApp();

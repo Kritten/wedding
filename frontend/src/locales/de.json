@@ -13,5 +13,16 @@
     "location": "Ort",
     "map": "Karte",
     "description": "Beschreibung"
+  },
+  "confirmation": {
+    "title": "Zu/Absage",
+    "noDecision": "Bitte zu- oder absagen",
+    "accept": "Zusagen",
+    "reject": "Absagen",
+    "edit": "Ändern",
+    "cancel": "Abbrechen",
+    "currentState": "Aktueller Status",
+    "accepted": "Zugesagt",
+    "rejected": "Abgesagt"
   }
 }

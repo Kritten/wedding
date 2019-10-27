@@ -30,10 +30,10 @@
                 no-gutters
                 align="center"
               >
-                <v-col class="title shrink pr-3">
+                <v-col class="title pr-3">
                   {{ $t('events.location') }}
                 </v-col>
-                <v-col>
+                <v-col class="shrink">
                   <v-dialog
                     v-model="dialogMap"
                     content-class="full-height"
@@ -42,11 +42,11 @@
                       <v-btn
                         v-if="event.latitude !== null && event.longitude !== null"
                         color="primary"
-                        x-small
+                        small
                         v-on="on"
                       >
                         {{ $t('events.map') }} <v-icon right>
-                          mdi-map-search
+                          fas fa-map-marker-alt
                         </v-icon>
                       </v-btn>
                     </template>
@@ -61,6 +61,7 @@
                       </l-map>
                       <v-btn
                         style="z-index: 500; top: 16px;"
+                        color="primary"
                         rounded
                         right
                         top
@@ -68,7 +69,7 @@
                         absolute
                         v-on:click="dialogMap = false"
                       >
-                        <v-icon>mdi-close</v-icon>
+                        <v-icon>fas fa-times</v-icon>
                       </v-btn>
                     </v-card>
                   </v-dialog>

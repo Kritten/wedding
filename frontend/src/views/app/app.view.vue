@@ -65,17 +65,17 @@ export default {
       items: [
         {
           title: this.$i18n.t('dashboard.title'),
-          icon: 'mdi-view-dashboard',
+          icon: 'fas fa-fw fa-tachometer-alt',
           to: { name: 'dashboard' },
         },
         {
           title: this.$i18n.t('events.title'),
-          icon: 'mdi-image',
+          icon: 'fas fa-fw fa-calendar',
           to: { name: 'events' },
         },
         {
           title: this.$i18n.t('security.logout'),
-          icon: 'mdi-logout-variant',
+          icon: 'fas fa-fw fa-sign-out-alt',
           separated: true,
           click: () => {
             ServiceApp.logout();

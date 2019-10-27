@@ -8,6 +8,7 @@ export const moduleApp = {
       isInitialized: false,
       isLoggedIn: false,
       objectUrls: {},
+      objectUser: null,
     },
     actions: {
       async init({ commit }, config) {
