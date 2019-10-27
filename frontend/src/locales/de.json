@@ -18,11 +18,16 @@
     "title": "Zu/Absage",
     "noDecision": "Bitte zu- oder absagen",
     "accept": "Zusagen",
+    "acceptWith": "Zusagen mit {count} Person | Zusagen mit {count} Personen",
     "reject": "Absagen",
     "edit": "Ändern",
     "cancel": "Abbrechen",
     "currentState": "Aktueller Status",
     "accepted": "Zugesagt",
-    "rejected": "Abgesagt"
+    "acceptedWith": "Zugesagt mit {count} Person | Zugesagt mit {count} Personen",
+    "rejected": "Abgesagt",
+    "message": {
+      "changed": "Änderung bestätigt"
+    }
   }
 }

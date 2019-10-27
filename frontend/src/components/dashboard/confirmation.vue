@@ -59,43 +59,105 @@
           <v-col>
             <v-row
               v-if="countMax === 1"
-              no-gutters
             >
-              <v-col>
-                <v-btn-toggle
-                  v-model="confirmation"
-                  style="width: 100%"
+              <v-col
+                class="py-0"
+              >
+                <v-btn
+                  color="accent"
+                  v-bind:value="1"
+                  block
+                  v-on:click="updateConfirmation(1)"
                 >
-                  <v-btn
-                    style="width: 50%"
-                    color="accent"
-                    v-bind:value="1"
+                  {{ $t('confirmation.accept') }}
+                  <v-icon
+                    right
+                    style="color: inherit"
                   >
-                    {{ $t('confirmation.accept') }}
-                    <v-icon
-                      right
-                      style="color: inherit"
-                    >
-                      fas fa-check
-                    </v-icon>
-                  </v-btn>
-                  <v-btn
-                    style="width: 50%"
-                    color="accent"
-                    v-bind:value="0"
+                    fas fa-check
+                  </v-icon>
+                </v-btn>
+              </v-col>
+              <v-col
+                class="py-0"
+              >
+                <v-btn
+                  color="accent"
+                  v-bind:value="0"
+                  block
+                  v-on:click="updateConfirmation(0)"
+                >
+                  {{ $t('confirmation.reject') }}
+                  <v-icon
+                    right
+                    style="color: inherit"
                   >
-                    {{ $t('confirmation.reject') }}
-                    <v-icon
-                      right
-                      style="color: inherit"
-                    >
-                      fas fa-times
-                    </v-icon>
-                  </v-btn>
-                </v-btn-toggle>
+                    fas fa-times
+                  </v-icon>
+                </v-btn>
               </v-col>
             </v-row>
-            <template v-else />
+            <v-row
+              v-else
+            >
+              <v-col
+                class="py-0"
+              >
+                <v-row
+                  dense
+                >
+                  <v-col
+                    sm="2"
+                    class="py-0"
+                  >
+                    <v-text-field
+                      v-model="count"
+                      type="number"
+                      dense
+                      hide-details
+                      min="1"
+                    />
+                  </v-col>
+                  <v-col
+                    class="py-0"
+                  >
+                    <v-btn
+                      color="accent"
+                      v-bind:value="1"
+                      block
+                      v-on:click="updateConfirmation(count)"
+                    >
+                      {{ $tc('confirmation.acceptWith', count) }}
+                      <v-icon
+                        right
+                        style="color: inherit"
+                      >
+                        fas fa-check
+                      </v-icon>
+                    </v-btn>
+                  </v-col>
+                </v-row>
+              </v-col>
+
+              <v-col
+                class="py-0"
+              >
+                <v-btn
+                  color="accent"
+                  v-bind:value="0"
+                  block
+                  v-on:click="updateConfirmation(0)"
+                >
+                  {{ $t('confirmation.reject') }}
+                  <v-icon
+                    right
+                    style="color: inherit"
+                  >
+                    fas fa-times
+                  </v-icon>
+                </v-btn>
+              </v-col>
+            </v-row>
           </v-col>
         </v-row>
       </v-container>
@@ -110,8 +172,8 @@ export default {
   name: 'Confirmation',
   data() {
     return {
-      confirmation: null,
       modeEdit: false,
+      count: 1,
     };
   },
   computed: {
@@ -131,21 +193,50 @@ export default {
       let result = this.$t('confirmation.currentState');
 
       result += ': ';
-      result += this.countConfirmation === 0 ? this.$t('confirmation.rejected') : this.$t('confirmation.accepted');
+
+      switch (this.countConfirmation) {
+        case 0:
+          result += this.$t('confirmation.rejected');
+          break;
+        case 1:
+          result += this.$t('confirmation.accepted');
+          break;
+        default:
+          result += this.$tc('confirmation.acceptedWith', this.countConfirmation);
+          break;
+      }
 
       return result;
     },
   },
-  watch: {
-    async confirmation() {
+  methods: {
+    async updateConfirmation(count) {
       await ServiceUser.update({
-        count: this.confirmation,
+        count,
       });
 
       this.modeEdit = false;
-      console.warn('this.confirmation', this.confirmation);
+
+      this.$store.dispatch('moduleApp/openSnackbar', {
+        text: this.$i18n.t('confirmation.message.changed'),
+      });
     },
   },
+  // watch: {
+  //   async confirmation() {
+  //     if (this.confirmation === undefined) return;
+  //
+  //     await ServiceUser.update({
+  //       count: this.confirmation,
+  //     });
+  //
+  //     this.modeEdit = false;
+  //
+  //     this.$store.dispatch('moduleApp/openSnackbar', {
+  //       text: this.$i18n.t('confirmation.message.changed'),
+  //     });
+  //   },
+  // },
 };
 </script>
 
