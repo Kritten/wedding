@@ -7,6 +7,8 @@ import { store } from './store/vuex';
 import vuetify from './vuetify';
 import i18n from './i18n';
 
+import vueAwesomeCountdown from 'vue-awesome-countdown';
+
 import { Icon } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
@@ -18,6 +20,7 @@ Icon.Default.mergeOptions({
   shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
 });
 
+Vue.use(vueAwesomeCountdown, 'vac');
 
 Vue.use(Vuelidate);
 

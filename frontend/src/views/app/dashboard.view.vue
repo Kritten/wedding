@@ -1,47 +1,30 @@
 <template>
   <v-row>
     <v-col
-      sm="12"
-      lg="6"
+      cols="12"
+      xl="6"
+    >
+      <the-countdown />
+    </v-col>
+    <v-col
+      cols="12"
+      xl="6"
     >
       <confirmation />
-    </v-col>
-    <v-col
-      sm="12"
-      lg="6"
-    >
-      <v-card>
-        <v-card-title />
-        <v-card-text />
-      </v-card>
-    </v-col>
-    <v-col
-      sm="12"
-      lg="6"
-    >
-      <v-card>
-        <v-card-title />
-        <v-card-text />
-      </v-card>
-    </v-col>
-    <v-col
-      sm="12"
-      lg="6"
-    >
-      <v-card>
-        <v-card-title />
-        <v-card-text />
-      </v-card>
     </v-col>
   </v-row>
 </template>
 
 <script>
 import Confirmation from '../../components/dashboard/confirmation';
+import TheCountdown from '../../components/dashboard/the-countdown';
 
 export default {
   name: 'DashboardView',
-  components: { Confirmation },
+  components: {
+    TheCountdown,
+    Confirmation,
+  },
 };
 </script>
 

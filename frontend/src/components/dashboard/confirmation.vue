@@ -1,10 +1,10 @@
 <template>
-  <v-card>
+  <v-card class="fill-height">
     <v-card-title>
       {{ $t('confirmation.title') }}
     </v-card-title>
     <v-card-text>
-      <v-container pa-0>
+      <v-container fluid pa-0>
         <v-row
           v-if="hasDecided === false"
           no-gutters
@@ -35,7 +35,8 @@
           <v-col
             align-self="center"
             class="text-center"
-            sm="2"
+            cols="3"
+            md="2"
           >
             <v-btn
               text
@@ -107,7 +108,7 @@
                   dense
                 >
                   <v-col
-                    sm="2"
+                    cols="2"
                     class="py-0"
                   >
                     <v-text-field
@@ -116,6 +117,7 @@
                       dense
                       hide-details
                       min="1"
+                      v-bind:max="countMax"
                     />
                   </v-col>
                   <v-col
@@ -140,6 +142,7 @@
               </v-col>
 
               <v-col
+                cols="4"
                 class="py-0"
               >
                 <v-btn

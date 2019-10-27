@@ -15,7 +15,7 @@
     "description": "Beschreibung"
   },
   "confirmation": {
-    "title": "Zu/Absage",
+    "title": "Zu-/Absage",
     "noDecision": "Bitte zu- oder absagen",
     "accept": "Zusagen",
     "acceptWith": "Zusagen mit {count} Person | Zusagen mit {count} Personen",
@@ -29,5 +29,11 @@
     "message": {
       "changed": "Änderung bestätigt"
     }
+  },
+  "countdown": {
+    "days": "Tag | Tage",
+    "hours": "Stunde | Stunden",
+    "minutes": "Minute | Minuten",
+    "seconds": "Sekunde | Sekunden"
   }
 }
