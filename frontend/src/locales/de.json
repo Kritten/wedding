@@ -12,7 +12,8 @@
     "title": "Ablauf",
     "location": "Ort",
     "map": "Karte",
-    "description": "Beschreibung"
+    "description": "Beschreibung",
+    "time": "Zeit"
   },
   "confirmation": {
     "title": "Zu-/Absage",

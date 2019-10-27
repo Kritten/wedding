@@ -20,12 +20,29 @@
           fluid
           class="pa-0"
         >
-          <v-row dense>
-            <v-col>
+          <v-row
+            dense
+          >
+            <v-col
+              v-if="$vuetify.breakpoint.smAndDown"
+              cols="12"
+            >
+              <p class="title mb-0">
+                {{ $t('events.time') }}
+              </p>
+              {{ datetimeFormatted(event.datetime) }}
+            </v-col>
+            <v-col
+              cols="12"
+              md="6"
+            >
               <span class="title">{{ $t('events.description') }}</span>
               <pre>{{ event.description }}</pre>
             </v-col>
-            <v-col>
+            <v-col
+              cols="12"
+              md="6"
+            >
               <v-row
                 no-gutters
                 align="center"

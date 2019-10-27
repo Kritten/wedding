@@ -1,5 +1,9 @@
 <template>
-  <v-timeline v-if="events.length > 0">
+  <v-timeline
+    v-if="events.length > 0"
+    v-bind:reverse="$vuetify.breakpoint.mdAndUp"
+    v-bind:dense="$vuetify.breakpoint.smAndDown"
+  >
     <event
       v-for="event in events"
       v-bind:key="event.id"
