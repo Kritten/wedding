@@ -3,6 +3,7 @@
     v-if="events.length > 0"
     v-bind:reverse="$vuetify.breakpoint.mdAndUp"
     v-bind:dense="$vuetify.breakpoint.smAndDown"
+    class="pt-3"
   >
     <event
       v-for="event in events"
