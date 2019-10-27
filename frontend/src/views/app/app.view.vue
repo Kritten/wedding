@@ -74,6 +74,11 @@ export default {
           to: { name: 'events' },
         },
         {
+          title: this.$i18n.t('contact.title'),
+          icon: 'fas fa-fw fa-address-card',
+          to: { name: 'contact' },
+        },
+        {
           title: this.$i18n.t('security.logout'),
           icon: 'fas fa-fw fa-sign-out-alt',
           separated: true,

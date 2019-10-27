@@ -13,7 +13,7 @@
     "location": "Ort",
     "map": "Karte",
     "description": "Beschreibung",
-    "time": "Zeit"
+    "time": "Uhrzeit"
   },
   "confirmation": {
     "title": "Zu-/Absage",
@@ -36,5 +36,9 @@
     "hours": "Stunde | Stunden",
     "minutes": "Minute | Minuten",
     "seconds": "Sekunde | Sekunden"
+  },
+  "contact": {
+    "title": "Kontakt",
+    "lappen": "Unsere Trauzeugen"
   }
 }

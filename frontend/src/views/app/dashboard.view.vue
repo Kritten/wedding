@@ -12,6 +12,18 @@
     >
       <confirmation />
     </v-col>
+    <v-col
+      cols="12"
+      xl="6"
+    >
+      Spiele
+    </v-col>
+    <v-col
+      cols="12"
+      xl="6"
+    >
+      Geschenke
+    </v-col>
   </v-row>
 </template>
 
