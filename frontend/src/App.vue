@@ -7,15 +7,18 @@
         size="64"
       />
     </v-overlay>
+    <snackbar-global />
   </v-app>
 </template>
 
 <script>
 
 import { ServiceApp } from './service/app.service';
+import SnackbarGlobal from './components/snackbar-global';
 
 export default {
   name: 'App',
+  components: { SnackbarGlobal },
   created() {
     ServiceApp.init();
   },

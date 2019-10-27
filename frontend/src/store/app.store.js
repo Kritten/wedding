@@ -9,6 +9,7 @@ export const moduleApp = {
       isLoggedIn: false,
       objectUrls: {},
       objectUser: null,
+      objectSnackbar: null,
     },
     actions: {
       async init({ commit }, config) {
@@ -17,6 +18,12 @@ export const moduleApp = {
         commit('setState', {
           nameState: 'objectUrls',
           objectState: config.paths,
+        });
+      },
+      openSnackbar({ commit }, objectSnackbar) {
+        commit('setState', {
+          objectState: objectSnackbar,
+          nameState: 'objectSnackbar',
         });
       },
     },
