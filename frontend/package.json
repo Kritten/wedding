@@ -16,6 +16,7 @@
     "leaflet": "^1.5.1",
     "lodash-es": "^4.17.15",
     "vue": "^2.6.10",
+    "vue-awesome-countdown": "^1.0.22",
     "vue-i18n": "^8.0.0",
     "vue-router": "^3.0.3",
     "vue2-leaflet": "^2.2.1",

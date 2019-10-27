@@ -24,6 +24,12 @@
     >
       Geschenke
     </v-col>
+    <v-col
+      cols="12"
+      xl="6"
+    >
+      Essen
+    </v-col>
   </v-row>
 </template>
 
