@@ -28,7 +28,7 @@ class UserAdminCustom(UserAdmin):
             'fields': ('username', 'password1', 'password2')
         }),
         ('Info', {
-            'fields': ('extern', 'count')
+            'fields': ('extern', 'count', 'count_max')
         }),
     )
 
