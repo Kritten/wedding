@@ -48,7 +48,7 @@
                 <v-row>
                   <v-col>E-Mail</v-col>
                   <v-col class="text-right shrink">
-                    <a href="mail:hochzeit@kritten.org">hochzeit@kritten.org</a>
+                    <a href="mailto:hochzeit@kritten.org">hochzeit@kritten.org</a>
                   </v-col>
                 </v-row>
 
