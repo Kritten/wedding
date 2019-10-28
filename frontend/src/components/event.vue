@@ -68,7 +68,7 @@
                       </v-btn>
                     </template>
 
-                    <v-card height="100%">
+                    <v-card height="calc(100%)">
                       <l-map
                         v-bind:zoom="zoom"
                         v-bind:center="center"
@@ -124,7 +124,7 @@ export default {
       dialogMap: false,
       url: 'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
       zoom: 20,
-      center: [51.96329, 7.62171],
+      center: [this.event.latitude, this.event.longitude],
     };
   },
   methods: {
