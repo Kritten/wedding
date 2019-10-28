@@ -128,6 +128,7 @@
                       color="accent"
                       v-bind:value="1"
                       block
+                      v-bind:disabled="count === 0"
                       v-on:click="updateConfirmation(count)"
                     >
                       {{ $tc('confirmation.acceptWith', count) }}
@@ -177,7 +178,7 @@ export default {
   data() {
     return {
       modeEdit: false,
-      count: this.$store.state.moduleApp.objectUser.count,
+      count: 1,
     };
   },
   computed: {
@@ -206,7 +207,7 @@ export default {
           result += this.$t('confirmation.rejected');
           break;
         case 1:
-          result += this.$t('confirmation.accepted');
+          result += this.countMax === 1 ? this.$t('confirmation.accepted') : this.$tc('confirmation.acceptedWith', 1);
           break;
         default:
           result += this.$tc('confirmation.acceptedWith', this.countConfirmation);
@@ -215,6 +216,10 @@ export default {
 
       return result;
     },
+  },
+  created() {
+    const { count } = this.$store.state.moduleApp.objectUser;
+    this.count = count !== null && count > 1 ? count : 1;
   },
   methods: {
     async updateConfirmation(count) {
@@ -229,21 +234,6 @@ export default {
       });
     },
   },
-  // watch: {
-  //   async confirmation() {
-  //     if (this.confirmation === undefined) return;
-  //
-  //     await ServiceUser.update({
-  //       count: this.confirmation,
-  //     });
-  //
-  //     this.modeEdit = false;
-  //
-  //     this.$store.dispatch('moduleApp/openSnackbar', {
-  //       text: this.$i18n.t('confirmation.message.changed'),
-  //     });
-  //   },
-  // },
 };
 </script>
 
