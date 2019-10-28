@@ -291,3 +291,4 @@ yarn-error.log
 
 # End of https://www.gitignore.io/api/venv,vuejs,django,pycharm,intellij
 /database/
+/games.csv
