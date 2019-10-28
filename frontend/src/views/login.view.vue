@@ -57,11 +57,18 @@ export default {
     this.$refs.username.focus();
   },
   methods: {
-    login() {
-      ServiceApp.login({
+    async login() {
+      const result = await ServiceApp.login({
         username: this.username,
         password: this.password,
       });
+
+      if (result === false) {
+        this.$store.dispatch('moduleApp/openSnackbar', {
+          text: this.$i18n.t('security.wrongCredentials'),
+          color: 'error',
+        });
+      }
     },
   },
   validations: {

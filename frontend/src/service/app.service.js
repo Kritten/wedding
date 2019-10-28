@@ -28,6 +28,7 @@ class ClassServiceApp {
       }
     } else if (response.exception.response.status === 400) {
       console.warn('wrong credentials');
+      return false;
     }
   }
 

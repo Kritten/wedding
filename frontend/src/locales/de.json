@@ -3,7 +3,8 @@
     "username": "Name",
     "password": "Passwort",
     "login": "Anmelden",
-    "logout": "Abmelden"
+    "logout": "Abmelden",
+    "wrongCredentials": "Falsche Zugangsdaten"
   },
   "dashboard": {
     "title": "Dashboard"
