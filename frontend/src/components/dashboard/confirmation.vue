@@ -4,7 +4,10 @@
       {{ $t('confirmation.title') }}
     </v-card-title>
     <v-card-text>
-      <v-container fluid pa-0>
+      <v-container
+        fluid
+        pa-0
+      >
         <v-row
           v-if="hasDecided === false"
           no-gutters
@@ -111,13 +114,11 @@
                     cols="2"
                     class="py-0"
                   >
-                    <v-text-field
+                    <v-select
                       v-model="count"
-                      type="number"
-                      dense
+                      v-bind:items="arrayItems"
                       hide-details
-                      min="1"
-                      v-bind:max="countMax"
+                      dense
                     />
                   </v-col>
                   <v-col
@@ -176,7 +177,7 @@ export default {
   data() {
     return {
       modeEdit: false,
-      count: 1,
+      count: this.$store.state.moduleApp.objectUser.count,
     };
   },
   computed: {
@@ -188,6 +189,9 @@ export default {
     },
     countConfirmation() {
       return this.$store.state.moduleApp.objectUser.count;
+    },
+    arrayItems() {
+      return [...Array(this.countMax)].map((value, index) => index + 1);
     },
     countMax() {
       return this.$store.state.moduleApp.objectUser.count_max;
