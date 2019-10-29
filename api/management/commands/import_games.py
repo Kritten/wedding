@@ -32,7 +32,6 @@ class Command(BaseCommand):
                     )
 
                 for mood in row['moods'].split(','):
-                    print(mood)
                     if mood.strip() is not '':
                         game.moods.add(
                             Mood.objects.get_or_create(
