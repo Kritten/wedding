@@ -61,7 +61,7 @@ class GameCustom(admin.ModelAdmin):
         'is_coop',
         'minutes_explanation',
     )
-    filter_horizontal = ('genres', 'types', 'images', 'moods')
+    # filter_horizontal = ('genres', 'types', 'images', 'moods')
 
 
 admin.site.register(User, UserAdminCustom)
