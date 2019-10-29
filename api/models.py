@@ -35,10 +35,10 @@ class Game(models.Model):
     minutes_playtime_max = models.IntegerField()
     is_coop = models.BooleanField()
     minutes_explanation = models.IntegerField()
-    genres = models.ManyToManyField('Genre', related_name='games')
-    types = models.ManyToManyField('Type', related_name='games')
-    moods = models.ManyToManyField('Mood', related_name='games')
-    images = models.ManyToManyField('Image', related_name='games')
+    genres = models.ManyToManyField('Genre', related_name='games', blank=True)
+    types = models.ManyToManyField('Type', related_name='games', blank=True)
+    moods = models.ManyToManyField('Mood', related_name='games', blank=True)
+    images = models.ManyToManyField('Image', related_name='games', blank=True)
 
     def __str__(self):
         return self.title
