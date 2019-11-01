@@ -118,6 +118,11 @@
 <script>
 export default {
   name: 'Contact',
+  methods: {
+    foo() {
+      console.warn('123', 123);
+    }
+  }
 };
 </script>
 

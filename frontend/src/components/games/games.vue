@@ -1,14 +1,31 @@
 <template>
   <v-data-iterator
     v-bind:items="arrayGames"
+    v-bind:disable-pagination="true"
+    v-bind:hide-default-footer="true"
+    v-bind:loading="isLoading"
+    loading-text=""
   >
     <template v-slot:default="{ items }">
       <v-row>
-        <game
-          v-for="game in items"
-          v-bind:key="game.id"
-          v-bind:game="game"
-        />
+        <template
+          v-for="(game, index) in items"
+        >
+          <game
+            v-bind:key="game.id"
+            v-intersect="arrayGames.length - index === 2 && intersected"
+            style="height: 200px"
+            v-bind:game="game"
+          />
+        </template>
+      </v-row>
+    </template>
+
+    <template v-slot:footer>
+      <v-row v-if="isLoading === true">
+        <v-col class="text-center">
+          <v-progress-circular indeterminate />
+        </v-col>
       </v-row>
     </template>
   </v-data-iterator>
@@ -23,6 +40,8 @@ export default {
   components: { Game },
   data() {
     return {
+      page: 1,
+      isLoading: false,
     };
   },
   computed: {
@@ -31,7 +50,32 @@ export default {
     },
   },
   async created() {
-    await ServiceGames.loadGames();
+    this.loadPage();
+  },
+  methods: {
+    intersected(entries, observer, isIntersecting) {
+      // console.warn('entries', entries);
+      // console.log('observer', observer);
+      // console.log('isIntersecting', isIntersecting);
+      if (
+        isIntersecting
+        && this.isLoading === false
+        && this.arrayGames.length < this.$store.state.moduleGames.countGames
+      ) {
+        console.warn('123', 123);
+        this.page += 1;
+        this.loadPage();
+      }
+    },
+    async loadPage() {
+      this.isLoading = true;
+
+      await ServiceGames.loadGames({
+        page: this.page,
+      });
+
+      this.isLoading = false;
+    },
   },
 };
 </script>

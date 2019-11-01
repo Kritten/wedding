@@ -5,7 +5,9 @@
     xl="12"
   >
     <v-card class="fill-height">
-      <v-card-title>{{ game.title }}</v-card-title>
+      <v-card-title>
+        {{ game.title }}
+      </v-card-title>
       <v-card-text>
         {{ game.description }}
       </v-card-text>

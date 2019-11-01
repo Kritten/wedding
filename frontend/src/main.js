@@ -4,8 +4,8 @@ import Vuelidate from 'vuelidate';
 import App from './App';
 import { router } from './router';
 import { store } from './store/vuex';
-import vuetify from './vuetify';
 import i18n from './i18n';
+import vuetify from './vuetify';
 
 import vueAwesomeCountdown from 'vue-awesome-countdown';
 

@@ -12,6 +12,9 @@ class ViewGames(APIView):
 
         queryset_paginated, count_items = paginate_queryset(queryset, request)
 
+        # import time
+        # time.sleep(30)
+
         serializer = SerializerGame(
             queryset_paginated,
             many=True,

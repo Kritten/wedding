@@ -2,14 +2,14 @@ import { ServiceEndpoint } from './endpoint.service';
 import { store } from '../store/vuex';
 
 class ClassServiceGames {
-  async loadGames() {
+  async loadGames({ page }) {
     const response = await ServiceEndpoint.makeRequest({
       url: {
         path: store.state.moduleApp.objectUrls.games,
       },
       method: 'get',
       params: {
-        page: 1,
+        page: page,
         page_size: 10,
         sort_by: 'title',
         descending: false,
@@ -17,8 +17,14 @@ class ClassServiceGames {
     });
 
     store.commit('moduleGames/setState', {
+      nameState: 'countGames',
+      objectState: response.data.items_total,
+    });
+
+    console.warn('[...store.state.moduleGames.arrayGames, ...response.data.data]', [...store.state.moduleGames.arrayGames, ...response.data.data]);
+    store.commit('moduleGames/setState', {
       nameState: 'arrayGames',
-      objectState: response.data.data,
+      objectState: [...store.state.moduleGames.arrayGames, ...response.data.data],
     });
   }
 }

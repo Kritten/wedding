@@ -1,48 +1,48 @@
 {
-  "games": {
-    "title": "Spiele"
-  },
-  "security": {
-    "username": "Name",
-    "password": "Passwort",
-    "login": "Anmelden",
-    "logout": "Abmelden",
-    "wrongCredentials": "Falsche Zugangsdaten"
-  },
-  "dashboard": {
-    "title": "Dashboard"
-  },
-  "events": {
-    "title": "Ablauf",
-    "location": "Ort",
-    "map": "Karte",
-    "description": "Beschreibung",
-    "time": "Uhrzeit"
-  },
-  "confirmation": {
-    "title": "Zu-/Absage",
-    "noDecision": "Bitte zu- oder absagen",
-    "accept": "Zusagen",
-    "acceptWith": "Zusagen mit {count} Person | Zusagen mit {count} Personen",
-    "reject": "Absagen",
-    "edit": "Ändern",
-    "cancel": "Abbrechen",
-    "currentState": "Aktueller Status",
-    "accepted": "Zugesagt",
-    "acceptedWith": "Zugesagt mit {count} Person | Zugesagt mit {count} Personen",
-    "rejected": "Abgesagt",
-    "message": {
-      "changed": "Änderung bestätigt"
-    }
-  },
-  "countdown": {
-    "days": "Tag | Tage",
-    "hours": "Stunde | Stunden",
-    "minutes": "Minute | Minuten",
-    "seconds": "Sekunde | Sekunden"
-  },
-  "contact": {
-    "title": "Kontakt",
-    "lappen": "Unsere Trauzeugen"
-  }
+   "games":{
+      "title":"Spiele"
+   },
+   "security":{
+      "username":"Name",
+      "password":"Passwort",
+      "login":"Anmelden",
+      "logout":"Abmelden",
+      "wrongCredentials":"Falsche Zugangsdaten"
+   },
+   "dashboard":{
+      "title":"Dashboard"
+   },
+   "events":{
+      "title":"Ablauf",
+      "location":"Ort",
+      "map":"Karte",
+      "description":"Beschreibung",
+      "time":"Uhrzeit"
+   },
+   "confirmation":{
+      "title":"Zu-/Absage",
+      "noDecision":"Bitte zu- oder absagen",
+      "accept":"Zusagen",
+      "acceptWith":"Zusagen mit {count} Person | Zusagen mit {count} Personen",
+      "reject":"Absagen",
+      "edit":"Ändern",
+      "cancel":"Abbrechen",
+      "currentState":"Aktueller Status",
+      "accepted":"Zugesagt",
+      "acceptedWith":"Zugesagt mit {count} Person | Zugesagt mit {count} Personen",
+      "rejected":"Abgesagt",
+      "message":{
+         "changed":"Änderung bestätigt"
+      }
+   },
+   "countdown":{
+      "days":"Tag | Tage",
+      "hours":"Stunde | Stunden",
+      "minutes":"Minute | Minuten",
+      "seconds":"Sekunde | Sekunden"
+   },
+   "contact":{
+      "title":"Kontakt",
+      "lappen":"Unsere Trauzeugen"
+   }
 }
