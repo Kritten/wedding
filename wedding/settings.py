@@ -121,12 +121,12 @@ REST_FRAMEWORK = {
     ),
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
-    )
+    ),
     # 'DEFAULT_METADATA_CLASS': 'rest_framework.metadata.SimpleMetadata',
     #
-    # 'DEFAULT_PAGINATION_CLASS': 'api.helpers.CustomPagination',
-    # 'PAGE_SIZE': 25,
-    # 'PAGE_SIZE_QUERY_PARAM': 'page_size',
+    'DEFAULT_PAGINATION_CLASS': 'api.helpers.CustomPagination',
+    'PAGE_SIZE': 25,
+    'PAGE_SIZE_QUERY_PARAM': 'page_size',
 }
 
 # Internationalization

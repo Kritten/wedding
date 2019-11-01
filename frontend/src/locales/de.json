@@ -1,4 +1,7 @@
 {
+  "games": {
+    "title": "Spiele"
+  },
   "security": {
     "username": "Name",
     "password": "Passwort",

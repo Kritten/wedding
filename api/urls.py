@@ -1,6 +1,6 @@
 from django.urls import path
 
-from .views import view_config, view_event, view_user
+from .views import view_config, view_event, view_user, view_games
 
 urlpatterns = [
     path('config', view_config.ViewConfig.as_view(), name='config'),
@@ -10,4 +10,6 @@ urlpatterns = [
     path('user', view_user.ViewUser.as_view(), name='user'),
 
     path('events', view_event.ViewEvents.as_view(), name='events'),
+
+    path('games', view_games.ViewGames.as_view(), name='games'),
 ]

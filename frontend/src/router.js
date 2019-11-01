@@ -5,6 +5,7 @@ import AppView from './views/app/app.view';
 import DashboardView from './views/app/dashboard.view';
 import EventsView from './views/app/events.view';
 import ContactView from './views/app/contact.view';
+import GamesView from './views/app/games.view';
 import { Queue } from './queue';
 
 Vue.use(Router);
@@ -32,6 +33,12 @@ export const router = new Router({
           path: 'events',
           name: 'events',
           component: EventsView,
+
+        },
+        {
+          path: 'games',
+          name: 'games',
+          component: GamesView,
 
         },
         {
