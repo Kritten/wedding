@@ -10,7 +10,7 @@ class ClassServiceGames {
       method: 'get',
       params: {
         page: page,
-        page_size: 10,
+        page_size: 20,
         sort_by: 'title',
         descending: false,
       },

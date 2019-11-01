@@ -1,8 +1,8 @@
 <template>
   <v-col
     cols="12"
-    lg="4"
-    xl="12"
+    md="6"
+    xl="4"
   >
     <v-card class="fill-height">
       <v-card-title>

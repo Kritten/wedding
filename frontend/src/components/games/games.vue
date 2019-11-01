@@ -7,14 +7,13 @@
     loading-text=""
   >
     <template v-slot:default="{ items }">
-      <v-row>
+      <v-row class="mt-n3">
         <template
           v-for="(game, index) in items"
         >
           <game
             v-bind:key="game.id"
             v-intersect="arrayGames.length - index === 2 && intersected"
-            style="height: 200px"
             v-bind:game="game"
           />
         </template>
