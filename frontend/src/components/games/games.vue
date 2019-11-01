@@ -2,10 +2,14 @@
   <v-data-iterator
     v-bind:items="arrayGames"
   >
-    <template v-slot:item="{ item }">
-      <game
-        v-bind:game="item"
-      />
+    <template v-slot:default="{ items }">
+      <v-row>
+        <game
+          v-for="game in items"
+          v-bind:key="game.id"
+          v-bind:game="game"
+        />
+      </v-row>
     </template>
   </v-data-iterator>
 </template>

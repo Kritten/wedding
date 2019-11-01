@@ -1,5 +1,16 @@
 <template>
-  <span>{{game}}</span>
+  <v-col
+    cols="12"
+    lg="4"
+    xl="12"
+  >
+    <v-card class="fill-height">
+      <v-card-title>{{ game.title }}</v-card-title>
+      <v-card-text>
+        {{ game.description }}
+      </v-card-text>
+    </v-card>
+  </v-col>
 </template>
 
 <script>

@@ -9,4 +9,5 @@ class SerializerGame(serializers.ModelSerializer):
         fields = (
             'id',
             'title',
+            'description',
         )
