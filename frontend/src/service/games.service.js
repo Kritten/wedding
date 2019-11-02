@@ -49,6 +49,13 @@ class ClassServiceGames {
   }
 
   async loadGames({ page, initialize, filters }) {
+    if (initialize === true) {
+      store.commit('moduleGames/setState', {
+        nameState: 'arrayGames',
+        objectState: [],
+      });
+    }
+
     const response = await ServiceEndpoint.makeRequest({
       url: {
         path: store.state.moduleApp.objectUrls.games,
