@@ -7,7 +7,8 @@
          "countPlayersMin": "Spieleranzahl von",
          "countPlayersMax": "bis",
          "minutesPlaytime": "Spieldauer",
-         "minutesExplanation": "Erklärdauer"
+         "minutesExplanation": "Erklärdauer",
+         "isCoop": "Koop-Spiel"
       }
    },
    "security":{

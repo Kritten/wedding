@@ -73,7 +73,13 @@ export default {
           active: false,
           parts: {
             minutes_explanation_min: 1,
-            minutes_explanation_max: 4,
+            minutes_explanation_max: 5,
+          },
+        },
+        isCoop: {
+          active: false,
+          parts: {
+            is_coop: false,
           },
         },
       },

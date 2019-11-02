@@ -80,4 +80,11 @@ class ManagerGame(InterfaceManagerItems):
             name_lookup='lte'
         )
 
+        queryset = ManagerGame.filter_boolean(
+            queryset=queryset,
+            request=request,
+            name_filter='is_coop',
+            name_field='is_coop',
+        )
+
         return queryset

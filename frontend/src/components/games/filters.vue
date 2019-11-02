@@ -14,10 +14,10 @@
     </v-card-title>
     <v-card-text>
       <v-row>
-        <v-col md="6">
-          <!--
+        <!--
             count players
           -->
+        <v-col md="6">
           <base-filter v-bind:filter="filters.countPlayers">
             <template v-slot:default="{ parts, disabled }">
               <v-col>
@@ -48,9 +48,11 @@
               </v-col>
             </template>
           </base-filter>
-          <!--
+        </v-col>
+        <!--
             minutes playtime
           -->
+        <v-col md="6">
           <base-filter v-bind:filter="filters.minutesPlaytime">
             <template v-slot:default="{ parts, disabled }">
               <v-col>
@@ -69,9 +71,11 @@
               </v-col>
             </template>
           </base-filter>
-          <!--
+        </v-col>
+        <!--
             minutes explanation
           -->
+        <v-col md="6">
           <base-filter v-bind:filter="filters.minutesExplanation">
             <template v-slot:default="{ parts, disabled }">
               <v-col>
@@ -79,14 +83,41 @@
                   v-bind:disabled="disabled"
                   v-bind:value="[parts.minutes_explanation_min, parts.minutes_explanation_max]"
                   v-bind:min="1"
-                  v-bind:max="4"
+                  v-bind:max="5"
                   hide-details
                   ticks="always"
                   tick-size="4"
                   v-bind:label="$t('games.filters.minutesExplanation')"
-                  v-bind:tick-labels="['10m', '20m', '30m', '40m']"
+                  v-bind:tick-labels="['5m', '10m', '20m', '30m', '40m']"
                   v-on:change="parts.minutes_explanation_min = $event[0]; parts.minutes_explanation_max = $event[1]"
                 />
+              </v-col>
+            </template>
+          </base-filter>
+        </v-col>
+        <!--
+            coop
+          -->
+        <v-col md="6">
+          <base-filter v-bind:filter="filters.isCoop">
+            <template v-slot:default="{ parts, disabled }">
+              <v-col>
+                <v-switch
+                  v-model="parts.is_coop"
+                  v-bind:disabled="disabled"
+                  class="mt-0"
+                  hide-details
+                >
+                  <template v-slot:prepend>
+                    <div
+                      class="mt-1"
+                      style="cursor: pointer"
+                      v-on:click="filters.isCoop.parts.is_coop = !filters.isCoop.parts.is_coop"
+                    >
+                      {{ $t('games.filters.isCoop') }}
+                    </div>
+                  </template>
+                </v-switch>
               </v-col>
             </template>
           </base-filter>

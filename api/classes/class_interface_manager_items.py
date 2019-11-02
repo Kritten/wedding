@@ -91,15 +91,15 @@ class InterfaceManagerItems(object):
 
     @staticmethod
     def filter_boolean(queryset: QuerySet, request: Request, name_filter: str, name_field: str):
-        isActive = json.loads(request.query_params.get(name_filter, 'false'))
-        if isActive == True:
+        value = request.query_params.get(name_filter)
+        if value is not None:
             if json.loads(request.query_params.get('{name_filter}Exclude'.format(name_filter=name_filter), 'false')):
                 queryset = queryset.exclude(**{
-                    name_field: True
+                    name_field: json.loads(value)
                 })
             else:
                 queryset = queryset.filter(**{
-                    name_field: True
+                    name_field: json.loads(value)
                 })
 
         return queryset
