@@ -2,7 +2,11 @@
    "games":{
       "title": "Spiele",
       "countGamesFiltered": "{countGames} von {countGamesTotal} Spielen",
-      "infoCountPlayers": "{countPlayersMin} Spieler | {countPlayersMin} bis {countPlayersMax} Spieler"
+      "infoCountPlayers": "{countPlayersMin} Spieler | {countPlayersMin} bis {countPlayersMax} Spieler",
+      "filters": {
+         "countPlayersMin": "Spieleranzahl von",
+         "countPlayersMax": "bis"
+      }
    },
    "security":{
       "username":"Name",

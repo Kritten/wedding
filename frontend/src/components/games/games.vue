@@ -55,8 +55,13 @@ export default {
       isLoading: false,
       showFilters: true,
       filters: {
-        count_players_min: 3,
-        count_players_max: 10,
+        countPlayers: {
+          active: false,
+          parts: {
+            count_players_min: 3,
+            count_players_max: 10,
+          },
+        },
       },
     };
   },
