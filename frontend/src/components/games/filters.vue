@@ -17,7 +17,7 @@
         <!--
             title
           -->
-        <v-col md="6">
+        <v-col cols="12" md="6">
           <base-filter v-bind:filter="filters.title">
             <template v-slot:default="{ parts, disabled }">
               <v-col>
@@ -47,7 +47,7 @@
         <!--
             description
           -->
-        <v-col md="6">
+        <v-col cols="12" md="6">
           <base-filter v-bind:filter="filters.description">
             <template v-slot:default="{ parts, disabled }">
               <v-col>
@@ -77,7 +77,7 @@
         <!--
             count players
           -->
-        <v-col md="6">
+        <v-col cols="12" md="6">
           <base-filter v-bind:filter="filters.countPlayers">
             <template v-slot:default="{ parts, disabled }">
               <v-col>
@@ -112,7 +112,7 @@
         <!--
             minutes playtime
           -->
-        <v-col md="6">
+        <v-col cols="12" md="6">
           <base-filter v-bind:filter="filters.minutesPlaytime">
             <template v-slot:default="{ parts, disabled }">
               <v-col>
@@ -135,7 +135,7 @@
         <!--
             minutes explanation
           -->
-        <v-col md="6">
+        <v-col cols="12" md="6">
           <base-filter v-bind:filter="filters.minutesExplanation">
             <template v-slot:default="{ parts, disabled }">
               <v-col>
@@ -158,7 +158,7 @@
         <!--
             coop
           -->
-        <v-col md="6">
+        <v-col cols="12" md="6">
           <base-filter v-bind:filter="filters.isCoop">
             <template v-slot:default="{ parts, disabled }">
               <v-col>
@@ -185,7 +185,7 @@
         <!--
             genres
           -->
-        <v-col md="6">
+        <v-col cols="12" md="6">
           <base-filter v-bind:filter="filters.genres">
             <template v-slot:default="{ parts, disabled }">
               <v-col>
@@ -222,7 +222,7 @@
         <!--
             moods
           -->
-        <v-col md="6">
+        <v-col cols="12" md="6">
           <base-filter v-bind:filter="filters.moods">
             <template v-slot:default="{ parts, disabled }">
               <v-col>
@@ -259,7 +259,7 @@
         <!--
             types
           -->
-        <v-col md="6">
+        <v-col cols="12" md="6">
           <base-filter v-bind:filter="filters.types">
             <template v-slot:default="{ parts, disabled }">
               <v-col>
