@@ -9,7 +9,19 @@
         {{ game.title }}
       </v-card-title>
       <v-card-text>
-        {{ game.description }}
+        <v-row dense>
+          <v-col>
+            {{ $t('games.infoCountPlayers', {
+              countPlayersMin: game.count_players_min,
+              countPlayersMax: game.count_players_max,
+            }) }}
+          </v-col>
+        </v-row>
+        <v-row dense>
+          <v-col>
+            {{ game.description }}
+          </v-col>
+        </v-row>
       </v-card-text>
     </v-card>
   </v-col>

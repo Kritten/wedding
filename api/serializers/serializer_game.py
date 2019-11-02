@@ -10,4 +10,6 @@ class SerializerGame(serializers.ModelSerializer):
             'id',
             'title',
             'description',
+            'count_players_min',
+            'count_players_max',
         )

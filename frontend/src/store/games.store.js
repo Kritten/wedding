@@ -6,6 +6,7 @@ export const moduleGames = {
     state: {
       arrayGames: [],
       countGames: -1,
+      countGamesTotal: -1,
     },
   },
 };

@@ -15,6 +15,12 @@ export const moduleApp = {
       async init({ commit }, config) {
         commit('setState', config.version);
 
+
+        commit('moduleGames/setState', {
+          nameState: 'countGamesTotal',
+          objectState: config.count_games_total,
+        }, { root: true });
+
         commit('setState', {
           nameState: 'objectUrls',
           objectState: config.paths,

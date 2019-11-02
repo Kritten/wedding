@@ -53,8 +53,6 @@ class ClassServiceApp {
       method: 'get',
     });
 
-    console.warn('response', response);
-
     if (response.success === true) {
       store.dispatch('moduleApp/init', response.data);
 

@@ -1,5 +1,7 @@
 from django.conf import settings
 
+from api.models import Game
+
 
 class ManagerConfig(object):
     @staticmethod
@@ -7,7 +9,9 @@ class ManagerConfig(object):
         config = {
             'version': settings.VERSION,
             'paths': ManagerConfig.get_paths(),
+            'count_games_total': Game.objects.count()
         }
+
         return config
 
     @staticmethod

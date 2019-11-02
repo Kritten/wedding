@@ -1,6 +1,8 @@
 {
    "games":{
-      "title":"Spiele"
+      "title": "Spiele",
+      "countGamesFiltered": "{countGames} von {countGamesTotal} Spielen",
+      "infoCountPlayers": "{countPlayersMin} Spieler | {countPlayersMin} bis {countPlayersMax} Spieler"
    },
    "security":{
       "username":"Name",

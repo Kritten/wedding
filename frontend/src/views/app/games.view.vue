@@ -1,6 +1,6 @@
 <template>
   <v-row>
-    <v-col><games /></v-col>
+    <games />
   </v-row>
 </template>
 

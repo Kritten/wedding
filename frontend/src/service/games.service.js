@@ -1,18 +1,25 @@
 import { ServiceEndpoint } from './endpoint.service';
 import { store } from '../store/vuex';
+import cloneDeep from 'lodash-es/cloneDeep';
 
 class ClassServiceGames {
-  async loadGames({ page }) {
+  async loadGames({ page, initialize, filters }) {
+    const filtersCopy = cloneDeep(filters);
+    if (filtersCopy.count_players_max !== undefined && filtersCopy.count_players_max === 10) {
+      filtersCopy.count_players_max = 10000;
+    }
+
     const response = await ServiceEndpoint.makeRequest({
       url: {
         path: store.state.moduleApp.objectUrls.games,
       },
       method: 'get',
       params: {
-        page: page,
+        page,
         page_size: 20,
         sort_by: 'title',
         descending: false,
+        ...filtersCopy,
       },
     });
 
@@ -21,10 +28,9 @@ class ClassServiceGames {
       objectState: response.data.items_total,
     });
 
-    console.warn('[...store.state.moduleGames.arrayGames, ...response.data.data]', [...store.state.moduleGames.arrayGames, ...response.data.data]);
     store.commit('moduleGames/setState', {
       nameState: 'arrayGames',
-      objectState: [...store.state.moduleGames.arrayGames, ...response.data.data],
+      objectState: initialize === true ? response.data.data : [...store.state.moduleGames.arrayGames, ...response.data.data],
     });
   }
 }
