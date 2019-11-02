@@ -4,6 +4,8 @@
       "countGamesFiltered": "{countGames} von {countGamesTotal} Spielen",
       "infoCountPlayers": "{countPlayersMin} Spieler | {countPlayersMin} bis {countPlayersMax} Spieler",
       "filters": {
+         "title": "Titel",
+         "description": "Beschreibung",
          "countPlayersMin": "Spieleranzahl von",
          "countPlayersMax": "bis",
          "minutesPlaytime": "Spieldauer",

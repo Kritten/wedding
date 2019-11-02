@@ -35,6 +35,22 @@ class ManagerGame(InterfaceManagerItems):
         queryset = ManagerGame.filter_value(
             queryset=queryset,
             request=request,
+            name_filter='title',
+            name_field='title',
+            name_lookup='icontains'
+        )
+
+        queryset = ManagerGame.filter_value(
+            queryset=queryset,
+            request=request,
+            name_filter='description',
+            name_field='description',
+            name_lookup='icontains'
+        )
+
+        queryset = ManagerGame.filter_value(
+            queryset=queryset,
+            request=request,
             name_filter='count_players_min',
             name_field='count_players_min',
             name_lookup='exact'

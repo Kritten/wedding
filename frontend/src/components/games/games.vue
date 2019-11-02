@@ -55,6 +55,18 @@ export default {
       isLoading: false,
       showFilters: true,
       filters: {
+        title: {
+          active: false,
+          parts: {
+            title: '',
+          },
+        },
+        description: {
+          active: false,
+          parts: {
+            description: '',
+          },
+        },
         countPlayers: {
           active: false,
           parts: {
@@ -83,19 +95,19 @@ export default {
           },
         },
         genres: {
-          active: true,
+          active: false,
           parts: {
             genres: [],
           },
         },
         moods: {
-          active: true,
+          active: false,
           parts: {
             moods: [],
           },
         },
         types: {
-          active: true,
+          active: false,
           parts: {
             types: [],
           },

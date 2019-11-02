@@ -15,6 +15,66 @@
     <v-card-text>
       <v-row>
         <!--
+            title
+          -->
+        <v-col md="6">
+          <base-filter v-bind:filter="filters.title">
+            <template v-slot:default="{ parts, disabled }">
+              <v-col>
+                <v-text-field
+                  ref="filtersTitle"
+                  v-bind:value="parts.title"
+                  v-bind:disabled="disabled"
+                  hide-details
+                  dense
+                  class="mt-0"
+                  v-on:change="parts.title = $event"
+                >
+                  <template v-slot:prepend>
+                    <div
+                      class="mt-1 text-no-wrap"
+                      style="cursor: pointer"
+                      v-on:click="$refs.filtersTitle.focus()"
+                    >
+                      {{ $t('games.filters.title') }}
+                    </div>
+                  </template>
+                </v-text-field>
+              </v-col>
+            </template>
+          </base-filter>
+        </v-col>
+        <!--
+            description
+          -->
+        <v-col md="6">
+          <base-filter v-bind:filter="filters.description">
+            <template v-slot:default="{ parts, disabled }">
+              <v-col>
+                <v-text-field
+                  ref="filtersDescription"
+                  v-bind:value="parts.description"
+                  v-bind:disabled="disabled"
+                  hide-details
+                  dense
+                  class="mt-0"
+                  v-on:change="parts.description = $event"
+                >
+                  <template v-slot:prepend>
+                    <div
+                      class="mt-1 text-no-wrap"
+                      style="cursor: pointer"
+                      v-on:click="$refs.filtersDescription.focus()"
+                    >
+                      {{ $t('games.filters.description') }}
+                    </div>
+                  </template>
+                </v-text-field>
+              </v-col>
+            </template>
+          </base-filter>
+        </v-col>
+        <!--
             count players
           -->
         <v-col md="6">
