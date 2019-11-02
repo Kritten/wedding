@@ -82,6 +82,12 @@ export default {
             is_coop: false,
           },
         },
+        genres: {
+          active: true,
+          parts: {
+            genres: [],
+          },
+        },
       },
     };
   },

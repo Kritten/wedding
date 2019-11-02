@@ -21,6 +21,21 @@ export const moduleApp = {
           objectState: config.count_games_total,
         }, { root: true });
 
+        commit('moduleGames/setState', {
+          nameState: 'arrayGenres',
+          objectState: config.genres,
+        }, { root: true });
+
+        commit('moduleGames/setState', {
+          nameState: 'arrayMoods',
+          objectState: config.moods,
+        }, { root: true });
+
+        commit('moduleGames/setState', {
+          nameState: 'arrayTypes',
+          objectState: config.types,
+        }, { root: true });
+
         commit('setState', {
           nameState: 'objectUrls',
           objectState: config.paths,

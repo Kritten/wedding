@@ -8,7 +8,10 @@
          "countPlayersMax": "bis",
          "minutesPlaytime": "Spieldauer",
          "minutesExplanation": "Erklärdauer",
-         "isCoop": "Koop-Spiel"
+         "isCoop": "Koop-Spiel",
+         "genres": "Genre",
+         "moods": "Stimmung",
+         "types": "Typ"
       }
    },
    "security":{

@@ -7,6 +7,9 @@ export const moduleGames = {
       arrayGames: [],
       countGames: -1,
       countGamesTotal: -1,
+      arrayGenres: [],
+      arrayMoods: [],
+      arrayTypes: [],
     },
   },
 };

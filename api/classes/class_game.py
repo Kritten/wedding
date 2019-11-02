@@ -39,7 +39,6 @@ class ManagerGame(InterfaceManagerItems):
             name_field='count_players_min',
             name_lookup='exact'
         )
-
         queryset = ManagerGame.filter_value(
             queryset=queryset,
             request=request,
@@ -55,7 +54,6 @@ class ManagerGame(InterfaceManagerItems):
             name_field='minutes_playtime_min',
             name_lookup='gte'
         )
-
         queryset = ManagerGame.filter_value(
             queryset=queryset,
             request=request,
@@ -71,7 +69,6 @@ class ManagerGame(InterfaceManagerItems):
             name_field='minutes_explanation',
             name_lookup='gte'
         )
-
         queryset = ManagerGame.filter_value(
             queryset=queryset,
             request=request,
@@ -85,6 +82,13 @@ class ManagerGame(InterfaceManagerItems):
             request=request,
             name_filter='is_coop',
             name_field='is_coop',
+        )
+
+        queryset = ManagerGame.filter_list(
+            queryset=queryset,
+            request=request,
+            name_filter='genres',
+            name_field='genres',
         )
 
         return queryset

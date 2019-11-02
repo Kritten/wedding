@@ -120,4 +120,4 @@ class InterfaceManagerItems(object):
                     '{name_field}__in'.format(name_field=name_field): items_selected
                 })
 
-        return queryset
+        return queryset.distinct()
