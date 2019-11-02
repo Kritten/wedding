@@ -5,7 +5,8 @@
       "infoCountPlayers": "{countPlayersMin} Spieler | {countPlayersMin} bis {countPlayersMax} Spieler",
       "filters": {
          "countPlayersMin": "Spieleranzahl von",
-         "countPlayersMax": "bis"
+         "countPlayersMax": "bis",
+         "minutesPlaytime": "Spieldauer"
       }
    },
    "security":{

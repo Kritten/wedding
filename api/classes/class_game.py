@@ -48,4 +48,20 @@ class ManagerGame(InterfaceManagerItems):
             name_lookup='lte'
         )
 
+        queryset = ManagerGame.filter_number(
+            queryset=queryset,
+            request=request,
+            name_filter='minutes_playtime_min',
+            name_field='minutes_playtime_min',
+            name_lookup='gte'
+        )
+
+        queryset = ManagerGame.filter_number(
+            queryset=queryset,
+            request=request,
+            name_filter='minutes_playtime_max',
+            name_field='minutes_playtime_max',
+            name_lookup='lte'
+        )
+
         return queryset

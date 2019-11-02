@@ -58,8 +58,15 @@ export default {
         countPlayers: {
           active: false,
           parts: {
-            count_players_min: 3,
+            count_players_min: 2,
             count_players_max: 10,
+          },
+        },
+        minutesPlaytime: {
+          active: true,
+          parts: {
+            minutes_playtime_min: 0,
+            minutes_playtime_max: 9,
           },
         },
       },
