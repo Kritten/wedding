@@ -69,6 +69,27 @@
               </v-col>
             </template>
           </base-filter>
+          <!--
+            minutes explanation
+          -->
+          <base-filter v-bind:filter="filters.minutesExplanation">
+            <template v-slot:default="{ parts, disabled }">
+              <v-col>
+                <v-range-slider
+                  v-bind:disabled="disabled"
+                  v-bind:value="[parts.minutes_explanation_min, parts.minutes_explanation_max]"
+                  v-bind:min="1"
+                  v-bind:max="4"
+                  hide-details
+                  ticks="always"
+                  tick-size="4"
+                  v-bind:label="$t('games.filters.minutesExplanation')"
+                  v-bind:tick-labels="['10m', '20m', '30m', '40m']"
+                  v-on:change="parts.minutes_explanation_min = $event[0]; parts.minutes_explanation_max = $event[1]"
+                />
+              </v-col>
+            </template>
+          </base-filter>
         </v-col>
       </v-row>
     </v-card-text>

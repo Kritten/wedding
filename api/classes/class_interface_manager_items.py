@@ -75,7 +75,7 @@ class InterfaceManagerItems(object):
         raise_not_implemented_exception('delete', __class__)
 
     @staticmethod
-    def filter_number(queryset: QuerySet, request: Request, name_filter: str, name_field: str, name_lookup: str):
+    def filter_value(queryset: QuerySet, request: Request, name_filter: str, name_field: str, name_lookup: str = 'exact'):
         value = request.query_params.get(name_filter)
         if value is not None:
             if json.loads(request.query_params.get('{name_filter}Exclude'.format(name_filter=name_filter), 'false')):
@@ -83,26 +83,8 @@ class InterfaceManagerItems(object):
                     '{}__{}'.format(name_field, name_lookup): value
                 })
             else:
-                print(name_field)
-                print(value)
-                print(name_lookup)
                 queryset = queryset.filter(**{
                     '{}__{}'.format(name_field, name_lookup): value
-                })
-
-        return queryset
-
-    @staticmethod
-    def filter_value(queryset: QuerySet, request: Request, name_filter: str, name_field: str):
-        value = request.query_params.get(name_filter)
-        if value is not None:
-            if json.loads(request.query_params.get('{name_filter}Exclude'.format(name_filter=name_filter), 'false')):
-                queryset = queryset.exclude(**{
-                    name_field: value
-                })
-            else:
-                queryset = queryset.filter(**{
-                    name_field: value
                 })
 
         return queryset

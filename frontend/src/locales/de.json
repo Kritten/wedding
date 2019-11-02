@@ -6,7 +6,8 @@
       "filters": {
          "countPlayersMin": "Spieleranzahl von",
          "countPlayersMax": "bis",
-         "minutesPlaytime": "Spieldauer"
+         "minutesPlaytime": "Spieldauer",
+         "minutesExplanation": "Erklärdauer"
       }
    },
    "security":{

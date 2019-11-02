@@ -32,7 +32,7 @@ class ManagerGame(InterfaceManagerItems):
 
     @staticmethod
     def filter(queryset: QuerySet, request: Request) -> QuerySet:
-        queryset = ManagerGame.filter_number(
+        queryset = ManagerGame.filter_value(
             queryset=queryset,
             request=request,
             name_filter='count_players_min',
@@ -40,7 +40,7 @@ class ManagerGame(InterfaceManagerItems):
             name_lookup='exact'
         )
 
-        queryset = ManagerGame.filter_number(
+        queryset = ManagerGame.filter_value(
             queryset=queryset,
             request=request,
             name_filter='count_players_max',
@@ -48,7 +48,7 @@ class ManagerGame(InterfaceManagerItems):
             name_lookup='lte'
         )
 
-        queryset = ManagerGame.filter_number(
+        queryset = ManagerGame.filter_value(
             queryset=queryset,
             request=request,
             name_filter='minutes_playtime_min',
@@ -56,11 +56,27 @@ class ManagerGame(InterfaceManagerItems):
             name_lookup='gte'
         )
 
-        queryset = ManagerGame.filter_number(
+        queryset = ManagerGame.filter_value(
             queryset=queryset,
             request=request,
             name_filter='minutes_playtime_max',
             name_field='minutes_playtime_max',
+            name_lookup='lte'
+        )
+
+        queryset = ManagerGame.filter_value(
+            queryset=queryset,
+            request=request,
+            name_filter='minutes_explanation_min',
+            name_field='minutes_explanation',
+            name_lookup='gte'
+        )
+
+        queryset = ManagerGame.filter_value(
+            queryset=queryset,
+            request=request,
+            name_filter='minutes_explanation_max',
+            name_field='minutes_explanation',
             name_lookup='lte'
         )
 

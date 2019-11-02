@@ -63,10 +63,17 @@ export default {
           },
         },
         minutesPlaytime: {
-          active: true,
+          active: false,
           parts: {
             minutes_playtime_min: 0,
             minutes_playtime_max: 9,
+          },
+        },
+        minutesExplanation: {
+          active: false,
+          parts: {
+            minutes_explanation_min: 1,
+            minutes_explanation_max: 4,
           },
         },
       },
