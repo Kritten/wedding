@@ -91,4 +91,18 @@ class ManagerGame(InterfaceManagerItems):
             name_field='genres',
         )
 
+        queryset = ManagerGame.filter_list(
+            queryset=queryset,
+            request=request,
+            name_filter='moods',
+            name_field='moods',
+        )
+
+        queryset = ManagerGame.filter_list(
+            queryset=queryset,
+            request=request,
+            name_filter='types',
+            name_field='types',
+        )
+
         return queryset

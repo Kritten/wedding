@@ -159,6 +159,80 @@
             </template>
           </base-filter>
         </v-col>
+        <!--
+            moods
+          -->
+        <v-col md="6">
+          <base-filter v-bind:filter="filters.moods">
+            <template v-slot:default="{ parts, disabled }">
+              <v-col>
+                <v-select
+                  ref="filtersMoods"
+                  v-model="parts.moods"
+                  v-bind:disabled="disabled"
+                  v-bind:items="arrayMoods"
+                  chips
+                  clearable
+                  deletable-chips
+                  small-chips
+                  multiple
+                  item-value="id"
+                  item-text="label"
+                  dense
+                  hide-details
+                  class="mt-0"
+                >
+                  <template v-slot:prepend>
+                    <div
+                      class="mt-1 text-no-wrap"
+                      style="cursor: pointer"
+                      v-on:click="$refs.filtersMoods.focus(); $refs.filtersMoods.isMenuActive = true"
+                    >
+                      {{ $t('games.filters.moods') }}
+                    </div>
+                  </template>
+                </v-select>
+              </v-col>
+            </template>
+          </base-filter>
+        </v-col>
+        <!--
+            types
+          -->
+        <v-col md="6">
+          <base-filter v-bind:filter="filters.types">
+            <template v-slot:default="{ parts, disabled }">
+              <v-col>
+                <v-select
+                  ref="filtersTypes"
+                  v-model="parts.types"
+                  v-bind:disabled="disabled"
+                  v-bind:items="arrayTypes"
+                  chips
+                  clearable
+                  deletable-chips
+                  small-chips
+                  multiple
+                  item-value="id"
+                  item-text="label"
+                  dense
+                  hide-details
+                  class="mt-0"
+                >
+                  <template v-slot:prepend>
+                    <div
+                      class="mt-1 text-no-wrap"
+                      style="cursor: pointer"
+                      v-on:click="$refs.filtersTypes.focus(); $refs.filtersTypes.isMenuActive = true"
+                    >
+                      {{ $t('games.filters.types') }}
+                    </div>
+                  </template>
+                </v-select>
+              </v-col>
+            </template>
+          </base-filter>
+        </v-col>
       </v-row>
     </v-card-text>
   </v-card>

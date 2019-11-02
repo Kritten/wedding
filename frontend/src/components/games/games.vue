@@ -88,6 +88,18 @@ export default {
             genres: [],
           },
         },
+        moods: {
+          active: true,
+          parts: {
+            moods: [],
+          },
+        },
+        types: {
+          active: true,
+          parts: {
+            types: [],
+          },
+        },
       },
     };
   },
