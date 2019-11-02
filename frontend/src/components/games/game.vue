@@ -11,7 +11,7 @@
       <v-card-text>
         <v-row dense>
           <v-col>
-            {{ $t('games.infoCountPlayers', {
+            {{ $tc('games.infoCountPlayers', game.count_players_min === game.count_players_max ? 1 : 2, {
               countPlayersMin: game.count_players_min,
               countPlayersMax: game.count_players_max,
             }) }}
