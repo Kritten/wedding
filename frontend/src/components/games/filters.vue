@@ -17,10 +17,17 @@
         <!--
             title
           -->
-        <v-col cols="12" md="6">
+        <v-col
+          cols="12"
+          md="6"
+        >
           <base-filter v-bind:filter="filters.title">
-            <template v-slot:default="{ parts, disabled }">
-              <v-col>
+            <template v-slot:default="{ parts, disabled, focus }">
+              <v-col
+                v-on="disabled === true ? { click: () => {
+                  focus($refs.filtersTitle);
+                }} : {}"
+              >
                 <v-text-field
                   ref="filtersTitle"
                   v-bind:value="parts.title"
@@ -47,10 +54,17 @@
         <!--
             description
           -->
-        <v-col cols="12" md="6">
+        <v-col
+          cols="12"
+          md="6"
+        >
           <base-filter v-bind:filter="filters.description">
-            <template v-slot:default="{ parts, disabled }">
-              <v-col>
+            <template v-slot:default="{ parts, disabled, focus }">
+              <v-col
+                v-on="disabled === true ? { click: () => {
+                  focus($refs.filtersDescription);
+                }} : {}"
+              >
                 <v-text-field
                   ref="filtersDescription"
                   v-bind:value="parts.description"
@@ -77,11 +91,19 @@
         <!--
             count players
           -->
-        <v-col cols="12" md="6">
+        <v-col
+          cols="12"
+          md="6"
+        >
           <base-filter v-bind:filter="filters.countPlayers">
-            <template v-slot:default="{ parts, disabled }">
-              <v-col>
+            <template v-slot:default="{ parts, disabled, activate }">
+              <v-col
+                v-on="disabled === true ? { click: () => {
+                  activate();
+                }} : {}"
+              >
                 <v-slider
+                  ref="filtersCountPlayerMin"
                   v-model="parts.count_players_min"
                   v-bind:disabled="disabled"
                   v-bind:min="1"
@@ -112,10 +134,17 @@
         <!--
             minutes playtime
           -->
-        <v-col cols="12" md="6">
+        <v-col
+          cols="12"
+          md="6"
+        >
           <base-filter v-bind:filter="filters.minutesPlaytime">
-            <template v-slot:default="{ parts, disabled }">
-              <v-col>
+            <template v-slot:default="{ parts, disabled, activate }">
+              <v-col
+                v-on="disabled === true ? { click: () => {
+                  activate();
+                }} : {}"
+              >
                 <v-range-slider
                   v-bind:disabled="disabled"
                   v-bind:value="[parts.minutes_playtime_min, parts.minutes_playtime_max]"
@@ -135,10 +164,17 @@
         <!--
             minutes explanation
           -->
-        <v-col cols="12" md="6">
+        <v-col
+          cols="12"
+          md="6"
+        >
           <base-filter v-bind:filter="filters.minutesExplanation">
-            <template v-slot:default="{ parts, disabled }">
-              <v-col>
+            <template v-slot:default="{ parts, disabled, activate }">
+              <v-col
+                v-on="disabled === true ? { click: () => {
+                  activate();
+                }} : {}"
+              >
                 <v-range-slider
                   v-bind:disabled="disabled"
                   v-bind:value="[parts.minutes_explanation_min, parts.minutes_explanation_max]"
@@ -158,10 +194,17 @@
         <!--
             coop
           -->
-        <v-col cols="12" md="6">
+        <v-col
+          cols="12"
+          md="6"
+        >
           <base-filter v-bind:filter="filters.isCoop">
-            <template v-slot:default="{ parts, disabled }">
-              <v-col>
+            <template v-slot:default="{ parts, disabled, activate }">
+              <v-col
+                v-on="disabled === true ? { click: () => {
+                  activate();
+                }} : {}"
+              >
                 <v-switch
                   v-model="parts.is_coop"
                   v-bind:disabled="disabled"
@@ -185,10 +228,17 @@
         <!--
             genres
           -->
-        <v-col cols="12" md="6">
+        <v-col
+          cols="12"
+          md="6"
+        >
           <base-filter v-bind:filter="filters.genres">
-            <template v-slot:default="{ parts, disabled }">
-              <v-col>
+            <template v-slot:default="{ parts, disabled, focus }">
+              <v-col
+                v-on="disabled === true ? { click: () => {
+                  focus($refs.filtersGenres, true);
+                }} : {}"
+              >
                 <v-select
                   ref="filtersGenres"
                   v-model="parts.genres"
@@ -209,7 +259,7 @@
                     <div
                       class="mt-1 text-no-wrap"
                       style="cursor: pointer"
-                      v-on:click="$refs.filtersGenres.focus(); $refs.filtersGenres.isMenuActive = true"
+                      v-on:click="focus($refs.filtersGenres, true)"
                     >
                       {{ $t('games.filters.genres') }}
                     </div>
@@ -222,10 +272,17 @@
         <!--
             moods
           -->
-        <v-col cols="12" md="6">
+        <v-col
+          cols="12"
+          md="6"
+        >
           <base-filter v-bind:filter="filters.moods">
-            <template v-slot:default="{ parts, disabled }">
-              <v-col>
+            <template v-slot:default="{ parts, disabled, focus }">
+              <v-col
+                v-on="disabled === true ? { click: () => {
+                  focus($refs.filtersMoods, true);
+                }} : {}"
+              >
                 <v-select
                   ref="filtersMoods"
                   v-model="parts.moods"
@@ -246,7 +303,7 @@
                     <div
                       class="mt-1 text-no-wrap"
                       style="cursor: pointer"
-                      v-on:click="$refs.filtersMoods.focus(); $refs.filtersMoods.isMenuActive = true"
+                      v-on:click="focus($refs.filtersMoods, true)"
                     >
                       {{ $t('games.filters.moods') }}
                     </div>
@@ -259,10 +316,17 @@
         <!--
             types
           -->
-        <v-col cols="12" md="6">
+        <v-col
+          cols="12"
+          md="6"
+        >
           <base-filter v-bind:filter="filters.types">
-            <template v-slot:default="{ parts, disabled }">
-              <v-col>
+            <template v-slot:default="{ parts, disabled, focus }">
+              <v-col
+                v-on="disabled === true ? { click: () => {
+                  focus($refs.filtersTypes, true);
+                }} : {}"
+              >
                 <v-select
                   ref="filtersTypes"
                   v-model="parts.types"
@@ -283,7 +347,7 @@
                     <div
                       class="mt-1 text-no-wrap"
                       style="cursor: pointer"
-                      v-on:click="$refs.filtersTypes.focus(); $refs.filtersTypes.isMenuActive = true"
+                      v-on:click="focus($refs.filtersTypes, true)"
                     >
                       {{ $t('games.filters.types') }}
                     </div>
