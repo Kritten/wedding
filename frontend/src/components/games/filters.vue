@@ -6,6 +6,15 @@
     <v-card-title>
       Filter
       <v-spacer />
+      <v-btn
+        v-if="hasActiveFilters"
+        small
+        color="accent"
+        class="mr-3"
+        v-on:click="$emit('reset-filters')"
+      >
+        {{ $t('games.resetFilters') }}
+      </v-btn>
       <span class="body-2">
         {{ $t('games.countGamesFiltered', {
           countGames: $store.state.moduleGames.countGames,
@@ -379,6 +388,9 @@ export default {
     };
   },
   computed: {
+    hasActiveFilters() {
+      return Object.values(this.filters).map(filter => filter.active).some(value => value === true);
+    },
     arrayGenres() {
       return this.$store.state.moduleGames.arrayGenres;
     },

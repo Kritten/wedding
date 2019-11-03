@@ -3,6 +3,7 @@
       "title": "Spiele",
       "countGamesFiltered": "{countGames} von {countGamesTotal} Spielen",
       "infoCountPlayers": "{countPlayersMin} Spieler | {countPlayersMin} bis {countPlayersMax} Spieler",
+      "resetFilters": "Filter zurücksetzen",
       "filters": {
          "title": "Titel",
          "description": "Beschreibung",

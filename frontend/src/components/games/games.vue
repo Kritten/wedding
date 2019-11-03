@@ -2,7 +2,10 @@
   <v-col>
     <v-row class="mt-n3">
       <v-col>
-        <filters v-bind:filters.sync="filters" />
+        <filters
+          v-bind:filters.sync="filters"
+          v-on:reset-filters="resetFilters"
+        />
       </v-col>
     </v-row>
 
@@ -39,9 +42,70 @@
 </template>
 
 <script>
+import cloneDeep from 'lodash-es/cloneDeep';
 import Game from './game';
 import { ServiceGames } from '../../service/games.service';
 import Filters from './filters';
+
+const filtersInitial = {
+  title: {
+    active: false,
+    parts: {
+      title: '',
+    },
+  },
+  description: {
+    active: false,
+    parts: {
+      description: '',
+    },
+  },
+  countPlayers: {
+    active: false,
+    parts: {
+      count_players_min: 2,
+      count_players_max: 10,
+    },
+  },
+  minutesPlaytime: {
+    active: false,
+    parts: {
+      minutes_playtime_min: 0,
+      minutes_playtime_max: 9,
+    },
+  },
+  minutesExplanation: {
+    active: false,
+    parts: {
+      minutes_explanation_min: 1,
+      minutes_explanation_max: 5,
+    },
+  },
+  isCoop: {
+    active: false,
+    parts: {
+      is_coop: false,
+    },
+  },
+  genres: {
+    active: false,
+    parts: {
+      genres: [],
+    },
+  },
+  moods: {
+    active: false,
+    parts: {
+      moods: [],
+    },
+  },
+  types: {
+    active: false,
+    parts: {
+      types: [],
+    },
+  },
+};
 
 export default {
   name: 'Games',
@@ -54,65 +118,7 @@ export default {
       page: 1,
       isLoading: false,
       showFilters: true,
-      filters: {
-        title: {
-          active: false,
-          parts: {
-            title: '',
-          },
-        },
-        description: {
-          active: false,
-          parts: {
-            description: '',
-          },
-        },
-        countPlayers: {
-          active: false,
-          parts: {
-            count_players_min: 2,
-            count_players_max: 10,
-          },
-        },
-        minutesPlaytime: {
-          active: false,
-          parts: {
-            minutes_playtime_min: 0,
-            minutes_playtime_max: 9,
-          },
-        },
-        minutesExplanation: {
-          active: false,
-          parts: {
-            minutes_explanation_min: 1,
-            minutes_explanation_max: 5,
-          },
-        },
-        isCoop: {
-          active: false,
-          parts: {
-            is_coop: false,
-          },
-        },
-        genres: {
-          active: false,
-          parts: {
-            genres: [],
-          },
-        },
-        moods: {
-          active: false,
-          parts: {
-            moods: [],
-          },
-        },
-        types: {
-          active: false,
-          parts: {
-            types: [],
-          },
-        },
-      },
+      filters: cloneDeep(filtersInitial),
     };
   },
   computed: {
@@ -136,6 +142,9 @@ export default {
     });
   },
   methods: {
+    resetFilters() {
+      this.filters = cloneDeep(filtersInitial);
+    },
     intersected(entries, observer, isIntersecting) {
       if (
         isIntersecting
