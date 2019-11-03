@@ -30,12 +30,15 @@
           cols="12"
           md="6"
         >
-          <base-filter v-bind:filter="filters.title">
-            <template v-slot:default="{ parts, disabled, focus }">
+          <base-filter
+            v-bind:filter="filters.title"
+            v-bind:callbacks="{
+              focus: [$refs.filtersTitle],
+            }"
+          >
+            <template v-slot:default="{ parts, disabled, applyCallbacks }">
               <v-col
-                v-on="disabled === true ? { click: () => {
-                  focus($refs.filtersTitle);
-                }} : {}"
+                v-on="disabled === true ? { click: applyCallbacks} : {}"
               >
                 <v-text-field
                   ref="filtersTitle"
@@ -50,7 +53,7 @@
                     <div
                       class="mt-1 text-no-wrap"
                       style="cursor: pointer"
-                      v-on:click="$refs.filtersTitle.focus()"
+                      v-on:click="applyCallbacks(true)"
                     >
                       {{ $t('games.filters.title') }}
                     </div>
@@ -67,12 +70,15 @@
           cols="12"
           md="6"
         >
-          <base-filter v-bind:filter="filters.description">
-            <template v-slot:default="{ parts, disabled, focus }">
+          <base-filter
+            v-bind:filter="filters.description"
+            v-bind:callbacks="{
+              focus: [$refs.filtersDescription],
+            }"
+          >
+            <template v-slot:default="{ parts, disabled, applyCallbacks }">
               <v-col
-                v-on="disabled === true ? { click: () => {
-                  focus($refs.filtersDescription);
-                }} : {}"
+                v-on="disabled === true ? { click: applyCallbacks} : {}"
               >
                 <v-text-field
                   ref="filtersDescription"
@@ -87,7 +93,7 @@
                     <div
                       class="mt-1 text-no-wrap"
                       style="cursor: pointer"
-                      v-on:click="$refs.filtersDescription.focus()"
+                      v-on:click="applyCallbacks(true)"
                     >
                       {{ $t('games.filters.description') }}
                     </div>
@@ -105,11 +111,9 @@
           md="6"
         >
           <base-filter v-bind:filter="filters.countPlayers">
-            <template v-slot:default="{ parts, disabled, activate }">
+            <template v-slot:default="{ parts, disabled, applyCallbacks }">
               <v-col
-                v-on="disabled === true ? { click: () => {
-                  activate();
-                }} : {}"
+                v-on="disabled === true ? { click: applyCallbacks} : {}"
               >
                 <v-slider
                   ref="filtersCountPlayerMin"
@@ -148,11 +152,9 @@
           md="6"
         >
           <base-filter v-bind:filter="filters.minutesPlaytime">
-            <template v-slot:default="{ parts, disabled, activate }">
+            <template v-slot:default="{ parts, disabled, applyCallbacks }">
               <v-col
-                v-on="disabled === true ? { click: () => {
-                  activate();
-                }} : {}"
+                v-on="disabled === true ? { click: applyCallbacks} : {}"
               >
                 <v-range-slider
                   v-bind:disabled="disabled"
@@ -178,11 +180,9 @@
           md="6"
         >
           <base-filter v-bind:filter="filters.minutesExplanation">
-            <template v-slot:default="{ parts, disabled, activate }">
+            <template v-slot:default="{ parts, disabled, applyCallbacks }">
               <v-col
-                v-on="disabled === true ? { click: () => {
-                  activate();
-                }} : {}"
+                v-on="disabled === true ? { click: applyCallbacks} : {}"
               >
                 <v-range-slider
                   v-bind:disabled="disabled"
@@ -208,11 +208,9 @@
           md="6"
         >
           <base-filter v-bind:filter="filters.isCoop">
-            <template v-slot:default="{ parts, disabled, activate }">
+            <template v-slot:default="{ parts, disabled, applyCallbacks }">
               <v-col
-                v-on="disabled === true ? { click: () => {
-                  activate();
-                }} : {}"
+                v-on="disabled === true ? { click: applyCallbacks} : {}"
               >
                 <v-switch
                   v-model="parts.is_coop"
@@ -241,12 +239,15 @@
           cols="12"
           md="6"
         >
-          <base-filter v-bind:filter="filters.genres">
-            <template v-slot:default="{ parts, disabled, focus }">
+          <base-filter
+            v-bind:filter="filters.genres"
+            v-bind:callbacks="{
+              focus: [$refs.filtersGenres, true],
+            }"
+          >
+            <template v-slot:default="{ parts, disabled, applyCallbacks }">
               <v-col
-                v-on="disabled === true ? { click: () => {
-                  focus($refs.filtersGenres, true);
-                }} : {}"
+                v-on="disabled === true ? { click: applyCallbacks } : {}"
               >
                 <v-select
                   ref="filtersGenres"
@@ -268,7 +269,7 @@
                     <div
                       class="mt-1 text-no-wrap"
                       style="cursor: pointer"
-                      v-on:click="focus($refs.filtersGenres, true)"
+                      v-on:click="applyCallbacks(true)"
                     >
                       {{ $t('games.filters.genres') }}
                     </div>
@@ -285,12 +286,15 @@
           cols="12"
           md="6"
         >
-          <base-filter v-bind:filter="filters.moods">
-            <template v-slot:default="{ parts, disabled, focus }">
+          <base-filter
+            v-bind:filter="filters.moods"
+            v-bind:callbacks="{
+              focus: [$refs.filtersMoods, true],
+            }"
+          >
+            <template v-slot:default="{ parts, disabled, applyCallbacks }">
               <v-col
-                v-on="disabled === true ? { click: () => {
-                  focus($refs.filtersMoods, true);
-                }} : {}"
+                v-on="disabled === true ? { click: applyCallbacks } : {}"
               >
                 <v-select
                   ref="filtersMoods"
@@ -312,7 +316,7 @@
                     <div
                       class="mt-1 text-no-wrap"
                       style="cursor: pointer"
-                      v-on:click="focus($refs.filtersMoods, true)"
+                      v-on:click="applyCallbacks(true)"
                     >
                       {{ $t('games.filters.moods') }}
                     </div>
@@ -329,12 +333,15 @@
           cols="12"
           md="6"
         >
-          <base-filter v-bind:filter="filters.types">
-            <template v-slot:default="{ parts, disabled, focus }">
+          <base-filter
+            v-bind:filter="filters.types"
+            v-bind:callbacks="{
+              focus: [$refs.filtersTypes, true],
+            }"
+          >
+            <template v-slot:default="{ parts, disabled, applyCallbacks }">
               <v-col
-                v-on="disabled === true ? { click: () => {
-                  focus($refs.filtersTypes, true);
-                }} : {}"
+                v-on="disabled === true ? { click: applyCallbacks } : {}"
               >
                 <v-select
                   ref="filtersTypes"
@@ -356,7 +363,7 @@
                     <div
                       class="mt-1 text-no-wrap"
                       style="cursor: pointer"
-                      v-on:click="focus($refs.filtersTypes, true)"
+                      v-on:click="applyCallbacks(true)"
                     >
                       {{ $t('games.filters.types') }}
                     </div>
