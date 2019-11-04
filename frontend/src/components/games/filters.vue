@@ -10,10 +10,14 @@
         v-if="hasActiveFilters"
         small
         color="accent"
+        v-bind:icon="$vuetify.breakpoint.xs === true"
         class="mr-3"
         v-on:click="$emit('reset-filters')"
       >
-        {{ $t('games.resetFilters') }}
+        <v-icon v-if="$vuetify.breakpoint.xs === true">
+          fas fa-undo
+        </v-icon>
+        <span v-else>{{ $t('games.resetFilters') }}</span>
       </v-btn>
       <span class="body-2">
         {{ $t('games.countGamesFiltered', {
@@ -115,31 +119,41 @@
               <v-col
                 v-on="disabled === true ? { click: applyCallbacks} : {}"
               >
-                <v-slider
-                  ref="filtersCountPlayerMin"
-                  v-model="parts.count_players_min"
-                  v-bind:disabled="disabled"
-                  v-bind:min="1"
-                  v-bind:max="6"
-                  hide-details
-                  ticks="always"
-                  tick-size="4"
-                  v-bind:label="$t('games.filters.countPlayersMin')"
-                  v-bind:tick-labels="[1, 2, 3, 4, 5, 6]"
-                />
-              </v-col>
-              <v-col>
-                <v-slider
-                  v-model="parts.count_players_max"
-                  v-bind:disabled="disabled"
-                  v-bind:min="2"
-                  v-bind:max="10"
-                  hide-details
-                  ticks="always"
-                  tick-size="4"
-                  v-bind:label="$t('games.filters.countPlayersMax')"
-                  v-bind:tick-labels="[2, 3, 4, 5, 6, 7, 8, 9, '10+']"
-                />
+                <v-row no-gutters>
+                  <v-col
+                    cols="12"
+                    sm="6"
+                  >
+                    <v-slider
+                      ref="filtersCountPlayerMin"
+                      v-model="parts.count_players_min"
+                      v-bind:disabled="disabled"
+                      v-bind:min="1"
+                      v-bind:max="6"
+                      hide-details
+                      ticks="always"
+                      tick-size="4"
+                      v-bind:label="$t('games.filters.countPlayersMin')"
+                      v-bind:tick-labels="[1, 2, 3, 4, 5, 6]"
+                    />
+                  </v-col>
+                  <v-col
+                    cols="12"
+                    sm="6"
+                  >
+                    <v-slider
+                      v-model="parts.count_players_max"
+                      v-bind:disabled="disabled"
+                      v-bind:min="2"
+                      v-bind:max="10"
+                      hide-details
+                      ticks="always"
+                      tick-size="4"
+                      v-bind:label="$t('games.filters.countPlayersMax')"
+                      v-bind:tick-labels="[2, 3, 4, 5, 6, 7, 8, 9, '10+']"
+                    />
+                  </v-col>
+                </v-row>
               </v-col>
             </template>
           </base-filter>
