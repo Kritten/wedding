@@ -174,10 +174,8 @@
                   v-bind:disabled="disabled"
                   v-bind:value="[parts.minutes_playtime_min, parts.minutes_playtime_max]"
                   v-bind:min="0"
-                  v-bind:max="9"
+                  v-bind:max="90"
                   hide-details
-                  ticks="always"
-                  tick-size="4"
                   v-bind:label="$t('games.filters.minutesPlaytime')"
                   v-bind:tick-labels="arrayLabelsPlaytimes"
                   v-on:change="parts.minutes_playtime_min = $event[0]; parts.minutes_playtime_max = $event[1]"
@@ -201,13 +199,13 @@
                 <v-range-slider
                   v-bind:disabled="disabled"
                   v-bind:value="[parts.minutes_explanation_min, parts.minutes_explanation_max]"
-                  v-bind:min="1"
-                  v-bind:max="5"
+                  v-bind:min="5"
+                  v-bind:max="40"
                   hide-details
                   ticks="always"
                   tick-size="4"
                   v-bind:label="$t('games.filters.minutesExplanation')"
-                  v-bind:tick-labels="['5m', '10m', '20m', '30m', '40m']"
+                  v-bind:tick-labels="arrayLabelsExplanation"
                   v-on:change="parts.minutes_explanation_min = $event[0]; parts.minutes_explanation_max = $event[1]"
                 />
               </v-col>
@@ -406,6 +404,7 @@ export default {
   },
   data() {
     return {
+      arrayLabelExplanationInitial: ['20m', '30m', '40m'],
     };
   },
   computed: {
@@ -421,8 +420,33 @@ export default {
     arrayTypes() {
       return this.$store.state.moduleGames.arrayTypes;
     },
+    arrayLabelsExplanation() {
+      const result = ['5m', null, null, null, null, '10m'];
+
+      for (let i = 0; i < 3; i += 1) {
+        for (let j = 0; j < 9; j += 1) {
+          result.push(null);
+        }
+
+        result.push(this.arrayLabelExplanationInitial[i]);
+      }
+
+      return result;
+    },
     arrayLabelsPlaytimes() {
-      return this.arrayPlaytimes.map(entry => entry.label);
+      const result = [];
+
+      for (let i = 0; i < this.arrayPlaytimes.length - 1; i += 1) {
+        result.push(this.arrayPlaytimes[i].label);
+
+        for (let j = 0; j < 9; j += 1) {
+          result.push(null);
+        }
+      }
+
+      result.push(this.arrayPlaytimes[this.arrayPlaytimes.length - 1].label);
+
+      return result;
     },
     arrayPlaytimes() {
       return ServiceGames.arrayPlaytimes;

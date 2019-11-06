@@ -96,10 +96,32 @@ class ClassServiceGames {
     }
 
     if (result.minutes_playtime_min !== undefined) {
-      result.minutes_playtime_min = this.arrayPlaytimes[result.minutes_playtime_min].minutes;
+      const index = Math.floor(result.minutes_playtime_min / 10.0);
+      const modulo = result.minutes_playtime_min % 10;
+      const current = this.arrayPlaytimes[index].minutes;
+      const next = this.arrayPlaytimes[index + 1].minutes;
+      const part = (next - current) / 10.0;
+
+      result.minutes_playtime_min = current + part * modulo;
     }
     if (result.minutes_playtime_max !== undefined) {
-      result.minutes_playtime_max = this.arrayPlaytimes[result.minutes_playtime_max].minutes;
+      const index = Math.floor((result.minutes_playtime_max) / 10.0);
+      const modulo = result.minutes_playtime_max % 10;
+      const current = this.arrayPlaytimes[index].minutes;
+      let next = 0;
+
+      try {
+        next = this.arrayPlaytimes[index + 1].minutes;
+      } catch (e) {}
+
+      const part = (next - current) / 10.0;
+
+      result.minutes_playtime_max = current + part * modulo;
+
+      // console.warn('index', index);
+      // result.minutes_playtime_max = this.arrayPlaytimes[index].minutes;
+      // console.warn('result.minutes_playtime_max', Math.floor(result.minutes_playtime_max / 9.0));
+      // result.minutes_playtime_max = this.arrayPlaytimes[result.minutes_playtime_max].minutes;
     }
 
     return result;

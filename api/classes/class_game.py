@@ -52,14 +52,14 @@ class ManagerGame(InterfaceManagerItems):
             queryset=queryset,
             request=request,
             name_filter='count_players_min',
-            name_field='count_players_min',
-            name_lookup='exact'
+            name_field='count_players_max',
+            name_lookup='gte'
         )
         queryset = ManagerGame.filter_value(
             queryset=queryset,
             request=request,
             name_filter='count_players_max',
-            name_field='count_players_max',
+            name_field='count_players_min',
             name_lookup='lte'
         )
 
@@ -67,14 +67,14 @@ class ManagerGame(InterfaceManagerItems):
             queryset=queryset,
             request=request,
             name_filter='minutes_playtime_min',
-            name_field='minutes_playtime_min',
+            name_field='minutes_playtime_max',
             name_lookup='gte'
         )
         queryset = ManagerGame.filter_value(
             queryset=queryset,
             request=request,
             name_filter='minutes_playtime_max',
-            name_field='minutes_playtime_max',
+            name_field='minutes_playtime_min',
             name_lookup='lte'
         )
 
