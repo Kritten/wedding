@@ -71,14 +71,14 @@ const filtersInitial = {
     active: false,
     parts: {
       minutes_playtime_min: 0,
-      minutes_playtime_max: 9,
+      minutes_playtime_max: 300,
     },
   },
   minutesExplanation: {
     active: false,
     parts: {
       minutes_explanation_min: 1,
-      minutes_explanation_max: 5,
+      minutes_explanation_max: 40,
     },
   },
   isCoop: {
