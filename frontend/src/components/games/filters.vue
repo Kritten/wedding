@@ -128,13 +128,13 @@
                       ref="filtersCountPlayerMin"
                       v-model="parts.count_players_min"
                       v-bind:disabled="disabled"
-                      v-bind:min="2"
+                      v-bind:min="1"
                       v-bind:max="6"
                       hide-details
                       ticks="always"
                       tick-size="4"
                       v-bind:label="$t('games.filters.countPlayersMin')"
-                      v-bind:tick-labels="[2, 3, 4, 5, 6]"
+                      v-bind:tick-labels="[1, 2, 3, 4, 5, 6]"
                     />
                   </v-col>
                   <v-col

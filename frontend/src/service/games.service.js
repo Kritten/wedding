@@ -96,35 +96,56 @@ class ClassServiceGames {
     }
 
     if (result.minutes_playtime_min !== undefined) {
-      const index = Math.floor(result.minutes_playtime_min / 10.0);
-      const modulo = result.minutes_playtime_min % 10;
-      const current = this.arrayPlaytimes[index].minutes;
-      const next = this.arrayPlaytimes[index + 1].minutes;
-      const part = (next - current) / 10.0;
-
-      result.minutes_playtime_min = current + part * modulo;
+      result.minutes_playtime_min = this.interpolate({
+        value: result.minutes_playtime_min,
+      });
     }
     if (result.minutes_playtime_max !== undefined) {
-      const index = Math.floor((result.minutes_playtime_max) / 10.0);
-      const modulo = result.minutes_playtime_max % 10;
-      const current = this.arrayPlaytimes[index].minutes;
-      let next = 0;
+      result.minutes_playtime_max = this.interpolate({
+        value: result.minutes_playtime_max,
+      });
+    }
 
-      try {
-        next = this.arrayPlaytimes[index + 1].minutes;
-      } catch (e) {}
 
-      const part = (next - current) / 10.0;
-
-      result.minutes_playtime_max = current + part * modulo;
-
-      // console.warn('index', index);
-      // result.minutes_playtime_max = this.arrayPlaytimes[index].minutes;
-      // console.warn('result.minutes_playtime_max', Math.floor(result.minutes_playtime_max / 9.0));
-      // result.minutes_playtime_max = this.arrayPlaytimes[result.minutes_playtime_max].minutes;
+    if (result.minutes_explanation_min !== undefined) {
+      result.minutes_explanation_min = Math.round(this.mapRange({
+        value: result.minutes_explanation_min,
+        rangeOld: [5, 40],
+        rangeNew: [1, 5],
+      }));
+    }
+    if (result.minutes_explanation_max !== undefined) {
+      result.minutes_explanation_max = Math.round(this.mapRange({
+        value: result.minutes_explanation_max,
+        rangeOld: [5, 40],
+        rangeNew: [1, 5],
+      }));
     }
 
     return result;
+  }
+
+  mapRange({
+    value, rangeOld, rangeNew,
+  }) {
+    const OldRange = (rangeOld[1] - rangeOld[0]);
+    const NewRange = (rangeNew[1] - rangeNew[0]);
+    return (((value - rangeNew[1]) * NewRange) / OldRange) + rangeNew[0];
+  }
+
+  interpolate({ value }) {
+    const index = Math.floor(value / 10.0);
+    const modulo = value % 10;
+    const current = this.arrayPlaytimes[index].minutes;
+    let next = 0;
+
+    try {
+      next = this.arrayPlaytimes[index + 1].minutes;
+    } catch (e) {}
+
+    const part = (next - current) / 10.0;
+
+    return current + part * modulo;
   }
 }
 export const ServiceGames = new ClassServiceGames();

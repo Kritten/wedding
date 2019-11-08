@@ -52,18 +52,18 @@ class ManagerGame(InterfaceManagerItems):
             queryset=queryset,
             request=request,
             name_filter='count_players_min',
-            name_field='count_players_min',
-            name_lookup='exact'
-            # name_field='count_players_max',
-            # name_lookup='gte'
+            # name_field='count_players_min',
+            # name_lookup='exact'
+            name_field='count_players_max',
+            name_lookup='gte'
         )
         queryset = ManagerGame.filter_value(
             queryset=queryset,
             request=request,
             name_filter='count_players_max',
-            name_field='count_players_max',
-            name_lookup='lte'
-            # name_field='count_players_min',
+            # name_field='count_players_max',
+            name_lookup='lte',
+            name_field='count_players_min'
         )
 
         queryset = ManagerGame.filter_value(

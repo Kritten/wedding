@@ -63,7 +63,7 @@ const filtersInitial = {
   countPlayers: {
     active: false,
     parts: {
-      count_players_min: 2,
+      count_players_min: 1,
       count_players_max: 10,
     },
   },
@@ -77,7 +77,7 @@ const filtersInitial = {
   minutesExplanation: {
     active: false,
     parts: {
-      minutes_explanation_min: 1,
+      minutes_explanation_min: 5,
       minutes_explanation_max: 40,
     },
   },
