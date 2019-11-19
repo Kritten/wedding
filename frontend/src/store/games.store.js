@@ -10,6 +10,7 @@ export const moduleGames = {
       arrayGenres: [],
       arrayMoods: [],
       arrayTypes: [],
+      hasSeenIntroduction: false,
     },
   },
 };

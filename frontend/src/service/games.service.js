@@ -94,33 +94,42 @@ class ClassServiceGames {
     if (result.count_players_max !== undefined && result.count_players_max === 10) {
       result.count_players_max = 10000;
     }
+    console.warn('result.minutes_playtime_min', result.minutes_playtime_min);
+    console.log('result.minutes_playtime_max', result.minutes_playtime_max);
 
-    if (result.minutes_playtime_min !== undefined) {
+    if (result.minutes_playtime_min !== undefined && result.minutes_playtime_max !== undefined) {
+      if (result.minutes_playtime_min > result.minutes_playtime_max) {
+        [result.minutes_playtime_min, result.minutes_playtime_max] = [result.minutes_playtime_max, result.minutes_playtime_min];
+      }
+
       result.minutes_playtime_min = this.interpolate({
         value: result.minutes_playtime_min,
       });
-    }
-    if (result.minutes_playtime_max !== undefined) {
       result.minutes_playtime_max = this.interpolate({
         value: result.minutes_playtime_max,
       });
     }
 
 
-    if (result.minutes_explanation_min !== undefined) {
-      result.minutes_explanation_min = Math.round(this.mapRange({
-        value: result.minutes_explanation_min,
-        rangeOld: [5, 40],
-        rangeNew: [1, 5],
-      }));
+    if (result.minutes_explanation_min !== undefined && result.minutes_explanation_max !== undefined) {
+      if (result.minutes_explanation_min > result.minutes_explanation_max) {
+        [result.minutes_explanation_min, result.minutes_explanation_max] = [result.minutes_explanation_max, result.minutes_explanation_min];
+      }
     }
-    if (result.minutes_explanation_max !== undefined) {
-      result.minutes_explanation_max = Math.round(this.mapRange({
-        value: result.minutes_explanation_max,
-        rangeOld: [5, 40],
-        rangeNew: [1, 5],
-      }));
-    }
+    // if (result.minutes_explanation_min !== undefined) {
+    //   result.minutes_explanation_min = Math.round(this.mapRange({
+    //     value: result.minutes_explanation_min,
+    //     rangeOld: [5, 40],
+    //     rangeNew: [1, 5],
+    //   }));
+    // }
+    // if (result.minutes_explanation_max !== undefined) {
+    //   result.minutes_explanation_max = Math.round(this.mapRange({
+    //     value: result.minutes_explanation_max,
+    //     rangeOld: [5, 40],
+    //     rangeNew: [1, 5],
+    //   }));
+    // }
 
     return result;
   }

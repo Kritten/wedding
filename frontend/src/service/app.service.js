@@ -54,7 +54,7 @@ class ClassServiceApp {
     });
 
     if (response.success === true) {
-      store.dispatch('moduleApp/init', response.data);
+      await store.dispatch('moduleApp/init', response.data);
 
       await this.loadUser();
 

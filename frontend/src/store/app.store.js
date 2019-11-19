@@ -1,3 +1,4 @@
+import localforage from 'localforage';
 import baseModule from './base.store';
 
 export const moduleApp = {
@@ -15,6 +16,11 @@ export const moduleApp = {
       async init({ commit }, config) {
         commit('setState', config.version);
 
+        const hasSeenIntroduction = await localforage.getItem('hasSeenIntroduction');
+        commit('moduleGames/setState', {
+          nameState: 'hasSeenIntroduction',
+          objectState: typeof hasSeenIntroduction !== 'boolean' ? false : hasSeenIntroduction,
+        }, { root: true });
 
         commit('moduleGames/setState', {
           nameState: 'countGamesTotal',

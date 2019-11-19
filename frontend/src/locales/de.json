@@ -10,11 +10,46 @@
          "countPlayersMin": "Spieleranzahl von",
          "countPlayersMax": "bis",
          "minutesPlaytime": "Spieldauer",
-         "minutesExplanation": "Erklärdauer",
+         "complexityMin": "Komplexität von",
+         "complexityMax": "bis",
          "isCoop": "Koop-Spiel",
          "genres": "Genre",
          "moods": "Stimmung",
          "types": "Typ"
+      },
+      "introduction": {
+         "common": {
+            "continue": "Weiter",
+            "back": "Zurück"
+         },
+         "coop": {
+            "header": "Koop",
+            "description": "Beschreibung",
+            "coop": "Kooperativ",
+            "competitive": "Gegeneinander",
+            "none": "Egal"
+         },
+         "playtime": {
+            "header": "Spieldauer",
+            "description": "",
+            "0": "ca. 10m",
+            "1": "ca. 30m",
+            "2": "ca. 1h",
+            "3": "über 2h",
+            "none": "Egal"
+         },
+         "explanation": {
+            "header": "Komplexität",
+            "description": "",
+            "0": "Niedrig",
+            "1": "Mittel",
+            "2": "Hoch",
+            "none": "Egal"
+         },
+         "properties": {
+            "header": "Eigenschaften",
+            "description": ""
+         }
       }
    },
    "security":{

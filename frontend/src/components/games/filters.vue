@@ -207,18 +207,53 @@
                 <v-col
                   v-on="disabled === true ? { click: applyCallbacks} : {}"
                 >
-                  <v-range-slider
-                    v-bind:disabled="disabled"
-                    v-bind:value="[parts.minutes_explanation_min, parts.minutes_explanation_max]"
-                    v-bind:min="5"
-                    v-bind:max="40"
-                    hide-details
-                    ticks="always"
-                    tick-size="4"
-                    v-bind:label="$t('games.filters.minutesExplanation')"
-                    v-bind:tick-labels="arrayLabelsExplanation"
-                    v-on:change="parts.minutes_explanation_min = $event[0]; parts.minutes_explanation_max = $event[1]"
-                  />
+                  <v-row no-gutters>
+                    <v-col
+                      cols="12"
+                      sm="6"
+                    >
+                      <v-slider
+                        ref="filtersCountPlayerMin"
+                        v-model="parts.minutes_explanation_min"
+                        v-bind:disabled="disabled"
+                        v-bind:min="1"
+                        v-bind:max="5"
+                        hide-details
+                        ticks="always"
+                        tick-size="4"
+                        v-bind:label="$t('games.filters.complexityMin')"
+                        v-bind:tick-labels="[1, 2, 3, 4, 5]"
+                      />
+                    </v-col>
+                    <v-col
+                      cols="12"
+                      sm="6"
+                      class="pl-3"
+                    >
+                      <v-slider
+                        v-model="parts.minutes_explanation_max"
+                        v-bind:disabled="disabled"
+                        v-bind:min="1"
+                        v-bind:max="5"
+                        hide-details
+                        ticks="always"
+                        tick-size="4"
+                        v-bind:label="$t('games.filters.complexityMax')"
+                        v-bind:tick-labels="[1, 2, 3, 4, 5]"
+                      />
+                    </v-col>
+                  </v-row>
+<!--                  <v-range-slider-->
+<!--                    v-bind:disabled="disabled"-->
+<!--                    v-bind:value="[parts.minutes_explanation_min, parts.minutes_explanation_max]"-->
+<!--                    v-bind:min="5"-->
+<!--                    v-bind:max="40"-->
+<!--                    hide-details-->
+<!--                    ticks="always"-->
+<!--                    tick-size="4"-->
+<!--                    v-bind:tick-labels="arrayLabelsExplanation"-->
+<!--                    v-on:change="parts.minutes_explanation_min = $event[0]; parts.minutes_explanation_max = $event[1]"-->
+<!--                  />-->
                 </v-col>
               </template>
             </base-filter>

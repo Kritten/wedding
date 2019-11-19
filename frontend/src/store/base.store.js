@@ -1,4 +1,5 @@
 import cloneDeep from 'lodash-es/cloneDeep';
+import localforage from 'localforage';
 
 export default {
   namespaced: true,
@@ -12,11 +13,15 @@ export default {
     },
   },
   actions: {
-    async setState({ commit }, { objectState, nameState }) {
+    async setState({ commit }, { objectState, nameState, nameStorage }) {
       commit('setState', {
         objectState,
         nameState,
       });
+
+      if (nameStorage !== undefined) {
+        await localforage.setItem(nameStorage, objectState);
+      }
     },
   },
 };
