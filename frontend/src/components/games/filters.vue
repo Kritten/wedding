@@ -449,6 +449,18 @@
 import BaseFilter from './base-filter';
 import { ServiceGames } from '../../service/games.service';
 
+const sortByLabel = (a, b) => {
+  const labelA = a.label.toLowerCase();
+  const labelB = b.label.toLowerCase();
+  if (labelA < labelB) {
+    return -1;
+  }
+  if (labelA > labelB) {
+    return 1;
+  }
+  return 0;
+};
+
 export default {
   name: 'Filters',
   components: { BaseFilter },
@@ -469,13 +481,22 @@ export default {
       return Object.values(this.filters).map(filter => filter.active).some(value => value === true);
     },
     arrayGenres() {
-      return this.$store.state.moduleGames.arrayGenres;
+      return this.$store.state.moduleGames.arrayGenres.map(genre => ({
+        id: genre.id,
+        label: this.$t(`games.genres.${genre.id}`),
+      })).sort(sortByLabel);
     },
     arrayMoods() {
-      return this.$store.state.moduleGames.arrayMoods;
+      return this.$store.state.moduleGames.arrayMoods.map(mood => ({
+        id: mood.id,
+        label: this.$t(`games.moods.${mood.id}`),
+      })).sort(sortByLabel);
     },
     arrayTypes() {
-      return this.$store.state.moduleGames.arrayTypes;
+      return this.$store.state.moduleGames.arrayTypes.map(type => ({
+        id: type.id,
+        label: this.$t(`games.types.${type.id}`),
+      })).sort(sortByLabel);
     },
     arrayLabelsExplanation() {
       const result = ['5m', null, null, null, null, '10m'];

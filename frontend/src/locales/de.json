@@ -23,7 +23,7 @@
             "title": "Einfacher Modus",
             "continue": "Nächster Filter",
             "back": "Vorheriger Filter",
-            "skip": "Überspringen und direkt zu den Spielen",
+            "skip": "Überspringen",
             "submit": "Suchen"
          },
          "coop": {
@@ -54,6 +54,44 @@
             "header": "Eigenschaften",
             "description": ""
          }
+      },
+      "moods": {
+         "2": "Knifflig",
+         "3": "Witzig",
+         "4": "Fies",
+         "5": "Horror",
+         "6": "Konzentriert",
+         "7": "Magisch",
+         "8": "Erzählerisch",
+         "9": "Schnell"
+      },
+      "genres": {
+         "1": "Strategie",
+         "2": "Glück",
+         "3": "Aufbau",
+         "4": "Abenteuer",
+         "5": "Wissen",
+         "6": "Kampf",
+         "7": "Party",
+         "8": "Kommunikation",
+         "9": "Logik",
+         "10": "Kreativ",
+         "11": "Reaktion",
+         "14": "Geschicklichkeit",
+         "15": "Ressourcen",
+         "16": "Deckbau",
+         "17": "Blöffen",
+         "18": "Erkunden",
+         "19": "Gebietskontrolle"
+      },
+      "types": {
+         "1": "Kartenspiel",
+         "2": "Brettspiel",
+         "3": "Legespiel",
+         "5": "Würfelspiel",
+         "6": "Rollenspiel",
+         "7": "Malspiel",
+         "8": "Kartenauslage"
       }
    },
    "security":{
