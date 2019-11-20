@@ -4,6 +4,7 @@
       "countGamesFiltered": "{countGames} von {countGamesTotal} Spielen",
       "infoCountPlayers": "{countPlayersMin} Spieler | {countPlayersMin} bis {countPlayersMax} Spieler",
       "resetFilters": "Filter zurücksetzen",
+      "noGamesFound": "Für die aktuellen Filter wurden keine Spiele gefunden. Versuche es einfach mit anderen Filtereinstellungen.",
       "filters": {
          "title": "Titel",
          "description": "Beschreibung",
@@ -19,8 +20,11 @@
       },
       "introduction": {
          "common": {
-            "continue": "Weiter",
-            "back": "Zurück"
+            "title": "Einfacher Modus",
+            "continue": "Nächster Filter",
+            "back": "Vorheriger Filter",
+            "skip": "Überspringen und direkt zu den Spielen",
+            "submit": "Suchen"
          },
          "coop": {
             "header": "Koop",

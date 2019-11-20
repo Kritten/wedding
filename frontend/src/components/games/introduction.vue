@@ -1,8 +1,6 @@
 <template>
   <v-row no-gutters>
     <v-col>
-      {{ stepCurrent }}
-      {{ filters }}
       <v-stepper
         v-model="stepCurrent"
         non-linear
@@ -148,10 +146,74 @@
             v-bind:step-current.sync="stepCurrent"
             v-bind:description="$t('games.introduction.properties.description')"
           >
-            playtime
+            <span class="title">{{ $t('games.filters.types') }}</span>
+            <v-chip-group
+              v-model="types"
+              multiple
+              column
+              active-class="primary--text"
+            >
+              <v-chip
+                v-for="genre in $store.state.moduleGames.arrayTypes"
+                v-bind:key="genre.id"
+                filter
+              >
+                {{ genre.label }}
+              </v-chip>
+            </v-chip-group>
+
+            <span class="title">{{ $t('games.filters.genres') }}</span>
+            <v-chip-group
+              v-model="genres"
+              multiple
+              column
+              active-class="primary--text"
+            >
+              <v-chip
+                v-for="genre in $store.state.moduleGames.arrayGenres"
+                v-bind:key="genre.id"
+                filter
+              >
+                {{ genre.label }}
+              </v-chip>
+            </v-chip-group>
+
+            <span class="title">{{ $t('games.filters.moods') }}</span>
+            <v-chip-group
+              v-model="moods"
+              multiple
+              column
+              active-class="primary--text"
+            >
+              <v-chip
+                v-for="genre in $store.state.moduleGames.arrayMoods"
+                v-bind:key="genre.id"
+                filter
+              >
+                {{ genre.label }}
+              </v-chip>
+            </v-chip-group>
           </introduction-step>
         </v-stepper-items>
       </v-stepper>
+    </v-col>
+    <v-col
+      cols="12"
+      class="mt-3 text-right"
+    >
+      <v-btn
+        text
+        class="mr-3 primary--text"
+        v-on:click="$emit('skip')"
+      >
+        {{ $t('games.introduction.common.skip') }}
+      </v-btn>
+      <v-btn
+        color="primary"
+        v-on:click="$emit('submit')"
+      >
+        {{ $t('games.introduction.common.submit') }}
+      </v-btn>
     </v-col>
   </v-row>
 </template>
@@ -174,6 +236,9 @@ export default {
       isCoop: 1,
       playtime: 4,
       explanation: 3,
+      types: [],
+      genres: [],
+      moods: [],
     };
   },
   watch: {
@@ -263,14 +328,72 @@ export default {
         };
       }
     },
-  },
-  methods: {
-    // console.log(this.$store.state.moduleGames.hasSeenIntroduction);
-    // this.$store.dispatch('moduleGames/setState', {
-    //   objectState: true,
-    //   nameState: 'hasSeenIntroduction',
-    //   nameStorage: 'hasSeenIntroduction',
-    // });
+    types() {
+      const arrayIds = this.types.reduce((arrayIds, index) => {
+        arrayIds.push(this.$store.state.moduleGames.arrayTypes[index].id);
+        return arrayIds;
+      }, []);
+
+      if (arrayIds.length === 0) {
+        this.filters.types = {
+          active: false,
+          parts: {
+            types: [],
+          },
+        };
+      } else {
+        this.filters.types = {
+          active: true,
+          parts: {
+            types: arrayIds,
+          },
+        };
+      }
+    },
+    genres() {
+      const arrayIds = this.genres.reduce((arrayIds, index) => {
+        arrayIds.push(this.$store.state.moduleGames.arrayGenres[index].id);
+        return arrayIds;
+      }, []);
+
+      if (arrayIds.length === 0) {
+        this.filters.genres = {
+          active: false,
+          parts: {
+            genres: [],
+          },
+        };
+      } else {
+        this.filters.genres = {
+          active: true,
+          parts: {
+            genres: arrayIds,
+          },
+        };
+      }
+    },
+    moods() {
+      const arrayIds = this.moods.reduce((arrayIds, index) => {
+        arrayIds.push(this.$store.state.moduleGames.arrayMoods[index].id);
+        return arrayIds;
+      }, []);
+
+      if (arrayIds.length === 0) {
+        this.filters.moods = {
+          active: false,
+          parts: {
+            moods: [],
+          },
+        };
+      } else {
+        this.filters.moods = {
+          active: true,
+          parts: {
+            moods: arrayIds,
+          },
+        };
+      }
+    },
   },
 };
 </script>

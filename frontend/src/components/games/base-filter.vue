@@ -2,7 +2,7 @@
   <v-row no-gutters>
     <v-col class="shrink">
       <v-checkbox
-        v-bind:value="filter.active"
+        v-bind:input-value="filter.active"
         class="mt-0"
         hide-details
         v-on:change="applyCallbacks"

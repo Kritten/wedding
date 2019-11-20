@@ -14,7 +14,7 @@
       <v-col cols="12">
         <v-btn
           v-if="stepCurrent > 1"
-          class="mt-3"
+          class="mt-3 primary--text"
           text
           small
           v-on:click="$emit('update:step-current', stepCurrent - 1)"
@@ -22,9 +22,9 @@
           {{ $t('games.introduction.common.back') }}
         </v-btn>
         <v-btn
-          v-bind:disabled="stepCurrent >= 4"
+          v-if="stepCurrent < 4"
           class="mt-3"
-          color="primary"
+          color="secondary primary--text"
           small
           v-on:click="$emit('update:step-current', stepCurrent + 1)"
         >

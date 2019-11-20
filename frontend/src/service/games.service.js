@@ -94,8 +94,6 @@ class ClassServiceGames {
     if (result.count_players_max !== undefined && result.count_players_max === 10) {
       result.count_players_max = 10000;
     }
-    console.warn('result.minutes_playtime_min', result.minutes_playtime_min);
-    console.log('result.minutes_playtime_max', result.minutes_playtime_max);
 
     if (result.minutes_playtime_min !== undefined && result.minutes_playtime_max !== undefined) {
       if (result.minutes_playtime_min > result.minutes_playtime_max) {

@@ -5,7 +5,11 @@
         v-if="isActiveIntroduction === true"
         cols="12"
       >
-        <introduction v-bind:filters.sync="filtersIntroduction" />
+        <introduction
+          v-bind:filters.sync="filtersIntroduction"
+          v-on:skip="skip"
+          v-on:submit="submit"
+        />
       </v-col>
       <v-col
         v-else
@@ -16,6 +20,7 @@
             <filters
               v-bind:filters.sync="filters"
               v-on:reset-filters="resetFilters"
+              v-on:start-introduction="isActiveIntroduction = true"
             />
           </v-col>
         </v-row>
@@ -27,6 +32,11 @@
           v-bind:loading="isLoading"
           loading-text=""
         >
+          <template v-slot:no-data>
+            <v-alert type="info">
+              {{ $t('games.noGamesFound') }}
+            </v-alert>
+          </template>
           <template v-slot:default="{ items }">
             <v-row class="mt-n3">
               <template
@@ -156,13 +166,45 @@ export default {
   async created() {
     if (this.$store.state.moduleGames.hasSeenIntroduction === false) {
       this.isActiveIntroduction = true;
+    } else {
+      this.loadPage({
+        initialize: true,
+      });
     }
-
-    this.loadPage({
-      initialize: true,
-    });
   },
   methods: {
+    skip() {
+      this.$store.dispatch('moduleGames/setState', {
+        objectState: true,
+        nameState: 'hasSeenIntroduction',
+        nameStorage: 'hasSeenIntroduction',
+      });
+
+      this.isActiveIntroduction = false;
+
+      this.filtersIntroduction = cloneDeep(filtersInitial);
+
+      this.loadPage({
+        initialize: true,
+      });
+    },
+    submit() {
+      this.$store.dispatch('moduleGames/setState', {
+        objectState: true,
+        nameState: 'hasSeenIntroduction',
+        nameStorage: 'hasSeenIntroduction',
+      });
+
+      this.isActiveIntroduction = false;
+
+      this.filters = this.filtersIntroduction;
+
+      this.loadPage({
+        initialize: true,
+      });
+
+      this.filtersIntroduction = cloneDeep(filtersInitial);
+    },
     resetFilters() {
       this.filters = cloneDeep(filtersInitial);
     },
@@ -172,7 +214,6 @@ export default {
         && this.isLoading === false
         && this.arrayGames.length < this.$store.state.moduleGames.countGames
       ) {
-        console.warn('123', 123);
         this.page += 1;
         this.loadPage({
           initialize: false,

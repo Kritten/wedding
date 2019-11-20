@@ -20,6 +20,15 @@
         <span v-else>{{ $t('games.resetFilters') }}</span>
       </v-btn>
 
+      <v-btn
+        color="accent"
+        small
+        class="mr-3"
+        v-on:click="$emit('start-introduction')"
+      >
+        {{ $t('games.introduction.common.title') }}
+      </v-btn>
+
       <span class="body-2">
         {{ $t('games.countGamesFiltered', {
           countGames: $store.state.moduleGames.countGames,
@@ -243,17 +252,17 @@
                       />
                     </v-col>
                   </v-row>
-<!--                  <v-range-slider-->
-<!--                    v-bind:disabled="disabled"-->
-<!--                    v-bind:value="[parts.minutes_explanation_min, parts.minutes_explanation_max]"-->
-<!--                    v-bind:min="5"-->
-<!--                    v-bind:max="40"-->
-<!--                    hide-details-->
-<!--                    ticks="always"-->
-<!--                    tick-size="4"-->
-<!--                    v-bind:tick-labels="arrayLabelsExplanation"-->
-<!--                    v-on:change="parts.minutes_explanation_min = $event[0]; parts.minutes_explanation_max = $event[1]"-->
-<!--                  />-->
+                  <!--                  <v-range-slider-->
+                  <!--                    v-bind:disabled="disabled"-->
+                  <!--                    v-bind:value="[parts.minutes_explanation_min, parts.minutes_explanation_max]"-->
+                  <!--                    v-bind:min="5"-->
+                  <!--                    v-bind:max="40"-->
+                  <!--                    hide-details-->
+                  <!--                    ticks="always"-->
+                  <!--                    tick-size="4"-->
+                  <!--                    v-bind:tick-labels="arrayLabelsExplanation"-->
+                  <!--                    v-on:change="parts.minutes_explanation_min = $event[0]; parts.minutes_explanation_max = $event[1]"-->
+                  <!--                  />-->
                 </v-col>
               </template>
             </base-filter>
