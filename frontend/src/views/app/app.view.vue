@@ -74,7 +74,7 @@ export default {
           to: { name: 'events' },
         },
         {
-          title: this.$i18n.t('games.title'),
+          title: this.$i18n.tc('games.title', 2),
           icon: 'fas fa-fw fa-dice',
           to: { name: 'games' },
         },

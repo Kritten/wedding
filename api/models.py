@@ -6,6 +6,7 @@ class User(AbstractUser):
     extern = models.BooleanField()
     count = models.IntegerField(null=True, blank=True)
     count_max = models.IntegerField(default=1)
+    games_favorite = models.ManyToManyField('Game', related_name='users', blank=True)
 
     REQUIRED_FIELDS = ['email', 'extern']
 
@@ -42,6 +43,11 @@ class Game(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class SuggestionGame(models.Model):
+    title = models.CharField(max_length=200)
+    user = models.ForeignKey('User', on_delete=models.CASCADE)
 
 
 class Genre(models.Model):

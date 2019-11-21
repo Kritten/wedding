@@ -1,10 +1,14 @@
 {
    "games":{
-      "title": "Spiele",
+      "title": "Spiel | Spiele",
       "countGamesFiltered": "{countGames} von {countGamesTotal} Spielen",
       "infoCountPlayers": "{countPlayersMin} Spieler | {countPlayersMin} bis {countPlayersMax} Spieler",
       "resetFilters": "Filter zurücksetzen",
-      "noGamesFound": "Für die aktuellen Filter wurden keine Spiele gefunden. Versuche es einfach mit anderen Filtereinstellungen.",
+      "noGamesFound": "Für die aktuellen Filter wurden keine Spiele gefunden. Versuche es einfach mit anderen Filtereinstellungen. Möchtest du ein eigenes Spiel mitbringen? Dann klicke hier:",
+      "description": "Wenn du ein eigenes Spiel mitbringen möchtest, klicke bitte auf \"@:games.addGame\"",
+      "addGame": "Spiel hinzufügen",
+      "addGameDescription": "Möchtest du ein eigenes Spiel mitbringen? Dann teile uns hier den Namen mit, wir fügen dann das Spiel der Spieleliste hinzu.",
+      "addedGame": "Danke, wir werden das Spiel schnellstmöglich der Liste hinzufügen",
       "filters": {
          "title": "Titel",
          "description": "Beschreibung",
@@ -78,8 +82,8 @@
          "10": "Kreativ",
          "11": "Reaktion",
          "14": "Geschicklichkeit",
-         "15": "Ressourcen",
-         "16": "Deckbau",
+         "15": "Ressourcenmanagement",
+         "16": "Kartensets sammeln",
          "17": "Blöffen",
          "18": "Erkunden",
          "19": "Gebietskontrolle"
@@ -118,7 +122,6 @@
       "acceptWith":"Zusagen mit {count} Person | Zusagen mit {count} Personen",
       "reject":"Absagen",
       "edit":"Ändern",
-      "cancel":"Abbrechen",
       "currentState":"Aktueller Status",
       "accepted":"Zugesagt",
       "acceptedWith":"Zugesagt mit {count} Person | Zugesagt mit {count} Personen",
@@ -136,5 +139,9 @@
    "contact":{
       "title":"Kontakt",
       "lappen":"Unsere Trauzeugen"
+   },
+   "common": {
+      "save": "Speichern",
+      "cancel": "Abbrechen"
    }
 }

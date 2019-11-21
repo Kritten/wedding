@@ -81,6 +81,18 @@ class ClassServiceGames {
     });
   }
 
+  async addSuggestion({ title }) {
+    await ServiceEndpoint.makeRequest({
+      url: {
+        path: store.state.moduleApp.objectUrls.games,
+      },
+      method: 'post',
+      data: {
+        title,
+      },
+    });
+  }
+
   generateFilters(filters) {
     const result = {};
     for (const { active, parts } of Object.values(filters)) {

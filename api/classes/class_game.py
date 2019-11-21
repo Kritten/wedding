@@ -4,7 +4,7 @@ from django.db.models import QuerySet
 from rest_framework.request import Request
 
 from api.classes.class_interface_manager_items import InterfaceManagerItems
-from api.models import Game
+from api.models import Game, SuggestionGame
 
 
 class ManagerGame(InterfaceManagerItems):
@@ -125,3 +125,10 @@ class ManagerGame(InterfaceManagerItems):
         )
 
         return queryset
+
+    @staticmethod
+    def add(user, data):
+        SuggestionGame.objects.create(
+            title=data.get('title'),
+            user=user
+        )

@@ -34,7 +34,8 @@
         >
           <template v-slot:no-data>
             <v-alert type="info">
-              {{ $t('games.noGamesFound') }}
+              {{ $t('games.noGamesFound') }}&nbsp;
+              <add-game />
             </v-alert>
           </template>
           <template v-slot:default="{ items }">
@@ -70,6 +71,7 @@ import Game from './game';
 import { ServiceGames } from '../../service/games.service';
 import Filters from './filters';
 import Introduction from './introduction';
+import AddGame from './add-game';
 
 const filtersInitial = {
   title: {
@@ -134,6 +136,7 @@ const filtersInitial = {
 export default {
   name: 'Games',
   components: {
+    AddGame,
     Introduction,
     Filters,
     Game,

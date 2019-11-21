@@ -47,7 +47,7 @@
               v-on:click="modeEdit = !modeEdit"
             >
               <template v-if="modeEdit === true">
-                {{ $t('confirmation.cancel') }}
+                {{ $t('common.cancel') }}
               </template>
               <template v-else>
                 {{ $t('confirmation.edit') }}

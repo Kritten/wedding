@@ -16,7 +16,7 @@
       cols="12"
       xl="6"
     >
-      Spiele
+      <the-game />
     </v-col>
     <v-col
       cols="12"
@@ -36,10 +36,12 @@
 <script>
 import Confirmation from '../../components/dashboard/confirmation';
 import TheCountdown from '../../components/dashboard/the-countdown';
+import TheGame from '../../components/dashboard/the-game';
 
 export default {
   name: 'DashboardView',
   components: {
+    TheGame,
     TheCountdown,
     Confirmation,
   },
