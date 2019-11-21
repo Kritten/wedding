@@ -199,20 +199,20 @@
     </v-col>
     <v-col
       cols="12"
-      class="mt-3 text-right"
+      class="mt-3"
     >
-      <v-btn
-        text
-        class="mr-3 primary--text"
-        v-on:click="$emit('skip')"
-      >
-        {{ $t('games.introduction.common.skip') }}
-      </v-btn>
       <v-btn
         color="primary"
         v-on:click="$emit('submit')"
       >
         {{ $t('games.introduction.common.submit') }}
+      </v-btn>
+      <v-btn
+        text
+        class="primary--text"
+        v-on:click="$emit('skip')"
+      >
+        {{ $t('games.introduction.common.skip') }}
       </v-btn>
     </v-col>
   </v-row>
