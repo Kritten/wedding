@@ -12,7 +12,7 @@
                 <v-row>
                   <v-col>Eileen Bartl</v-col>
                   <v-col class="text-right">
-                    <v-icon class="pr-3">
+                    <v-icon class="pr-3" style="font-size:21px">
                       fas fa-phone
                     </v-icon>
                     <v-icon class="pr-3">
@@ -30,7 +30,7 @@
                 <v-row>
                   <v-col>Kristof Komlossy</v-col>
                   <v-col class="text-right">
-                    <v-icon class="pr-3">
+                    <v-icon class="pr-3" style="font-size:21px">
                       fas fa-phone
                     </v-icon>
                     <v-icon class="pr-3">
@@ -77,7 +77,7 @@
                 <v-row>
                   <v-col>Jo-Anne Bartl</v-col>
                   <v-col class="text-right">
-                    <v-icon class="pr-3">
+                    <v-icon class="pr-3" style="font-size:21px">
                       fas fa-phone
                     </v-icon>
                     <v-icon class="pr-3">
@@ -95,7 +95,7 @@
                 <v-row>
                   <v-col>Johannes Schilling</v-col>
                   <v-col class="text-right">
-                    <v-icon class="pr-3">
+                    <v-icon class="pr-3" style="font-size:21px">
                       fas fa-phone
                     </v-icon>
                     <v-icon class="pr-3">
