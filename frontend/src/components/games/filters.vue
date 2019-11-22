@@ -24,9 +24,15 @@
         color="accent"
         small
         class="mr-3"
+        v-bind:icon="$vuetify.breakpoint.xs === true"
         v-on:click="$emit('start-introduction')"
       >
-        {{ $t('games.introduction.common.title') }}
+        <v-icon v-if="$vuetify.breakpoint.xs === true">
+          fas fa-question
+        </v-icon>
+        <span v-else>
+          {{ $t('games.introduction.common.title') }}
+        </span>
       </v-btn>
 
       <span class="body-2">
