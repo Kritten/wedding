@@ -60,7 +60,12 @@ class GameCustom(admin.ModelAdmin):
         'minutes_playtime_max',
         'is_coop',
         'minutes_explanation',
+        'countFavorised'
     )
+    readonly_fields = ('countFavorised',)
+
+    def countFavorised(self, obj):
+        return obj.users.count()
     # filter_horizontal = ('genres', 'types', 'images', 'moods')
 
 class SuggestionGameCustom(admin.ModelAdmin):
