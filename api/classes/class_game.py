@@ -1,3 +1,4 @@
+import json
 from typing import Tuple
 
 from django.db.models import QuerySet
@@ -123,6 +124,13 @@ class ManagerGame(InterfaceManagerItems):
             name_filter='types',
             name_field='types',
         )
+        # is_favorite
+        value = request.query_params.get('is_favorite')
+        if value is not None:
+            if json.loads(value) is True:
+                queryset = queryset.filter(users=request.user)
+            else:
+                queryset = queryset.exclude(users=request.user)
 
         return queryset
 

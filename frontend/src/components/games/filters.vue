@@ -446,6 +446,38 @@
               </template>
             </base-filter>
           </v-col>
+          <!--
+            favorites
+          -->
+          <v-col
+            cols="12"
+            md="6"
+          >
+            <base-filter v-bind:filter="filters.isFavorite">
+              <template v-slot:default="{ parts, disabled, applyCallbacks }">
+                <v-col
+                  v-on="disabled === true ? { click: applyCallbacks} : {}"
+                >
+                  <v-switch
+                    v-model="parts.is_favorite"
+                    v-bind:disabled="disabled"
+                    class="mt-0"
+                    hide-details
+                  >
+                    <template v-slot:prepend>
+                      <div
+                        class="mt-1"
+                        style="cursor: pointer"
+                        v-on:click="filters.isFavorite.parts.is_favorite = !filters.isFavorite.parts.is_favorite"
+                      >
+                        {{ $t('games.filters.isFavorite') }}
+                      </div>
+                    </template>
+                  </v-switch>
+                </v-col>
+              </template>
+            </base-filter>
+          </v-col>
         </v-row>
       </v-card-text>
     </v-expand-transition>

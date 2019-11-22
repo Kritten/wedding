@@ -113,6 +113,12 @@ const filtersInitial = {
       is_coop: false,
     },
   },
+  isFavorite: {
+    active: false,
+    parts: {
+      is_favorite: false,
+    },
+  },
   genres: {
     active: false,
     parts: {

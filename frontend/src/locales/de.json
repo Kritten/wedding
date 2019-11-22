@@ -26,7 +26,8 @@
          "isCoop": "Koop-Spiel",
          "genres": "Genre",
          "moods": "Stimmung",
-         "types": "Typ"
+         "types": "Typ",
+         "isFavorite": "Favoriten"
       },
       "introduction": {
          "common": {
