@@ -81,7 +81,11 @@
                     <template v-slot:prepend>
                       <div
                         class="mt-1 text-no-wrap"
-                        style="cursor: pointer"
+                        v-bind:style="{
+                          cursor: 'pointer',
+                          width: widthLabel,
+                          color: disabled ? colorDisabled : null,
+                        }"
                         v-on:click="applyCallbacks(true)"
                       >
                         {{ $t('games.filters.title') }}
@@ -99,38 +103,38 @@
             cols="12"
             md="6"
           >
-<!--            <base-filter-->
-<!--              v-bind:filter="filters.description"-->
-<!--              v-bind:callbacks="{-->
-<!--                focus: [$refs.filtersDescription],-->
-<!--              }"-->
-<!--            >-->
-<!--              <template v-slot:default="{ parts, disabled, applyCallbacks }">-->
-<!--                <v-col-->
-<!--                  v-on="disabled === true ? { click: applyCallbacks} : {}"-->
-<!--                >-->
-<!--                  <v-text-field-->
-<!--                    ref="filtersDescription"-->
-<!--                    v-bind:value="parts.description"-->
-<!--                    v-bind:disabled="disabled"-->
-<!--                    hide-details-->
-<!--                    dense-->
-<!--                    class="mt-0"-->
-<!--                    v-on:change="parts.description = $event"-->
-<!--                  >-->
-<!--                    <template v-slot:prepend>-->
-<!--                      <div-->
-<!--                        class="mt-1 text-no-wrap"-->
-<!--                        style="cursor: pointer"-->
-<!--                        v-on:click="applyCallbacks(true)"-->
-<!--                      >-->
-<!--                        {{ $t('games.filters.description') }}-->
-<!--                      </div>-->
-<!--                    </template>-->
-<!--                  </v-text-field>-->
-<!--                </v-col>-->
-<!--              </template>-->
-<!--            </base-filter>-->
+            <!--            <base-filter-->
+            <!--              v-bind:filter="filters.description"-->
+            <!--              v-bind:callbacks="{-->
+            <!--                focus: [$refs.filtersDescription],-->
+            <!--              }"-->
+            <!--            >-->
+            <!--              <template v-slot:default="{ parts, disabled, applyCallbacks }">-->
+            <!--                <v-col-->
+            <!--                  v-on="disabled === true ? { click: applyCallbacks} : {}"-->
+            <!--                >-->
+            <!--                  <v-text-field-->
+            <!--                    ref="filtersDescription"-->
+            <!--                    v-bind:value="parts.description"-->
+            <!--                    v-bind:disabled="disabled"-->
+            <!--                    hide-details-->
+            <!--                    dense-->
+            <!--                    class="mt-0"-->
+            <!--                    v-on:change="parts.description = $event"-->
+            <!--                  >-->
+            <!--                    <template v-slot:prepend>-->
+            <!--                      <div-->
+            <!--                        class="mt-1 text-no-wrap"-->
+            <!--                        style="cursor: pointer"-->
+            <!--                        v-on:click="applyCallbacks(true)"-->
+            <!--                      >-->
+            <!--                        {{ $t('games.filters.description') }}-->
+            <!--                      </div>-->
+            <!--                    </template>-->
+            <!--                  </v-text-field>-->
+            <!--                </v-col>-->
+            <!--              </template>-->
+            <!--            </base-filter>-->
           </v-col>
           <!--
             count players
@@ -158,9 +162,15 @@
                         hide-details
                         ticks="always"
                         tick-size="4"
-                        v-bind:label="$t('games.filters.countPlayersMin')"
                         v-bind:tick-labels="[1, 2, 3, 4, 5, 6]"
-                      />
+                        class="slider-margin-left-0"
+                      >
+                        <template v-slot:label>
+                          <div v-bind:style="{width: widthLabel}">
+                            {{ $t('games.filters.countPlayersMin') }}
+                          </div>
+                        </template>
+                      </v-slider>
                     </v-col>
                     <v-col
                       cols="12"
@@ -202,10 +212,16 @@
                     v-bind:min="0"
                     v-bind:max="90"
                     hide-details
-                    v-bind:label="$t('games.filters.minutesPlaytime')"
                     v-bind:tick-labels="arrayLabelsPlaytimes"
                     v-on:change="parts.minutes_playtime_min = $event[0]; parts.minutes_playtime_max = $event[1]"
-                  />
+                        class="slider-margin-left-0"
+                  >
+                    <template v-slot:label>
+                      <div v-bind:style="{width: widthLabel}">
+                        {{ $t('games.filters.minutesPlaytime') }}
+                      </div>
+                    </template>
+                  </v-range-slider>
                 </v-col>
               </template>
             </base-filter>
@@ -236,9 +252,15 @@
                         hide-details
                         ticks="always"
                         tick-size="4"
-                        v-bind:label="$t('games.filters.complexityMin')"
                         v-bind:tick-labels="[1, 2, 3, 4, 5]"
-                      />
+                        class="slider-margin-left-0"
+                      >
+                        <template v-slot:label>
+                          <div v-bind:style="{width: widthLabel}">
+                            {{ $t('games.filters.complexityMin') }}
+                          </div>
+                        </template>
+                      </v-slider>
                     </v-col>
                     <v-col
                       cols="12"
@@ -309,7 +331,11 @@
                     <template v-slot:prepend>
                       <div
                         class="mt-1 text-no-wrap"
-                        style="cursor: pointer"
+                        v-bind:style="{
+                          cursor: 'pointer',
+                          width: widthLabel,
+                          color: disabled ? colorDisabled : null,
+                        }"
                         v-on:click="applyCallbacks(true)"
                       >
                         {{ $t('games.filters.genres') }}
@@ -341,7 +367,11 @@
                     <template v-slot:prepend>
                       <div
                         class="mt-1"
-                        style="cursor: pointer"
+                        v-bind:style="{
+                          cursor: 'pointer',
+                          width: widthLabel,
+                          color: disabled ? colorDisabled : null,
+                        }"
                         v-on:click="filters.isCoop.parts.is_coop = !filters.isCoop.parts.is_coop"
                       >
                         {{ $t('games.filters.isCoop') }}
@@ -388,7 +418,11 @@
                     <template v-slot:prepend>
                       <div
                         class="mt-1 text-no-wrap"
-                        style="cursor: pointer"
+                        v-bind:style="{
+                          cursor: 'pointer',
+                          width: widthLabel,
+                          color: disabled ? colorDisabled : null,
+                        }"
                         v-on:click="applyCallbacks(true)"
                       >
                         {{ $t('games.filters.moods') }}
@@ -420,7 +454,11 @@
                     <template v-slot:prepend>
                       <div
                         class="mt-1"
-                        style="cursor: pointer"
+                        v-bind:style="{
+                          cursor: 'pointer',
+                          width: widthLabel,
+                          color: disabled ? colorDisabled : null,
+                        }"
                         v-on:click="filters.isFavorite.parts.is_favorite = !filters.isFavorite.parts.is_favorite"
                       >
                         {{ $t('games.filters.isFavorite') }}
@@ -467,7 +505,11 @@
                     <template v-slot:prepend>
                       <div
                         class="mt-1 text-no-wrap"
-                        style="cursor: pointer"
+                        v-bind:style="{
+                          cursor: 'pointer',
+                          width: widthLabel,
+                          color: disabled ? colorDisabled : null,
+                        }"
                         v-on:click="applyCallbacks(true)"
                       >
                         {{ $t('games.filters.types') }}
@@ -512,6 +554,8 @@ export default {
     return {
       arrayLabelExplanationInitial: ['20m', '30m', '40m'],
       showFilters: true,
+      widthLabel: '150px',
+      colorDisabled: 'rgba(255, 255, 255, 0.5)',
     };
   },
   computed: {
@@ -578,3 +622,9 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+  .slider-margin-left-0 .v-slider {
+    margin-left: 0 !important;
+  }
+</style>
