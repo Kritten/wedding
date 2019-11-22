@@ -9,7 +9,7 @@
     >
       <v-row no-gutters>
         <v-col>
-          <v-card-title>
+          <v-card-title style="word-break: normal">
             {{ game.title }}
           </v-card-title>
         </v-col>
