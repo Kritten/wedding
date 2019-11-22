@@ -1,7 +1,7 @@
 import json
 from typing import Tuple
 
-from django.db.models import QuerySet
+from django.db.models import QuerySet, Q
 from rest_framework.request import Request
 
 from api.classes.class_interface_manager_items import InterfaceManagerItems
@@ -33,13 +33,20 @@ class ManagerGame(InterfaceManagerItems):
 
     @staticmethod
     def filter(queryset: QuerySet, request: Request) -> QuerySet:
-        queryset = ManagerGame.filter_value(
-            queryset=queryset,
-            request=request,
-            name_filter='title',
-            name_field='title',
-            name_lookup='icontains'
-        )
+        value = request.query_params.get('title')
+        if value is not None:
+            queryset = queryset.filter(Q(title__icontains=value) | Q(description__icontains=value))
+                # queryset = queryset.filter(**{
+                #     '{}__{}'.format(name_field, name_lookup): value
+                # })
+
+        # queryset = ManagerGame.filter_value(
+        #     queryset=queryset,
+        #     request=request,
+        #     name_filter='title',
+        #     name_field='title',
+        #     name_lookup='icontains'
+        # )
 
         queryset = ManagerGame.filter_value(
             queryset=queryset,

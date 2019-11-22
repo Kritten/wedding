@@ -16,7 +16,7 @@
       "playtime": "Spieldauer",
       "infoPlaytime": "{playtimeMin} | {playtimeMin} bis {playtimeMax}",
       "filters": {
-         "title": "Titel",
+         "title": "Textsuche",
          "description": "Beschreibung",
          "countPlayersMin": "Spieleranzahl von",
          "countPlayersMax": "bis",
