@@ -9,12 +9,18 @@
       "addGame": "Spiel hinzufügen",
       "addGameDescription": "Möchtest du ein eigenes Spiel mitbringen? Dann teile uns hier den Namen mit, wir fügen dann das Spiel der Spieleliste hinzu.",
       "addedGame": "Danke, wir werden das Spiel schnellstmöglich der Liste hinzufügen",
+      "details": "Details",
+      "favorite": "Favorit",
+      "complexity": "Komplexität",
+      "countPlayers": "Spieleranzahl",
+      "playtime": "Spieldauer",
+      "infoPlaytime": "{playtimeMin} | {playtimeMin} bis {playtimeMax}",
       "filters": {
          "title": "Titel",
          "description": "Beschreibung",
          "countPlayersMin": "Spieleranzahl von",
          "countPlayersMax": "bis",
-         "minutesPlaytime": "Spieldauer",
+         "minutesPlaytime": "@:games.playtime",
          "complexityMin": "Komplexität von",
          "complexityMax": "bis",
          "isCoop": "Koop-Spiel",
@@ -47,7 +53,7 @@
             "none": "Egal"
          },
          "explanation": {
-            "header": "Komplexität",
+            "header": "@:games.complexity",
             "description": "",
             "0": "Niedrig",
             "1": "Mittel",
@@ -142,6 +148,7 @@
    },
    "common": {
       "save": "Speichern",
-      "cancel": "Abbrechen"
+      "cancel": "Abbrechen",
+      "back": "Zurück"
    }
 }
