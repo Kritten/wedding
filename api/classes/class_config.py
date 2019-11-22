@@ -34,6 +34,7 @@ class ManagerConfig(object):
             # Games
             ##################################################################
             'games': 'games',
+            'gamesSetFavorite': 'games/set_favorite',
         }
 
         return dictionary_paths

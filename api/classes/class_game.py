@@ -132,3 +132,10 @@ class ManagerGame(InterfaceManagerItems):
             title=data.get('title'),
             user=user
         )
+
+    @staticmethod
+    def set_favorite(request):
+        if request.data.get('is_favorite'):
+            request.user.games_favorite.add(request.data.get('id_game'))
+        else:
+            request.user.games_favorite.remove(request.data.get('id_game'))

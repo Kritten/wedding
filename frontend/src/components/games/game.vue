@@ -7,9 +7,27 @@
     <v-card
       class="fill-height"
     >
-      <v-card-title>
-        {{ game.title }}
-      </v-card-title>
+      <v-row no-gutters>
+        <v-col>
+          <v-card-title>
+            {{ game.title }}
+          </v-card-title>
+        </v-col>
+        <v-col class="shrink">
+          <v-hover>
+            <v-btn
+              slot-scope="{ hover }"
+              text
+              icon
+              v-bind:loading="loadingFavorite"
+              color="secondary"
+              v-on:click="setFavorite"
+            >
+              <v-icon>{{ hover || isFavorite ? 'mdi-star' : 'mdi-star-outline' }}</v-icon>
+            </v-btn>
+          </v-hover>
+        </v-col>
+      </v-row>
       <div v-show="showDetails === false">
         <v-carousel
           v-if="game.images.length > 0"
@@ -130,6 +148,8 @@
 </template>
 
 <script>
+import { ServiceGames } from '../../service/games.service';
+
 export default {
   name: 'Game',
   props: {
@@ -141,6 +161,7 @@ export default {
   data() {
     return {
       showDetails: false,
+      loadingFavorite: false,
     };
   },
   computed: {
@@ -150,6 +171,9 @@ export default {
     playtimeMaxFormatted() {
       return this.formatPlaytime(this.game.minutes_playtime_max);
     },
+    isFavorite() {
+      return this.$store.state.moduleApp.objectUser.games_favorite.some(idGame => idGame === this.game.id);
+    },
   },
   methods: {
     formatPlaytime(playtime) {
@@ -158,6 +182,16 @@ export default {
       }
 
       return `${playtime}m`;
+    },
+    async setFavorite() {
+      this.loadingFavorite = true;
+
+      await ServiceGames.setFavorite({
+        isFavorite: !this.isFavorite,
+        idGame: this.game.id,
+      });
+
+      this.loadingFavorite = false;
     },
   },
 };

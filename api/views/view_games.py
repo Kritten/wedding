@@ -30,3 +30,10 @@ class ViewGames(APIView):
         ManagerGame.add(user=request.user, data=request.data)
 
         return Response({})
+
+
+@api_view(['POST'])
+def set_favorite(request):
+    ManagerGame.set_favorite(request)
+
+    return Response({})

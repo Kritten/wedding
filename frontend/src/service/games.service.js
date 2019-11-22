@@ -166,5 +166,35 @@ class ClassServiceGames {
 
     return current + part * modulo;
   }
+
+  async setFavorite({ isFavorite, idGame }) {
+    await ServiceEndpoint.makeRequest({
+      url: {
+        path: store.state.moduleApp.objectUrls.gamesSetFavorite,
+      },
+      method: 'post',
+      data: {
+        is_favorite: isFavorite,
+        id_game: idGame,
+      },
+    });
+
+    let gamesFavorite = cloneDeep(store.state.moduleApp.objectUser.games_favorite);
+    if (isFavorite === true) {
+      gamesFavorite.push(idGame);
+    } else {
+      gamesFavorite = gamesFavorite.filter(id => id !== idGame);
+    }
+
+    store.state.moduleApp.objectUser.games_favorite;
+
+    store.commit('moduleApp/setState', {
+      nameState: 'objectUser',
+      objectState: {
+        ...store.state.moduleApp.objectUser,
+        ...{ games_favorite: gamesFavorite },
+      },
+    });
+  }
 }
 export const ServiceGames = new ClassServiceGames();

@@ -12,4 +12,5 @@ urlpatterns = [
     path('events', view_event.ViewEvents.as_view(), name='events'),
 
     path('games', view_games.ViewGames.as_view(), name='games'),
+    path('games/set_favorite', view_games.set_favorite, name='games_set_favorite'),
 ]
