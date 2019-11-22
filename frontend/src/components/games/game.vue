@@ -5,7 +5,7 @@
     xl="4"
   >
     <v-card
-      class="fill-height"
+      class="fill-height d-flex flex-column"
     >
       <v-row no-gutters>
         <v-col>
@@ -13,14 +13,14 @@
             {{ game.title }}
           </v-card-title>
         </v-col>
-        <v-col class="shrink">
+        <v-col class="shrink pa-3">
           <v-hover>
             <v-btn
               slot-scope="{ hover }"
               text
               icon
               v-bind:loading="loadingFavorite"
-              color="secondary"
+              color="primary"
               v-on:click="setFavorite"
             >
               <v-icon>{{ hover || isFavorite ? 'mdi-star' : 'mdi-star-outline' }}</v-icon>
@@ -86,6 +86,7 @@
                     dense
                     x-small
                     readonly
+                    color="accent"
                     v-bind:value="game.minutes_explanation"
                   />
                 </v-col>
@@ -133,16 +134,6 @@
             {{ $t('games.details') }}</span>
         </v-btn>
       </v-card-actions>
-
-      <!--      <v-expand-transition>-->
-      <!--        <div v-show="showDetails">-->
-      <!--          <v-divider />-->
-
-      <!--          <v-card-text>-->
-      <!--            {{ game.description }}-->
-      <!--          </v-card-text>-->
-      <!--        </div>-->
-      <!--      </v-expand-transition>-->
     </v-card>
   </v-col>
 </template>
