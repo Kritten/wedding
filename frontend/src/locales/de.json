@@ -149,6 +149,16 @@
       "title":"Kontakt",
       "lappen":"Unsere Trauzeugen"
    },
+   "gifts": {
+      "title": "Geschenk | Geschenke"
+   },
+   "food": {
+      "title": "Essen",
+      "plan": "Essenplan"
+   },
+   "hotels": {
+      "title": "Unterkünfte"
+   },
    "common": {
       "save": "Speichern",
       "cancel": "Abbrechen",
