@@ -7,6 +7,7 @@ class User(AbstractUser):
     count = models.IntegerField(null=True, blank=True)
     count_max = models.IntegerField(default=1)
     games_favorite = models.ManyToManyField('Game', related_name='users', blank=True)
+    filters = models.TextField(null=True, blank=True)
 
     REQUIRED_FIELDS = ['email', 'extern']
 

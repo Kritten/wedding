@@ -13,4 +13,5 @@ class SerializerUser(serializers.ModelSerializer):
             'count_max',
             'extern',
             'games_favorite',
+            'filters',
         )

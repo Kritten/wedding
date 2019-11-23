@@ -72,6 +72,7 @@ import { ServiceGames } from '../../service/games.service';
 import Filters from './filters';
 import Introduction from './introduction';
 import AddGame from './add-game';
+import { ServiceUser } from '../../service/user.service';
 
 const filtersInitial = {
   title: {
@@ -152,7 +153,7 @@ export default {
       page: 1,
       isLoading: false,
       showFilters: true,
-      filters: cloneDeep(filtersInitial),
+      filters: null,
       filtersIntroduction: cloneDeep(filtersInitial),
       isActiveIntroduction: false,
     };
@@ -164,10 +165,29 @@ export default {
   },
   watch: {
     filters: {
-      handler() {
+      handler(newValue, oldValue) {
         console.warn('this.filters', this.filters);
         this.page = 1;
         this.loadPage({ initialize: true });
+
+        if (oldValue !== null) {
+          let filters = null;
+
+          const filtersActive = Object.entries(newValue).reduce((obj, [key, value]) => {
+            if (value.active === true) {
+              obj[key] = value;
+            }
+            return obj;
+          }, {});
+
+          if (Object.keys(filtersActive).length > 0) {
+            filters = filtersActive;
+          }
+
+          ServiceUser.update({
+            filters: filters === null ? filters : JSON.stringify(filters),
+          });
+        }
       },
       deep: true,
     },
@@ -176,9 +196,15 @@ export default {
     if (this.$store.state.moduleGames.hasSeenIntroduction === false) {
       this.isActiveIntroduction = true;
     } else {
-      this.loadPage({
-        initialize: true,
-      });
+      const filtersUser = this.$store.state.moduleApp.objectUser.filters;
+      if (filtersUser !== null) {
+        this.filters = {
+          ...cloneDeep(filtersInitial),
+          ...cloneDeep(JSON.parse(filtersUser)),
+        };
+      } else {
+        this.filters = cloneDeep(filtersInitial);
+      }
     }
   },
   methods: {
