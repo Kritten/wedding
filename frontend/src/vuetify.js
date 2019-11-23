@@ -16,10 +16,12 @@ export default new Vuetify({
   theme: {
     themes: {
       light: {
-        primary: colors.indigo.darken4,
-        secondary: colors.yellow.accent4,
-        accent: colors.grey.base,
-        // background: colors.grey.lighten3,
+        primary: colors.indigo.darken2,
+        secondary: '#ffe588',
+        accent: '#b9c4ca',
+        // primary: colors.indigo.darken4,
+        // secondary: colors.yellow.accent4,
+        // accent: colors.grey.base,
       },
     },
   },
