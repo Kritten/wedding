@@ -11,6 +11,8 @@
       "addedGame": "Danke, wir werden das Spiel schnellstmöglich der Liste hinzufügen",
       "details": "Details",
       "favorite": "Favorit",
+      "addedFavorite": "Das Spiel wurde als Favorit hinzugefügt",
+      "removedFavorite": "Das Spiel wurde aus den Favoriten entfernt",
       "complexity": "Komplexität",
       "countPlayers": "Spieleranzahl",
       "playtime": "Spieldauer",

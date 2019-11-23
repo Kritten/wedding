@@ -182,6 +182,10 @@ export default {
         idGame: this.game.id,
       });
 
+      this.$store.dispatch('moduleApp/openSnackbar', {
+        text: !this.isFavorite === true ? this.$i18n.t('games.addedFavorite') : this.$i18n.t('games.removedFavorite'),
+      });
+
       this.loadingFavorite = false;
     },
   },
