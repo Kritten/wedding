@@ -151,7 +151,7 @@
                   <v-row no-gutters>
                     <v-col
                       cols="12"
-                      sm="6"
+                      xl="6"
                     >
                       <v-slider
                         ref="filtersCountPlayerMin"
@@ -174,7 +174,7 @@
                     </v-col>
                     <v-col
                       cols="12"
-                      sm="6"
+                      xl="6"
                       class="pl-3"
                     >
                       <v-slider
@@ -213,8 +213,8 @@
                     v-bind:max="90"
                     hide-details
                     v-bind:tick-labels="arrayLabelsPlaytimes"
+                    class="slider-margin-left-0"
                     v-on:change="parts.minutes_playtime_min = $event[0]; parts.minutes_playtime_max = $event[1]"
-                        class="slider-margin-left-0"
                   >
                     <template v-slot:label>
                       <div v-bind:style="{width: widthLabel}">
@@ -241,7 +241,7 @@
                   <v-row no-gutters>
                     <v-col
                       cols="12"
-                      sm="6"
+                      lg="7"
                     >
                       <v-slider
                         ref="filtersCountPlayerMin"
@@ -264,7 +264,7 @@
                     </v-col>
                     <v-col
                       cols="12"
-                      sm="6"
+                      lg="5"
                       class="pl-3"
                     >
                       <v-slider
@@ -554,7 +554,7 @@ export default {
     return {
       arrayLabelExplanationInitial: ['20m', '30m', '40m'],
       showFilters: true,
-      widthLabel: '150px',
+      widthLabel: '130px',
       colorDisabled: 'rgba(255, 255, 255, 0.5)',
     };
   },
@@ -595,9 +595,14 @@ export default {
     },
     arrayLabelsPlaytimes() {
       const result = [];
+      console.warn('this.$vuetify.breakpoint', this.$vuetify.breakpoint.mdAndDown);
 
       for (let i = 0; i < this.arrayPlaytimes.length - 1; i += 1) {
-        result.push(this.arrayPlaytimes[i].label);
+        if (this.$vuetify.breakpoint.mdAndDown === true && i % 2 === 0) {
+          result.push(null);
+        } else {
+          result.push(this.arrayPlaytimes[i].label);
+        }
 
         for (let j = 0; j < 9; j += 1) {
           result.push(null);
