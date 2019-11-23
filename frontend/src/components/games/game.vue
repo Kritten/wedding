@@ -14,18 +14,15 @@
           </v-card-title>
         </v-col>
         <v-col class="shrink pa-3">
-          <v-hover>
-            <v-btn
-              slot-scope="{ hover }"
-              text
-              icon
-              v-bind:loading="loadingFavorite"
-              color="primary"
-              v-on:click="setFavorite"
-            >
-              <v-icon>{{ hover || isFavorite ? 'mdi-star' : 'mdi-star-outline' }}</v-icon>
-            </v-btn>
-          </v-hover>
+          <v-btn
+            text
+            icon
+            v-bind:loading="loadingFavorite"
+            color="primary"
+            v-on:click="setFavorite"
+          >
+            <v-icon>{{ isFavorite ? 'mdi-star' : 'mdi-star-outline' }}</v-icon>
+          </v-btn>
         </v-col>
       </v-row>
       <div v-show="showDetails === false">
@@ -177,13 +174,15 @@ export default {
     async setFavorite() {
       this.loadingFavorite = true;
 
+      const stateNew = !this.isFavorite;
+
       await ServiceGames.setFavorite({
-        isFavorite: !this.isFavorite,
+        isFavorite: stateNew,
         idGame: this.game.id,
       });
 
       this.$store.dispatch('moduleApp/openSnackbar', {
-        text: !this.isFavorite === true ? this.$i18n.t('games.addedFavorite') : this.$i18n.t('games.removedFavorite'),
+        text: stateNew === true ? this.$i18n.t('games.addedFavorite') : this.$i18n.t('games.removedFavorite'),
       });
 
       this.loadingFavorite = false;
