@@ -363,6 +363,7 @@
                     v-bind:disabled="disabled"
                     class="mt-0"
                     hide-details
+                    style="height: 32px"
                   >
                     <template v-slot:prepend>
                       <div
@@ -450,6 +451,7 @@
                     v-bind:disabled="disabled"
                     class="mt-0"
                     hide-details
+                    style="height: 32px"
                   >
                     <template v-slot:prepend>
                       <div
