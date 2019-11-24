@@ -37,13 +37,14 @@
           </v-col>
           <v-col
             align-self="center"
-            class="text-center"
-            cols="3"
+            class="text-md-center"
+            cols="12"
             md="2"
           >
             <v-btn
               text
               color="primary"
+              class="pl-0 pl-md-4"
               v-on:click="modeEdit = !modeEdit"
             >
               <template v-if="modeEdit === true">
@@ -103,16 +104,20 @@
             </v-row>
             <v-row
               v-else
+              dense
             >
               <v-col
+                cols="12"
+                md="6"
                 class="py-0"
               >
                 <v-row
                   dense
                 >
                   <v-col
-                    cols="2"
-                    class="py-0"
+                    cols="12"
+                    md="2"
+                    class="py-md-0"
                   >
                     <v-select
                       v-model="count"
@@ -122,7 +127,7 @@
                     />
                   </v-col>
                   <v-col
-                    class="py-0"
+                    class="py-md-0"
                   >
                     <v-btn
                       color="accent"
@@ -144,7 +149,8 @@
               </v-col>
 
               <v-col
-                cols="4"
+                cols="12"
+                md="4"
                 class="py-0"
               >
                 <v-btn
