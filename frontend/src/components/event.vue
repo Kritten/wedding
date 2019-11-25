@@ -37,7 +37,7 @@
               md="6"
             >
               <span class="title">{{ $t('events.description') }}</span>
-              <pre>{{ event.description }}</pre>
+              <pre style="white-space: pre-wrap">{{ event.description }}</pre>
             </v-col>
             <v-col
               cols="12"
