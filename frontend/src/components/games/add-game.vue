@@ -6,7 +6,7 @@
     <template v-slot:activator="{ on }">
       <v-btn
         color="primary"
-        small
+        text
         v-on="on"
       >
         {{ $t('games.addGame') }}
