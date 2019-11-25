@@ -33,6 +33,7 @@
           next-icon="mdi-chevron-right"
           prev-icon="mdi-chevron-left"
           v-bind:show-arrows="game.images.length > 1"
+          v-bind:hide-delimiters="game.images.length === 1"
         >
           <v-carousel-item
             v-for="image in game.images"
