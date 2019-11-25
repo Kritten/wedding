@@ -5,8 +5,7 @@
     </v-card-title>
     <v-card-text>
       <v-row no-gutters>
-        <v-col>
-        </v-col>
+        <v-col v-html="$store.state.moduleApp.objectTexts.hotelsDashboard" />
       </v-row>
     </v-card-text>
   </v-card>

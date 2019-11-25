@@ -1,20 +1,17 @@
 <template>
-  <v-card class="fill-height">
+  <v-card class="fill-height d-flex flex-column">
     <v-card-title>
       {{ $tc('games.title', 2) }}
     </v-card-title>
     <v-card-text>
       <v-row no-gutters>
-        <v-col>
-          {{ $t('games.description') }}
-        </v-col>
-      </v-row>
-      <v-row>
-        <v-col>
-          <add-game />
-        </v-col>
+        <v-col v-html="$store.state.moduleApp.objectTexts.gamesDashboard" />
       </v-row>
     </v-card-text>
+    <v-spacer />
+    <v-card-actions>
+      <add-game />
+    </v-card-actions>
   </v-card>
 </template>
 
