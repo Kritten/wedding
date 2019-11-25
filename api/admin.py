@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from .models import User, Event, Game, Image, Genre, Mood, Type, SuggestionGame
+from .models import User, Event, Game, Image, Genre, Mood, Type, SuggestionGame, Text
 
 from django.contrib.auth.forms import UserCreationForm
 
@@ -68,9 +68,16 @@ class GameCustom(admin.ModelAdmin):
         return obj.users.count()
     # filter_horizontal = ('genres', 'types', 'images', 'moods')
 
+
 class SuggestionGameCustom(admin.ModelAdmin):
     list_display = (
         'title',
+    )
+
+
+class TextCustom(admin.ModelAdmin):
+    list_display = (
+        'label',
     )
 
 
@@ -81,4 +88,5 @@ admin.site.register(Mood)
 admin.site.register(Genre)
 admin.site.register(Type)
 admin.site.register(Image)
+admin.site.register(Text, TextCustom)
 admin.site.register(SuggestionGame, SuggestionGameCustom)

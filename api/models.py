@@ -78,3 +78,8 @@ class Image(models.Model):
 
     def __str__(self):
         return self.label
+
+
+class Text(models.Model):
+    label = models.CharField(max_length=100, unique=True)
+    text = models.TextField()

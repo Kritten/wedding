@@ -2,6 +2,7 @@ from rest_framework import serializers
 
 from api.serializers.serializer_genre import SerializerGenre
 from api.serializers.serializer_mood import SerializerMood
+from api.serializers.serializer_text import SerializerText
 from api.serializers.serializer_type import SerializerType
 
 
@@ -12,6 +13,7 @@ class SerializerConfig(serializers.Serializer):
     genres = SerializerGenre(many=True)
     moods = SerializerMood(many=True)
     types = SerializerType(many=True)
+    texts = SerializerText(many=True)
 
     class Meta:
         fields = (
@@ -21,4 +23,5 @@ class SerializerConfig(serializers.Serializer):
             'genres',
             'moods',
             'types',
+            'texts',
         )

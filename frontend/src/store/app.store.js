@@ -11,6 +11,7 @@ export const moduleApp = {
       objectUrls: {},
       objectUser: null,
       objectSnackbar: null,
+      objectTexts: null,
     },
     actions: {
       async init({ commit }, config) {
@@ -45,6 +46,11 @@ export const moduleApp = {
         commit('setState', {
           nameState: 'objectUrls',
           objectState: config.paths,
+        });
+
+        commit('setState', {
+          nameState: 'objectTexts',
+          objectState: config.texts.reduce((obj, text) => { obj[text.label] = text.text; return obj; }, {}),
         });
       },
       openSnackbar({ commit }, objectSnackbar) {

@@ -1,6 +1,6 @@
 from django.conf import settings
 
-from api.models import Game, Genre, Mood, Type
+from api.models import Game, Genre, Mood, Type, Text
 
 
 class ManagerConfig(object):
@@ -13,6 +13,7 @@ class ManagerConfig(object):
             'genres': Genre.objects.all(),
             'moods': Mood.objects.all(),
             'types': Type.objects.all(),
+            'texts': Text.objects.all(),
         }
 
         return config
