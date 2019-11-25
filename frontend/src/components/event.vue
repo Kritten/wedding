@@ -20,9 +20,7 @@
           fluid
           class="pa-0"
         >
-          <v-row
-            dense
-          >
+          <v-row>
             <v-col
               v-if="$vuetify.breakpoint.smAndDown"
               cols="12"
