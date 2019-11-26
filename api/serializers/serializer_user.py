@@ -14,4 +14,5 @@ class SerializerUser(serializers.ModelSerializer):
             'extern',
             'games_favorite',
             'filters',
+            'food',
         )

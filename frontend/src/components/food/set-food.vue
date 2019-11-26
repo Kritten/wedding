@@ -15,12 +15,13 @@
 
     <v-card>
       <form v-on:submit.prevent="submit">
-        <v-card-title>{{ $t('games.addGame') }}</v-card-title>
+        <v-card-title>{{ $t('food.setFood') }}</v-card-title>
         <v-card-text>
-          <p>{{ $t('games.addGameDescription') }}</p>
-          <v-text-field
-            v-model="game"
-            v-bind:label="$tc('games.title')"
+          <p>{{ $t('food.setFoodDescription') }}</p>
+          <v-textarea
+            v-model="food"
+            v-bind:label="$tc('food.notes')"
+            outlined
           />
         </v-card-text>
         <v-card-actions>
@@ -31,7 +32,10 @@
           >
             {{ $t('common.save') }}
           </v-btn>
-          <v-btn text v-on:click="cancel">
+          <v-btn
+            text
+            v-on:click="cancel"
+          >
             {{ $t('common.cancel') }}
           </v-btn>
         </v-card-actions>
@@ -42,37 +46,35 @@
 
 <script>
 import { required } from 'vuelidate/lib/validators';
+import { ServiceUser } from '../../service/user.service';
 
 export default {
   name: 'SetFood',
   data() {
     return {
       open: false,
-      game: null,
+      food: this.$store.state.moduleApp.objectUser.food,
     };
   },
   methods: {
     submit() {
-      ServiceGames.addSuggestion({
-        title: this.game,
+      ServiceUser.update({
+        food: this.food,
       }).then(() => {
         this.cancel();
 
         this.$store.dispatch('moduleApp/openSnackbar', {
-          text: this.$i18n.t('games.addedGame'),
+          text: this.$i18n.t('food.addedFood'),
           timeout: 6000,
         });
       });
     },
     cancel() {
       this.open = false;
-      this.game = null;
+      this.food = this.$store.state.moduleApp.objectUser.food;
     },
   },
   validations: {
-    game: {
-      required,
-    },
   },
 };
 </script>

@@ -154,7 +154,11 @@
    },
    "food": {
       "title": "Verpflegung",
-      "plan": "Essenplan"
+      "plan": "Essenplan",
+      "setFood": "Anmerkungen zur Ernährung",
+      "setFoodDescription": "Gibt es Unverträglichkeiten, Veganismus, Vegetarismus, Wünsche, ...?",
+      "notes": "Anmerkungen",
+      "addedFood": "Die Anmerkungen zur Ernährung wurden gespeichert"
    },
    "hotels": {
       "title": "Unterkünfte"
