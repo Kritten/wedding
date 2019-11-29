@@ -1,48 +1,46 @@
 <template>
-  <v-card class="fill-height">
-    <v-card-title>
-      Countdown
-    </v-card-title>
-    <v-card-text class="black--text">
-      <countdown v-bind:end-time="endTime">
-        <template
-          v-slot:process="{ timeObj }"
-        >
-          <span
-            v-bind:class="{
-              'title': $vuetify.breakpoint.xsOnly,
-              'headline': $vuetify.breakpoint.smOnly,
-              'display-1': $vuetify.breakpoint.smAndUp,
-            }"
-          >{{ display(timeObj) }}</span>
-        </template>
-        <template
-          v-slot:finish
-        >
-          <span>Done!</span>
-        </template>
-      </countdown>
-    </v-card-text>
-  </v-card>
+  <countdown
+    v-if="$vuetify.breakpoint.smAndUp"
+    v-bind:end-time="endTime"
+  >
+    <template
+      v-slot:process="{ timeObj }"
+    >
+      <span
+        class="title"
+      >noch {{ display(timeObj) }}</span>
+    </template>
+    <template
+      v-slot:finish
+    >
+      <span>Done!</span>
+    </template>
+  </countdown>
 </template>
 
 <script>
+import { parseISO } from 'date-fns';
+
 export default {
   name: 'TheCountdown',
   data() {
     return {
-      endTime: new Date(2020, 4, 17, 13).getTime(),
+      endTime: parseISO('2020-05-17T14:00:00').getTime(),
     };
   },
   methods: {
     display(timeObj) {
       let result = '';
-      result += `
-        ${timeObj.d} ${this.$tc('countdown.days', timeObj.d)}
+
+      result += `${timeObj.d} ${this.$tc('countdown.days', timeObj.d)}`;
+
+      if (this.$vuetify.breakpoint.mdAndUp === true) {
+        result += `
         ${timeObj.h} ${this.$tc('countdown.hours', timeObj.h)}
         ${timeObj.m} ${this.$tc('countdown.minutes', timeObj.m)}
         ${timeObj.s} ${this.$tc('countdown.seconds', timeObj.s)}
       `;
+      }
       return result;
     },
   },

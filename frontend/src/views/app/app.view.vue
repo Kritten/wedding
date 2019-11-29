@@ -43,7 +43,9 @@
     >
       <v-app-bar-nav-icon v-on:click.stop="drawer = !drawer" />
 
-      <v-toolbar-title>Hochzeit</v-toolbar-title>
+      <v-toolbar-title>Hochzeit von Eileen und Kristof</v-toolbar-title>
+      <v-spacer />
+      <the-countdown />
     </v-app-bar>
 
     <v-content>
@@ -56,9 +58,11 @@
 
 <script>
 import { ServiceApp } from '../../service/app.service';
+import TheCountdown from '../../components/dashboard/the-countdown';
 
 export default {
   name: 'AppView',
+  components: { TheCountdown },
   data() {
     return {
       drawer: null,

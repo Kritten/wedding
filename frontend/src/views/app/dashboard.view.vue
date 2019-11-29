@@ -4,12 +4,6 @@
       cols="12"
       xl="6"
     >
-      <the-countdown />
-    </v-col>
-    <v-col
-      cols="12"
-      xl="6"
-    >
       <confirmation />
     </v-col>
     <v-col
@@ -42,7 +36,6 @@
 
 <script>
 import Confirmation from '../../components/dashboard/confirmation';
-import TheCountdown from '../../components/dashboard/the-countdown';
 import TheGame from '../../components/dashboard/the-game';
 import Gifts from '../../components/dashboard/gifts';
 import TheFood from '../../components/dashboard/the-food';
@@ -55,7 +48,6 @@ export default {
     TheFood,
     Gifts,
     TheGame,
-    TheCountdown,
     Confirmation,
   },
 };
