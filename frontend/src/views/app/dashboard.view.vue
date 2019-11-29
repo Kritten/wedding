@@ -31,6 +31,7 @@
       <gifts />
     </v-col>
     <v-col
+      v-if="$store.state.moduleApp.objectUser.extern === true"
       cols="12"
       xl="6"
     >
