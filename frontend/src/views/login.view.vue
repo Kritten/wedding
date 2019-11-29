@@ -6,33 +6,64 @@
         justify="center"
         class="fill-height"
       >
-        <v-col
-          xs="12"
-          lg="4"
-        >
-          <v-row>
-            <v-col class="text-center">
-              <form
-                v-on:submit.prevent="login"
+        <v-col>
+          <v-row
+            no-gutters
+          >
+            <v-col cols="12">
+              <v-row
+                no-gutters
+                justify="center"
               >
-                <v-text-field
-                  ref="username"
-                  v-model="username"
-                  v-bind:label="$t('security.username')"
-                />
-                <v-text-field
-                  v-model="password"
-                  type="password"
-                  v-bind:label="$t('security.password')"
-                />
-                <v-btn
-                  color="primary"
-                  type="submit"
-                  v-bind:disabled="$v.$invalid"
+                <v-col
+                  cols="12"
+                  lg="5"
                 >
-                  {{ $t('security.login') }}
-                </v-btn>
-              </form>
+                  <v-alert
+                    outlined
+                    color="primary"
+                    class="text-center"
+                  >
+                    <div>Die Zugangsdaten befinden sich auf der Rückseite der "Infos"-Karte der Einladung</div>
+                  </v-alert>
+                </v-col>
+              </v-row>
+            </v-col>
+          </v-row>
+
+          <v-row
+            no-gutters
+            justify="center"
+          >
+            <v-col
+              xs="12"
+              lg="4"
+            >
+              <v-row>
+                <v-col class="text-center">
+                  <form
+                    v-on:submit.prevent="login"
+                  >
+                    <v-text-field
+                      ref="username"
+                      v-model="username"
+                      v-bind:label="$t('security.username')"
+                    />
+                    <v-text-field
+                      v-model="password"
+                      type="password"
+                      v-bind:label="$t('security.password')"
+                    />
+                    <v-btn
+                      color="primary"
+                      type="submit"
+                      v-bind:disabled="$v.$invalid"
+                    >
+                      {{ $t('security.login') }}
+                    </v-btn>
+                  </form>
+                </v-col>
+              </v-row>
             </v-col>
           </v-row>
         </v-col>
