@@ -5,7 +5,7 @@
         <v-card-title>
           {{ $t('contact.title') }}
         </v-card-title>
-        <v-card-text>
+        <v-card-text class="black--text">
           <v-container fluid class="pa-0">
             <v-row no-gutters>
               <v-col cols="12" md="6" lg="5" xl="8">
@@ -70,7 +70,7 @@
         <v-card-title>
           {{ $t('contact.lappen') }}
         </v-card-title>
-        <v-card-text>
+        <v-card-text class="black--text">
           <v-container fluid class="pa-0">
             <v-row no-gutters>
               <v-col cols="12" md="6" lg="5" xl="8">
