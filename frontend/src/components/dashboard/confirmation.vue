@@ -69,7 +69,7 @@
                 class="py-0"
               >
                 <v-btn
-                  color="accent"
+                  color="primary"
                   v-bind:value="1"
                   block
                   v-on:click="updateConfirmation(1)"
@@ -87,7 +87,7 @@
                 class="py-0"
               >
                 <v-btn
-                  color="accent"
+                  color="primary"
                   v-bind:value="0"
                   block
                   v-on:click="updateConfirmation(0)"
@@ -130,7 +130,7 @@
                     class="py-md-0"
                   >
                     <v-btn
-                      color="accent"
+                      color="primary"
                       v-bind:value="1"
                       block
                       v-bind:disabled="count === 0"
@@ -154,7 +154,7 @@
                 class="py-0"
               >
                 <v-btn
-                  color="accent"
+                  color="primary"
                   v-bind:value="0"
                   block
                   v-on:click="updateConfirmation(0)"
