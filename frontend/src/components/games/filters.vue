@@ -17,7 +17,10 @@
         <v-icon v-if="$vuetify.breakpoint.xs === true">
           fas fa-undo
         </v-icon>
-        <span v-else>{{ $t('games.resetFilters') }}</span>
+        <span
+          v-else
+          class="primary--text"
+        >{{ $t('games.resetFilters') }}</span>
       </v-btn>
 
       <v-btn
@@ -30,7 +33,10 @@
         <v-icon v-if="$vuetify.breakpoint.xs === true">
           fas fa-question
         </v-icon>
-        <span v-else>
+        <span
+          v-else
+          class="primary--text"
+        >
           {{ $t('games.introduction.common.title') }}
         </span>
       </v-btn>
