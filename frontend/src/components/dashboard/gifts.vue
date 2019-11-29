@@ -16,7 +16,7 @@
                 <v-icon>fas fa-university fa-fw</v-icon>
               </v-list-item-icon>
               <v-list-item-content>
-                IBAN: DE64 1203 0000 1060 8481 14
+                IBAN: DE64 1203 0000 1060 8481 14 Inhaber: Kristof Komlossy und Eileen Bartl
               </v-list-item-content>
             </v-list-item>
 
@@ -25,7 +25,7 @@
                 <v-icon>fab fa-cc-paypal fa-fw</v-icon>
               </v-list-item-icon>
               <v-list-item-content>
-                <a href="paypal.me/krittendotorg">paypal.me/krittendotorg</a>
+                <a href="https://paypal.me/krittendotorg" target="_blank">paypal.me/krittendotorg</a>
               </v-list-item-content>
             </v-list-item>
           </v-list>
