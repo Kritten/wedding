@@ -116,9 +116,7 @@
         </v-card-text>
       </div>
       <div v-show="showDetails === true">
-        <v-card-text>
-          {{ game.description }}
-        </v-card-text>
+        <v-card-text><span style="white-space: pre; white-space: pre-wrap">{{ game.description }}</span></v-card-text>
       </div>
       <v-card-actions>
         <v-btn

@@ -34,8 +34,16 @@
               cols="12"
               md="6"
             >
-              <span class="title">{{ $t('events.description') }}</span>
-              <pre style="white-space: pre-wrap">{{ event.description }}</pre>
+              <v-row no-gutters>
+                <v-col>
+                  <span class="title">{{ $t('events.description') }}</span>
+                </v-col>
+              </v-row>
+              <v-row no-gutters>
+                <v-col>
+                  <span style="white-space: pre; white-space: pre-wrap">{{ event.description }}</span>
+                </v-col>
+              </v-row>
             </v-col>
             <v-col
               cols="12"
