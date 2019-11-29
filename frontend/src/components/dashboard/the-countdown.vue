@@ -3,7 +3,7 @@
     <v-card-title>
       Countdown
     </v-card-title>
-    <v-card-text>
+    <v-card-text class="black--text">
       <countdown v-bind:end-time="endTime">
         <template
           v-slot:process="{ timeObj }"

@@ -15,7 +15,7 @@
       <v-card-title class="headline pb-0">
         {{ event.title }}
       </v-card-title>
-      <v-card-text>
+      <v-card-text class="black--text">
         <v-container
           fluid
           class="pa-0"

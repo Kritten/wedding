@@ -3,7 +3,7 @@
     <v-card-title>
       {{ $t('food.title') }}
     </v-card-title>
-    <v-card-text>
+    <v-card-text class="black--text">
       <v-row no-gutters>
         <v-col v-html="$store.state.moduleApp.objectTexts.foodDashboard" />
       </v-row>

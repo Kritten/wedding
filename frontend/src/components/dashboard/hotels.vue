@@ -3,7 +3,7 @@
     <v-card-title>
       {{ $tc('hotels.title', 2) }}
     </v-card-title>
-    <v-card-text>
+    <v-card-text class="black--text">
       <v-row no-gutters>
         <v-col v-html="$store.state.moduleApp.objectTexts.hotelsDashboard" />
       </v-row>
