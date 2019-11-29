@@ -104,7 +104,8 @@
          "5": "Würfelspiel",
          "6": "Rollenspiel",
          "7": "Malspiel",
-         "8": "Kartenauslage"
+         "8": "Kartenauslage",
+         "9": "Deckbau"
       }
    },
    "security":{
