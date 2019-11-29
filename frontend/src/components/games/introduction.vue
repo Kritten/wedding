@@ -41,105 +41,129 @@
             v-bind:step-current.sync="stepCurrent"
             v-bind:description="$t('games.introduction.playtime.description')"
           >
-            <v-btn-toggle
-              v-model="playtime"
-              mandatory
+            <v-row
+              no-gutters
+              class="justify-center justify-md-start"
             >
-              <v-btn
-                x-large
-                class="text-none"
-              >
-                {{ $t('games.introduction.playtime.0') }}
-              </v-btn>
-              <v-btn
-                x-large
-                class="text-none"
-              >
-                {{ $t('games.introduction.playtime.1') }}
-              </v-btn>
-              <v-btn
-                x-large
-                class="text-none"
-              >
-                {{ $t('games.introduction.playtime.2') }}
-              </v-btn>
-              <v-btn
-                x-large
-                class="text-none"
-              >
-                {{ $t('games.introduction.playtime.3') }}
-              </v-btn>
-              <v-btn
-                class="ml-5 text-none"
-                x-large
-              >
-                {{ $t('games.introduction.playtime.none') }}
-              </v-btn>
-            </v-btn-toggle>
+              <v-col class="shrink">
+                <v-btn-toggle
+                  v-model="playtime"
+                  mandatory
+                  v-bind:style="objectStyles"
+                >
+                  <v-btn
+                    x-large
+                    class="text-none"
+                  >
+                    {{ $t('games.introduction.playtime.0') }}
+                  </v-btn>
+                  <v-btn
+                    x-large
+                    class="text-none"
+                  >
+                    {{ $t('games.introduction.playtime.1') }}
+                  </v-btn>
+                  <v-btn
+                    x-large
+                    class="text-none"
+                  >
+                    {{ $t('games.introduction.playtime.2') }}
+                  </v-btn>
+                  <v-btn
+                    x-large
+                    class="text-none"
+                  >
+                    {{ $t('games.introduction.playtime.3') }}
+                  </v-btn>
+                  <v-btn
+                    class="ml-md-5 text-none"
+                    x-large
+                  >
+                    {{ $t('games.introduction.playtime.none') }}
+                  </v-btn>
+                </v-btn-toggle>
+              </v-col>
+            </v-row>
           </introduction-step>
           <introduction-step
             v-bind:step="2"
             v-bind:step-current.sync="stepCurrent"
             v-bind:description="$t('games.introduction.explanation.description')"
           >
-            <v-btn-toggle
-              v-model="explanation"
-              mandatory
+            <v-row
+              no-gutters
+              class="justify-center justify-md-start"
             >
-              <v-btn
-                x-large
-                class="text-none"
-              >
-                {{ $t('games.introduction.explanation.0') }}
-              </v-btn>
-              <v-btn
-                x-large
-                class="text-none"
-              >
-                {{ $t('games.introduction.explanation.1') }}
-              </v-btn>
-              <v-btn
-                x-large
-                class="text-none"
-              >
-                {{ $t('games.introduction.explanation.2') }}
-              </v-btn>
-              <v-btn
-                class="ml-5 text-none"
-                x-large
-              >
-                {{ $t('games.introduction.explanation.none') }}
-              </v-btn>
-            </v-btn-toggle>
+              <v-col class="shrink">
+                <v-btn-toggle
+                  v-model="explanation"
+                  mandatory
+                  v-bind:style="objectStyles"
+                >
+                  <v-btn
+                    x-large
+                    class="text-none"
+                  >
+                    {{ $t('games.introduction.explanation.0') }}
+                  </v-btn>
+                  <v-btn
+                    x-large
+                    class="text-none"
+                  >
+                    {{ $t('games.introduction.explanation.1') }}
+                  </v-btn>
+                  <v-btn
+                    x-large
+                    class="text-none"
+                  >
+                    {{ $t('games.introduction.explanation.2') }}
+                  </v-btn>
+                  <v-btn
+                    class="ml-md-5 text-none"
+                    x-large
+                  >
+                    {{ $t('games.introduction.explanation.none') }}
+                  </v-btn>
+                </v-btn-toggle>
+              </v-col>
+            </v-row>
           </introduction-step>
           <introduction-step
             v-bind:step="3"
             v-bind:step-current.sync="stepCurrent"
             v-bind:description="$t('games.introduction.coop.description')"
           >
-            <v-btn-toggle
-              v-model="isCoop"
-              mandatory
+            <v-row
+              no-gutters
+              class="justify-center justify-md-start"
             >
-              <v-btn
-                x-large
-                class="text-none"
-              >
-                {{ $t('games.introduction.coop.coop') }}
-              </v-btn>
-              <v-btn
-                x-large
-                class="text-none"
-              >
-                {{ $t('games.introduction.coop.none') }}
-              </v-btn>
-              <v-btn
-                x-large
-                class="text-none"
-              >
-                {{ $t('games.introduction.coop.competitive') }}
-              </v-btn>
-            </v-btn-toggle>
+              <v-col class="shrink">
+                <v-btn-toggle
+                  v-model="isCoop"
+                  mandatory
+                  v-bind:style="objectStyles"
+                >
+                  <v-btn
+                    x-large
+                    class="text-none"
+                  >
+                    {{ $t('games.introduction.coop.coop') }}
+                  </v-btn>
+                  <v-btn
+                    x-large
+                    class="text-none"
+                  >
+                    {{ $t('games.introduction.coop.none') }}
+                  </v-btn>
+                  <v-btn
+                    x-large
+                    class="text-none"
+                  >
+                    {{ $t('games.introduction.coop.competitive') }}
+                  </v-btn>
+                </v-btn-toggle>
+              </v-col>
+            </v-row>
           </introduction-step>
           <introduction-step
             v-bind:step="4"
@@ -154,7 +178,7 @@
               active-class="primary--text"
             >
               <v-chip
-                v-for="genre in $store.state.moduleGames.arrayTypes"
+                v-for="genre in arrayTypes"
                 v-bind:key="genre.id"
                 filter
               >
@@ -170,7 +194,7 @@
               active-class="primary--text"
             >
               <v-chip
-                v-for="genre in $store.state.moduleGames.arrayGenres"
+                v-for="genre in arrayGenres"
                 v-bind:key="genre.id"
                 filter
               >
@@ -186,7 +210,7 @@
               active-class="primary--text"
             >
               <v-chip
-                v-for="genre in $store.state.moduleGames.arrayMoods"
+                v-for="genre in arrayMoods"
                 v-bind:key="genre.id"
                 filter
               >
@@ -221,6 +245,18 @@
 <script>
 import IntroductionStep from './introduction-step';
 
+const sortByLabel = (a, b) => {
+  const labelA = a.label.toLowerCase();
+  const labelB = b.label.toLowerCase();
+  if (labelA < labelB) {
+    return -1;
+  }
+  if (labelA > labelB) {
+    return 1;
+  }
+  return 0;
+};
+
 export default {
   name: 'Introduction',
   components: { IntroductionStep },
@@ -240,6 +276,35 @@ export default {
       genres: [],
       moods: [],
     };
+  },
+  computed: {
+    objectStyles() {
+      if (this.$vuetify.breakpoint.smAndDown === true) {
+        return {
+          'flex-direction': 'column',
+        };
+      }
+
+      return {};
+    },
+    arrayGenres() {
+      return this.$store.state.moduleGames.arrayGenres.map(genre => ({
+        id: genre.id,
+        label: this.$t(`games.genres.${genre.id}`),
+      })).sort(sortByLabel);
+    },
+    arrayMoods() {
+      return this.$store.state.moduleGames.arrayMoods.map(mood => ({
+        id: mood.id,
+        label: this.$t(`games.moods.${mood.id}`),
+      })).sort(sortByLabel);
+    },
+    arrayTypes() {
+      return this.$store.state.moduleGames.arrayTypes.map(type => ({
+        id: type.id,
+        label: this.$t(`games.types.${type.id}`),
+      })).sort(sortByLabel);
+    },
   },
   watch: {
     isCoop() {

@@ -41,7 +41,7 @@
          },
          "coop": {
             "header": "Koop",
-            "description": "Beschreibung",
+            "description": "",
             "coop": "Kooperativ",
             "competitive": "Gegeneinander",
             "none": "Egal"
