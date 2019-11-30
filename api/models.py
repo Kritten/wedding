@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django.template.defaultfilters import truncatechars
 
 
 class User(AbstractUser):
@@ -11,6 +12,13 @@ class User(AbstractUser):
     food = models.TextField(null=True, blank=True)
 
     REQUIRED_FIELDS = ['email', 'extern']
+
+    @property
+    def food_short(self):
+        if self.food is None:
+            return '-'
+        else:
+            return truncatechars(self.food, 50)
 
 
 class Event(models.Model):

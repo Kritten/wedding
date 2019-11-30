@@ -19,7 +19,7 @@ class UserAdminCustom(UserAdmin):
             'fields': ('username', 'password')
         }),
         ('Info', {
-            'fields': ('extern', 'count', 'count_max')
+            'fields': ('extern', 'count', 'count_max', 'food')
         }),
     )
 
@@ -28,11 +28,11 @@ class UserAdminCustom(UserAdmin):
             'fields': ('username', 'password1', 'password2')
         }),
         ('Info', {
-            'fields': ('extern', 'count', 'count_max')
+            'fields': ('extern', 'count', 'count_max', 'food')
         }),
     )
 
-    list_display = ('username', 'extern', 'count', 'email', 'is_staff')
+    list_display = ('username', 'extern', 'count', 'email', 'is_staff', 'food_short')
 
 
 class EventCustom(admin.ModelAdmin):
