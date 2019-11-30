@@ -19,7 +19,7 @@ class UserAdminCustom(UserAdmin):
             'fields': ('username', 'password')
         }),
         ('Info', {
-            'fields': ('extern', 'count', 'count_max', 'food')
+            'fields': ('extern', 'count', 'count_max', 'food', 'games_favorite_list')
         }),
     )
 
@@ -28,11 +28,17 @@ class UserAdminCustom(UserAdmin):
             'fields': ('username', 'password1', 'password2')
         }),
         ('Info', {
-            'fields': ('extern', 'count', 'count_max', 'food')
+            'fields': ('extern', 'count', 'count_max')
         }),
     )
 
-    list_display = ('username', 'extern', 'count', 'email', 'is_staff', 'food_short')
+    list_display = ('username', 'extern', 'count', 'email', 'is_staff', 'food_short', 'games_favorite_list')
+
+    def get_readonly_fields(self, request, obj=None):
+        return ('games_favorite_list', )
+
+    def games_favorite_list(self, obj):
+        return ", ".join([g.title for g in obj.games_favorite.all()])
 
 
 class EventCustom(admin.ModelAdmin):
