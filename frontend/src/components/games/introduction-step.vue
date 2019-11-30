@@ -2,6 +2,9 @@
   <v-stepper-content v-bind:step="step">
     <v-row no-gutters>
       <v-col cols="12">
+        <div class="headline mb-3">{{ title }}</div>
+      </v-col>
+      <v-col cols="12">
         <v-card flat>
           {{ description }}
         </v-card>
@@ -46,6 +49,10 @@ export default {
     stepCurrent: {
       required: true,
       type: Number,
+    },
+    title: {
+      required: true,
+      type: String,
     },
     description: {
       required: true,

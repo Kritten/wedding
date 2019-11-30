@@ -39,6 +39,7 @@
           <introduction-step
             v-bind:step="1"
             v-bind:step-current.sync="stepCurrent"
+            v-bind:title="$t('games.introduction.playtime.header')"
             v-bind:description="$t('games.introduction.playtime.description')"
           >
             <v-row
@@ -88,6 +89,7 @@
           <introduction-step
             v-bind:step="2"
             v-bind:step-current.sync="stepCurrent"
+            v-bind:title="$t('games.introduction.explanation.header')"
             v-bind:description="$t('games.introduction.explanation.description')"
           >
             <v-row
@@ -131,6 +133,7 @@
           <introduction-step
             v-bind:step="3"
             v-bind:step-current.sync="stepCurrent"
+            v-bind:title="$t('games.introduction.coop.header')"
             v-bind:description="$t('games.introduction.coop.description')"
           >
             <v-row
@@ -168,6 +171,7 @@
           <introduction-step
             v-bind:step="4"
             v-bind:step-current.sync="stepCurrent"
+            v-bind:title="$t('games.introduction.properties.header')"
             v-bind:description="$t('games.introduction.properties.description')"
           >
             <span class="title">{{ $t('games.filters.types') }}</span>
