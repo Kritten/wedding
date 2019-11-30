@@ -7,7 +7,7 @@
     <v-card
       class="fill-height d-flex flex-column"
     >
-      <v-row no-gutters>
+      <v-row no-gutters class="flex-grow-0">
         <v-col>
           <v-card-title style="word-break: normal">
             {{ game.title }}
@@ -118,7 +118,7 @@
       <div v-show="showDetails === true">
         <v-card-text><span style="white-space: pre; white-space: pre-wrap">{{ game.description }}</span></v-card-text>
       </div>
-      <v-card-actions>
+      <v-card-actions class="flex-grow-1 align-end">
         <v-btn
           text
           color="primary"
