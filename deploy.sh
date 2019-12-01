@@ -14,7 +14,7 @@ cd frontend
 rm -r dist
 mkdir dist
 cp base.htaccess dist/.htaccess
-cp -r dist_tmp dist
+cp -r dist_tmp/* dist
 
 cd ..
 touch wedding/wsgi.py
