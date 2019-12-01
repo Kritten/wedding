@@ -182,11 +182,11 @@
               active-class="primary--text"
             >
               <v-chip
-                v-for="genre in arrayTypes"
-                v-bind:key="genre.id"
+                v-for="type in arrayTypes"
+                v-bind:key="type.id"
                 filter
               >
-                {{ genre.label }}
+                {{ type.label }}
               </v-chip>
             </v-chip-group>
 
@@ -399,7 +399,7 @@ export default {
     },
     types() {
       const arrayIds = this.types.reduce((arrayIds, index) => {
-        arrayIds.push(this.$store.state.moduleGames.arrayTypes[index].id);
+        arrayIds.push(this.arrayTypes[index].id);
         return arrayIds;
       }, []);
 
@@ -421,7 +421,7 @@ export default {
     },
     genres() {
       const arrayIds = this.genres.reduce((arrayIds, index) => {
-        arrayIds.push(this.$store.state.moduleGames.arrayGenres[index].id);
+        arrayIds.push(this.arrayGenres[index].id);
         return arrayIds;
       }, []);
 
@@ -443,7 +443,7 @@ export default {
     },
     moods() {
       const arrayIds = this.moods.reduce((arrayIds, index) => {
-        arrayIds.push(this.$store.state.moduleGames.arrayMoods[index].id);
+        arrayIds.push(this.arrayMoods[index].id);
         return arrayIds;
       }, []);
 
