@@ -12,7 +12,10 @@ def get_stats():
         count_confirmed=Sum('count'),
         count_confirmed_extern=Sum('count', filter=Q(extern=True)),
         count_confirmed_intern=Sum('count', filter=Q(extern=False)),
+        count_confirmed_extern_max=Sum('count_max', filter=Q(extern=True)),
+        count_confirmed_intern_max=Sum('count_max', filter=Q(extern=False)),
 
         count_rejected=Count('id', filter=Q(count=0)),
 
+        count_max=Sum('count_max'),
     )

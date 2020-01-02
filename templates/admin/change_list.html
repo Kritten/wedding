@@ -13,13 +13,13 @@
   <table>
     <thead>
       <tr>
-        <th>Zugesagt</th>
+        <th style="width: 1px">Zugesagt</th>
         <th>Abgesagt</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td>{{ stats.count_confirmed }} (extern: {{ stats.count_confirmed_extern }}, intern: {{ stats.count_confirmed_intern }})</td>
+        <td style="white-space: nowrap;">{{ stats.count_confirmed }}/{{ stats.count_max }} (extern: {{ stats.count_confirmed_extern }}/{{ stats.count_confirmed_extern_max }}, intern: {{ stats.count_confirmed_intern }}/{{ stats.count_confirmed_intern_max }})</td>
         <td>{{ stats.count_rejected }}</td>
       </tr>
     </tbody>
