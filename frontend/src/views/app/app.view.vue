@@ -50,6 +50,7 @@
 
     <v-content>
       <v-container fluid>
+        <info-postponed />
         <router-view />
       </v-container>
     </v-content>
@@ -59,10 +60,14 @@
 <script>
 import { ServiceApp } from '../../service/app.service';
 import TheCountdown from '../../components/dashboard/the-countdown';
+import InfoPostponed from '../../components/info-postponed';
 
 export default {
   name: 'AppView',
-  components: { TheCountdown },
+  components: {
+    InfoPostponed,
+    TheCountdown,
+  },
   data() {
     return {
       drawer: null,
